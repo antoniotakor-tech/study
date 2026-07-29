@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://calmnav.app/sitemap.xml
+Sitemap: https://antoniotakor-tech.github.io/study/sitemap.xml
