@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630">
+  <defs>
+    <linearGradient id="aur" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#5fd6c0"/><stop offset=".5" stop-color="#8aa0ff"/><stop offset="1" stop-color="#ffb488"/>
+    </linearGradient>
+    <radialGradient id="bg" cx="50%" cy="20%" r="90%">
+      <stop offset="0" stop-color="#141d3a"/><stop offset="1" stop-color="#0a0e1c"/>
+    </radialGradient>
+    <radialGradient id="glowA" cx="50%" cy="50%" r="50%"><stop offset="0" stop-color="#5fd6c0" stop-opacity=".5"/><stop offset="1" stop-color="#5fd6c0" stop-opacity="0"/></radialGradient>
+    <radialGradient id="glowB" cx="50%" cy="50%" r="50%"><stop offset="0" stop-color="#8aa0ff" stop-opacity=".45"/><stop offset="1" stop-color="#8aa0ff" stop-opacity="0"/></radialGradient>
+    <radialGradient id="glowC" cx="50%" cy="50%" r="50%"><stop offset="0" stop-color="#ffb488" stop-opacity=".4"/><stop offset="1" stop-color="#ffb488" stop-opacity="0"/></radialGradient>
+    <filter id="soft"><feGaussianBlur stdDeviation="10"/></filter>
+  </defs>
+  <rect width="1200" height="630" fill="url(#bg)"/>
+  <circle cx="180" cy="150" r="340" fill="url(#glowA)"/>
+  <circle cx="1080" cy="120" r="320" fill="url(#glowC)"/>
+  <circle cx="1000" cy="580" r="360" fill="url(#glowB)"/>
+  <!-- route on the left -->
+  <path d="M110 560 C 230 400 420 450 440 320 C 456 210 300 210 360 110 L 520 110" fill="none" stroke="url(#aur)" stroke-width="7" stroke-linecap="round" stroke-dasharray="3 20" opacity=".9" filter="url(#soft)"/>
+  <path d="M110 560 C 230 400 420 450 440 320 C 456 210 300 210 360 110 L 520 110" fill="none" stroke="url(#aur)" stroke-width="5" stroke-linecap="round" stroke-dasharray="3 20" opacity=".95"/>
+  <circle cx="110" cy="560" r="11" fill="#fff"/>
+  <circle cx="520" cy="110" r="10" fill="#ffb488" stroke="#fff" stroke-width="3"/>
+  <!-- compass mark -->
+  <g transform="translate(628,96)">
+    <circle cx="46" cy="46" r="42" fill="url(#aur)" opacity=".16"/>
+    <circle cx="46" cy="46" r="42" fill="none" stroke="url(#aur)" stroke-width="3.4"/>
+    <path d="M46 16 L57 46 L46 76 L35 46 Z" fill="url(#aur)"/>
+    <circle cx="46" cy="46" r="5.5" fill="#fff"/>
+  </g>
+  <text x="632" y="248" font-family="Palatino, Georgia, serif" font-size="72" fill="#eef1f8" font-weight="500">Arrive calm.</text>
+  <text x="632" y="334" font-family="Palatino, Georgia, serif" font-size="72" fill="url(#aur)" font-weight="500">Wander with</text>
+  <text x="632" y="420" font-family="Palatino, Georgia, serif" font-size="72" fill="url(#aur)" font-weight="500">wonder.</text>
+  <rect x="634" y="466" width="46" height="3" rx="1.5" fill="url(#aur)"/>
+  <text x="694" y="477" font-family="system-ui, -apple-system, Segoe UI, sans-serif" font-size="26" fill="#b3bfe0">Calm Navigation Companion</text>
+  <text x="632" y="530" font-family="system-ui, -apple-system, Segoe UI, sans-serif" font-size="25" fill="#7f8cae">Find your way, gently — private &amp; offline-ready.</text>
+</svg>

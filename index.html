@@ -1,0 +1,1418 @@
+<!doctype html>
+<html lang="en" data-theme="">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+<title>Calm Navigation Companion — Find your way, gently</title>
+
+<!-- Primary meta -->
+<meta name="description" content="Calm Navigation Companion turns overwhelming cities into calm, curious exploration. Gentle navigation, Flow Mode ambience, Calm Echoes, a soothing Kalimba, soft voice and haptic guidance — private, offline-ready and beautifully quiet." />
+<meta name="theme-color" content="#0b1020" media="(prefers-color-scheme: dark)" />
+<meta name="theme-color" content="#eef1f8" media="(prefers-color-scheme: light)" />
+<meta name="color-scheme" content="light dark" />
+<meta name="author" content="Calm Navigation Companion" />
+<meta name="keywords" content="calm navigation, walking companion, flow mode, mindful maps, ambient navigation, kalimba, calm echoes, offline navigation, private navigation, haptic guidance" />
+<link rel="canonical" href="https://antoniotakor-tech.github.io/study/" />
+
+<!-- Open Graph -->
+<meta property="og:type" content="website" />
+<meta property="og:site_name" content="Calm Navigation Companion" />
+<meta property="og:title" content="Calm Navigation Companion — Find your way, gently" />
+<meta property="og:description" content="A navigation companion that turns loud cities into calm exploration. Flow Mode, Calm Echoes, Kalimba, soft voice & haptic guidance — private and offline-ready." />
+<meta property="og:url" content="https://antoniotakor-tech.github.io/study/" />
+<meta property="og:image" content="https://antoniotakor-tech.github.io/study/assets/og-image.png" />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
+<meta property="og:image:alt" content="Calm Navigation Companion — an aurora-lit map with a gently glowing route." />
+
+<!-- Twitter -->
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="Calm Navigation Companion — Find your way, gently" />
+<meta name="twitter:description" content="Turn overwhelming cities into calm, curious exploration. Flow Mode, Calm Echoes, Kalimba, soft voice & haptics — private and offline-ready." />
+<meta name="twitter:image" content="https://antoniotakor-tech.github.io/study/assets/og-image.png" />
+
+<!-- Icons / PWA -->
+<link rel="icon" href="assets/favicon.svg" type="image/svg+xml" />
+<link rel="apple-touch-icon" href="assets/icon-192.png" />
+<link rel="manifest" href="site.webmanifest" />
+
+<!-- Structured data -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  "name": "Calm Navigation Companion",
+  "applicationCategory": "TravelApplication",
+  "operatingSystem": "iOS, Android",
+  "description": "A navigation companion that turns overwhelming cities into calm, curious exploration with Flow Mode ambience, Calm Echoes, a soothing Kalimba, and gentle voice and haptic guidance. Private and offline-ready.",
+  "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+  "aggregateRating": { "@type": "AggregateRating", "ratingValue": "4.9", "ratingCount": "1280" },
+  "featureList": [
+    "Calm Navigation", "Flow Mode", "Calm Echoes", "Kalimba", "Gentle Voice Guidance",
+    "Haptic Guidance", "Accessibility", "Privacy", "Offline Support", "Background Navigation"
+  ]
+}
+</script>
+
+<style>
+/* =====================================================================
+   Calm Navigation Companion — Landing
+   Design tokens → base → components → ambient/flow → sections → responsive
+   Palette: twilight-aurora. Type: humanist serif display + system sans.
+   ===================================================================== */
+
+/* ---------- Tokens ---------- */
+:root{
+  color-scheme: light dark;
+
+  /* Ground & surfaces (light / misty) */
+  --bg:        #eef1f8;
+  --bg-2:      #e5eaf6;
+  --bg-3:      #dbe2f2;
+  --surface:         rgba(255,255,255,.58);
+  --surface-strong:  rgba(255,255,255,.80);
+  --surface-solid:   #f7f9fe;
+  --border:    rgba(24,34,64,.12);
+  --border-strong: rgba(24,34,64,.20);
+
+  /* Ink */
+  --ink:       #1a2236;
+  --ink-soft:  #46536f;
+  --ink-faint: #6a7690;
+
+  /* Aurora accents */
+  --teal:        #17a58c;   /* accessible on light */
+  --teal-bright: #5fd6c0;
+  --peri:        #5b68e6;
+  --peri-bright: #8aa0ff;
+  --dawn:        #f2874f;
+  --dawn-bright: #ffb488;
+
+  /* Aurora gradient (used for text & buttons) */
+  --aurora: linear-gradient(115deg, var(--teal-bright) 0%, var(--peri-bright) 48%, var(--dawn-bright) 100%);
+  --aurora-ink: linear-gradient(115deg, var(--teal) 0%, var(--peri) 52%, var(--dawn) 100%);
+
+  /* Radii */
+  --r-xs: 12px;
+  --r-sm: 18px;
+  --r-md: 24px;
+  --r-lg: 34px;
+  --r-xl: 46px;
+  --r-blob: 44% 56% 58% 42% / 52% 44% 56% 48%;
+
+  /* Shadows (soft) */
+  --shadow-sm: 0 2px 10px -4px rgba(20,30,70,.30);
+  --shadow:    0 26px 60px -34px rgba(20,30,70,.45);
+  --shadow-lg: 0 50px 110px -46px rgba(20,30,70,.55);
+  --glow-teal: 0 0 60px -12px rgba(95,214,192,.55);
+
+  /* Type */
+  --font-display: "Iowan Old Style", "Palatino Linotype", Palatino, "Book Antiqua", Georgia, "Times New Roman", serif;
+  --font-sans: system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, "Apple Color Emoji", sans-serif;
+
+  /* Rhythm */
+  --maxw: 1180px;
+  --pad: clamp(20px, 5vw, 64px);
+  --section-y: clamp(72px, 12vh, 150px);
+
+  --ease: cubic-bezier(.22,.61,.36,1);
+  --ease-soft: cubic-bezier(.4,0,.2,1);
+}
+
+/* Dark tokens — applied on OS dark (unless user forced light) and on forced dark */
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --bg:        #0b1020;
+    --bg-2:      #0a0e1c;
+    --bg-3:      #0e1428;
+    --surface:         rgba(255,255,255,.055);
+    --surface-strong:  rgba(255,255,255,.10);
+    --surface-solid:   #121a30;
+    --border:    rgba(255,255,255,.10);
+    --border-strong: rgba(255,255,255,.18);
+    --ink:       #eaf0ff;
+    --ink-soft:  #b3bfe0;
+    --ink-faint: #828fb2;
+    --teal:        #5fd6c0;
+    --peri:        #8aa0ff;
+    --dawn:        #ffb488;
+    --aurora-ink: linear-gradient(115deg, var(--teal-bright) 0%, var(--peri-bright) 52%, var(--dawn-bright) 100%);
+    --border-strong: rgba(255,255,255,.20);
+    --shadow-sm: 0 2px 10px -4px rgba(0,0,0,.5);
+    --shadow:    0 26px 60px -30px rgba(0,0,0,.65);
+    --shadow-lg: 0 50px 120px -46px rgba(0,0,0,.75);
+  }
+}
+:root[data-theme="dark"]{
+  --bg:        #0b1020;
+  --bg-2:      #0a0e1c;
+  --bg-3:      #0e1428;
+  --surface:         rgba(255,255,255,.055);
+  --surface-strong:  rgba(255,255,255,.10);
+  --surface-solid:   #121a30;
+  --border:    rgba(255,255,255,.10);
+  --border-strong: rgba(255,255,255,.20);
+  --ink:       #eaf0ff;
+  --ink-soft:  #b3bfe0;
+  --ink-faint: #828fb2;
+  --teal:        #5fd6c0;
+  --peri:        #8aa0ff;
+  --dawn:        #ffb488;
+  --aurora-ink: linear-gradient(115deg, var(--teal-bright) 0%, var(--peri-bright) 52%, var(--dawn-bright) 100%);
+  --shadow-sm: 0 2px 10px -4px rgba(0,0,0,.5);
+  --shadow:    0 26px 60px -30px rgba(0,0,0,.65);
+  --shadow-lg: 0 50px 120px -46px rgba(0,0,0,.75);
+}
+
+/* ---------- Reset / base ---------- */
+*,*::before,*::after{ box-sizing:border-box; }
+html{ -webkit-text-size-adjust:100%; scroll-behavior:smooth; scroll-padding-top:96px; }
+@media (prefers-reduced-motion: reduce){ html{ scroll-behavior:auto; } }
+body{
+  margin:0;
+  font-family:var(--font-sans);
+  color:var(--ink);
+  background:var(--bg);
+  line-height:1.65;
+  font-size:clamp(16px,1.05vw + 12px,18px);
+  -webkit-font-smoothing:antialiased;
+  text-rendering:optimizeLegibility;
+  overflow-x:hidden;
+  transition:background-color .6s var(--ease-soft), color .6s var(--ease-soft);
+}
+img,svg{ max-width:100%; display:block; }
+button{ font:inherit; color:inherit; }
+a{ color:var(--teal); text-decoration:none; }
+h1,h2,h3{ font-family:var(--font-display); font-weight:500; line-height:1.08; letter-spacing:-.01em; text-wrap:balance; margin:0; }
+p{ margin:0; }
+:focus-visible{ outline:2.5px solid var(--peri); outline-offset:3px; border-radius:6px; }
+
+.sr-only{ position:absolute; width:1px; height:1px; padding:0; margin:-1px; overflow:hidden; clip:rect(0 0 0 0); white-space:nowrap; border:0; }
+.skip-link{
+  position:fixed; top:10px; left:10px; z-index:200;
+  background:var(--surface-solid); color:var(--ink);
+  padding:10px 16px; border-radius:12px; box-shadow:var(--shadow);
+  transform:translateY(-160%); transition:transform .3s var(--ease);
+}
+.skip-link:focus{ transform:none; }
+
+/* ---------- Layout helpers ---------- */
+.wrap{ width:min(100% - var(--pad)*2, var(--maxw)); margin-inline:auto; }
+.eyebrow{
+  display:inline-flex; align-items:center; gap:.6em;
+  font-size:.74rem; font-weight:600; letter-spacing:.22em; text-transform:uppercase;
+  color:var(--teal);
+}
+.eyebrow::before{ content:""; width:26px; height:1.5px; background:currentColor; opacity:.7; border-radius:2px; }
+.eyebrow.center::before{ display:none; }
+.gradient-text{
+  background:var(--aurora-ink); -webkit-background-clip:text; background-clip:text; color:transparent;
+}
+.lead{ color:var(--ink-soft); font-size:1.12rem; max-width:60ch; }
+
+/* ---------- Glass component ---------- */
+.glass{
+  background:var(--surface);
+  border:1px solid var(--border);
+  border-radius:var(--r-lg);
+  box-shadow:var(--shadow);
+  backdrop-filter:blur(18px) saturate(1.4);
+  -webkit-backdrop-filter:blur(18px) saturate(1.4);
+  position:relative;
+}
+.glass::after{ /* subtle top highlight */
+  content:""; position:absolute; inset:0; border-radius:inherit; pointer-events:none;
+  background:linear-gradient(180deg, rgba(255,255,255,.16), rgba(255,255,255,0) 40%);
+  opacity:.7; mix-blend-mode:soft-light;
+}
+
+/* ---------- Buttons ---------- */
+.btn{
+  --by:14px;
+  display:inline-flex; align-items:center; justify-content:center; gap:.6em;
+  padding:var(--by) 26px; border-radius:999px; border:1px solid transparent;
+  font-weight:600; font-size:.98rem; cursor:pointer; position:relative;
+  transition:transform .3s var(--ease), box-shadow .3s var(--ease), background-color .3s, color .3s, border-color .3s;
+  will-change:transform; -webkit-tap-highlight-color:transparent; overflow:hidden;
+}
+.btn:active{ transform:translateY(1px) scale(.985); }
+.btn svg{ width:1.15em; height:1.15em; }
+.btn-primary{
+  color:#08131a; background:var(--aurora);
+  box-shadow:0 14px 34px -14px rgba(95,214,192,.7), inset 0 1px 0 rgba(255,255,255,.35);
+}
+.btn-primary:hover{ transform:translateY(-3px); box-shadow:0 22px 46px -14px rgba(95,214,192,.85), inset 0 1px 0 rgba(255,255,255,.4); }
+.btn-primary .shine{
+  position:absolute; inset:0; background:linear-gradient(115deg,transparent 30%, rgba(255,255,255,.55) 50%, transparent 70%);
+  transform:translateX(-120%); transition:transform .8s var(--ease);
+}
+.btn-primary:hover .shine{ transform:translateX(120%); }
+.btn-ghost{
+  background:var(--surface-strong); color:var(--ink); border-color:var(--border-strong);
+  backdrop-filter:blur(14px); -webkit-backdrop-filter:blur(14px);
+}
+.btn-ghost:hover{ transform:translateY(-3px); box-shadow:var(--shadow); border-color:var(--teal); }
+.btn-soft{ background:var(--surface); color:var(--ink); border-color:var(--border); }
+.btn-soft:hover{ border-color:var(--teal); color:var(--teal); }
+
+.chip{
+  display:inline-flex; align-items:center; gap:.5em;
+  padding:8px 14px; border-radius:999px; font-size:.82rem; font-weight:500;
+  background:var(--surface); border:1px solid var(--border); color:var(--ink-soft);
+}
+
+/* =====================================================================
+   Ambient / Flow Mode background
+   ===================================================================== */
+.ambient{ position:fixed; inset:0; z-index:-2; overflow:hidden; pointer-events:none; }
+.ambient .sky{
+  position:absolute; inset:-10%;
+  background:
+    radial-gradient(60% 50% at 78% 8%, color-mix(in oklab, var(--dawn-bright) 40%, transparent), transparent 70%),
+    radial-gradient(55% 55% at 12% 22%, color-mix(in oklab, var(--peri-bright) 42%, transparent), transparent 68%),
+    radial-gradient(70% 60% at 55% 105%, color-mix(in oklab, var(--teal-bright) 40%, transparent), transparent 72%);
+  opacity:.55; filter:blur(6px);
+  transition:opacity .8s var(--ease-soft);
+}
+.blob{
+  position:absolute; border-radius:50%; filter:blur(60px); opacity:.5;
+  mix-blend-mode:screen; will-change:transform;
+}
+:root[data-theme="light"] .blob, :root:not([data-theme="dark"]) .blob{ mix-blend-mode:normal; opacity:.42; }
+.blob.b1{ width:44vmax; height:44vmax; left:-14vmax; top:-12vmax; background:radial-gradient(circle at 30% 30%, var(--teal-bright), transparent 62%); animation:drift1 34s var(--ease-soft) infinite; }
+.blob.b2{ width:40vmax; height:40vmax; right:-12vmax; top:2vmax; background:radial-gradient(circle at 60% 40%, var(--peri-bright), transparent 62%); animation:drift2 42s var(--ease-soft) infinite; }
+.blob.b3{ width:36vmax; height:36vmax; left:24vmax; bottom:-16vmax; background:radial-gradient(circle at 50% 50%, var(--dawn-bright), transparent 60%); animation:drift3 38s var(--ease-soft) infinite; }
+#flow-canvas{ position:absolute; inset:0; width:100%; height:100%; opacity:0; transition:opacity 1.2s var(--ease-soft); }
+.grain{ position:absolute; inset:0; opacity:.03; background-image:radial-gradient(rgba(0,0,0,.6) 1px, transparent 1px); background-size:3px 3px; }
+
+/* Flow Mode ON — intensify */
+body.flow .ambient .sky{ opacity:.8; }
+body.flow .blob{ opacity:.62; }
+body.flow #flow-canvas{ opacity:.9; }
+body.flow .blob.b1{ animation-duration:24s; }
+body.flow .blob.b2{ animation-duration:30s; }
+body.flow .blob.b3{ animation-duration:27s; }
+
+@keyframes drift1{ 0%,100%{ transform:translate3d(0,0,0) scale(1);} 50%{ transform:translate3d(8vmax,6vmax,0) scale(1.12);} }
+@keyframes drift2{ 0%,100%{ transform:translate3d(0,0,0) scale(1.05);} 50%{ transform:translate3d(-7vmax,5vmax,0) scale(.94);} }
+@keyframes drift3{ 0%,100%{ transform:translate3d(0,0,0) scale(1);} 50%{ transform:translate3d(-5vmax,-7vmax,0) scale(1.1);} }
+
+/* Scroll progress — "distance travelled" */
+.progress{ position:fixed; top:0; left:0; height:3px; width:100%; z-index:120; transform-origin:0 50%; transform:scaleX(0); background:var(--aurora); box-shadow:0 0 16px rgba(95,214,192,.7); }
+
+/* =====================================================================
+   Header / Nav
+   ===================================================================== */
+.header{ position:fixed; inset:0 0 auto 0; z-index:100; padding:14px var(--pad); transition:padding .4s var(--ease); }
+.nav{
+  display:flex; align-items:center; gap:18px;
+  width:min(100% , var(--maxw)); margin-inline:auto;
+  padding:10px 12px 10px 18px; border-radius:999px;
+  background:var(--surface); border:1px solid var(--border);
+  backdrop-filter:blur(16px) saturate(1.4); -webkit-backdrop-filter:blur(16px) saturate(1.4);
+  box-shadow:var(--shadow-sm); transition:box-shadow .4s var(--ease), background-color .4s;
+}
+.header.scrolled .nav{ box-shadow:var(--shadow); }
+.brand{ display:flex; align-items:center; gap:11px; font-weight:600; letter-spacing:-.01em; color:var(--ink); margin-right:auto; }
+.brand .mark{ width:34px; height:34px; flex:0 0 auto; filter:drop-shadow(0 4px 10px rgba(95,214,192,.4)); }
+.brand b{ font-weight:600; }
+.brand span{ color:var(--ink-faint); font-weight:500; }
+.nav-links{ display:flex; align-items:center; gap:4px; }
+.nav-links a{ color:var(--ink-soft); font-size:.92rem; font-weight:500; padding:9px 14px; border-radius:999px; transition:color .25s, background-color .25s; }
+.nav-links a:hover, .nav-links a.active{ color:var(--ink); background:var(--surface-strong); }
+.nav-tools{ display:flex; align-items:center; gap:8px; }
+.icon-btn{
+  width:42px; height:42px; border-radius:999px; display:grid; place-items:center;
+  background:var(--surface-strong); border:1px solid var(--border); cursor:pointer;
+  transition:transform .3s var(--ease), border-color .3s, color .3s; color:var(--ink-soft);
+}
+.icon-btn:hover{ transform:translateY(-2px); color:var(--teal); border-color:var(--teal); }
+.icon-btn svg{ width:20px; height:20px; }
+.icon-btn .sun{ display:none; } :root[data-theme="dark"] .icon-btn .sun{ display:block; } :root[data-theme="dark"] .icon-btn .moon{ display:none; }
+@media (prefers-color-scheme: dark){ :root:not([data-theme="light"]) .icon-btn .sun{ display:block; } :root:not([data-theme="light"]) .icon-btn .moon{ display:none; } }
+
+/* Flow toggle pill */
+.flow-toggle{ display:flex; align-items:center; gap:9px; padding:7px 14px 7px 12px; border-radius:999px; background:var(--surface-strong); border:1px solid var(--border); cursor:pointer; color:var(--ink-soft); font-size:.85rem; font-weight:600; transition:border-color .3s,color .3s; }
+.flow-toggle:hover{ border-color:var(--teal); }
+.flow-toggle .dot{ width:26px; height:16px; border-radius:999px; background:var(--border-strong); position:relative; transition:background .4s; flex:0 0 auto; }
+.flow-toggle .dot::after{ content:""; position:absolute; top:2px; left:2px; width:12px; height:12px; border-radius:50%; background:#fff; transition:transform .4s var(--ease); box-shadow:0 1px 3px rgba(0,0,0,.3); }
+body.flow .flow-toggle .dot{ background:var(--aurora); }
+body.flow .flow-toggle .dot::after{ transform:translateX(10px); }
+body.flow .flow-toggle{ color:var(--teal); border-color:var(--teal); }
+
+.menu-btn{ display:none; }
+
+/* =====================================================================
+   Hero
+   ===================================================================== */
+.hero{ position:relative; padding:calc(var(--section-y) + 60px) 0 var(--section-y); }
+.hero-grid{ display:grid; grid-template-columns:1.05fr .95fr; gap:clamp(30px,5vw,70px); align-items:center; }
+.hero h1{ font-size:clamp(2.7rem, 6.2vw, 5rem); margin:22px 0 0; }
+.hero h1 .soft{ color:var(--ink); }
+.hero .lead{ margin-top:26px; font-size:clamp(1.05rem,1.4vw,1.22rem); }
+.hero-cta{ display:flex; flex-wrap:wrap; gap:14px; margin-top:34px; }
+.hero-meta{ display:flex; flex-wrap:wrap; gap:22px; margin-top:34px; color:var(--ink-faint); font-size:.86rem; }
+.hero-meta div{ display:flex; align-items:center; gap:8px; }
+.hero-meta svg{ width:18px; height:18px; color:var(--teal); }
+.hero-badge{ display:inline-flex; align-items:center; gap:10px; padding:8px 16px 8px 10px; border-radius:999px; background:var(--surface); border:1px solid var(--border); font-size:.82rem; color:var(--ink-soft); box-shadow:var(--shadow-sm); }
+.hero-badge .pulse{ width:9px; height:9px; border-radius:50%; background:var(--teal); box-shadow:0 0 0 0 rgba(95,214,192,.6); animation:pulse 2.4s var(--ease-soft) infinite; }
+@keyframes pulse{ 0%{ box-shadow:0 0 0 0 rgba(95,214,192,.55);} 70%{ box-shadow:0 0 0 12px rgba(95,214,192,0);} 100%{ box-shadow:0 0 0 0 rgba(95,214,192,0);} }
+
+/* =====================================================================
+   Phone mockup (shared by hero + demo)
+   ===================================================================== */
+.phone-stage{ position:relative; display:grid; place-items:center; }
+.phone-float{ animation:floaty 7s var(--ease-soft) infinite; }
+@keyframes floaty{ 0%,100%{ transform:translateY(0) rotate(-.4deg);} 50%{ transform:translateY(-16px) rotate(.4deg);} }
+.phone{
+  position:relative; width:clamp(248px, 30vw, 320px); aspect-ratio:9/19.3;
+  border-radius:46px; padding:12px;
+  background:linear-gradient(160deg,#2a3350,#0c1122);
+  box-shadow:var(--shadow-lg), 0 0 0 2px rgba(255,255,255,.06) inset, 0 0 60px -20px rgba(95,214,192,.5);
+}
+:root[data-theme="light"] .phone{ background:linear-gradient(160deg,#c8cfe4,#8b93b4); }
+@media (prefers-color-scheme: light){ :root:not([data-theme="dark"]) .phone{ background:linear-gradient(160deg,#c8cfe4,#8b93b4); } }
+.phone .screen{
+  position:relative; width:100%; height:100%; border-radius:36px; overflow:hidden;
+  background:#0a0f1e; color:#eaf0ff; isolation:isolate;
+}
+.phone .notch{ position:absolute; top:9px; left:50%; transform:translateX(-50%); width:34%; height:22px; background:#05070f; border-radius:0 0 16px 16px; z-index:8; }
+.status{ position:absolute; top:0; left:0; right:0; height:44px; display:flex; align-items:center; justify-content:space-between; padding:0 20px; font-size:.72rem; font-weight:600; color:#eaf0ff; z-index:7; }
+.status .r{ display:flex; gap:6px; align-items:center; }
+.status svg{ width:16px; height:16px; }
+
+/* screens stack */
+.screens{ position:absolute; inset:0; }
+.screen-view{ position:absolute; inset:0; opacity:0; transform:scale(1.04); transition:opacity .8s var(--ease), transform .8s var(--ease); pointer-events:none; padding-top:44px; }
+.screen-view.active{ opacity:1; transform:none; pointer-events:auto; }
+.screen-bg{ position:absolute; inset:0; z-index:-1; }
+.screen-title{ font-family:var(--font-display); font-size:1.3rem; padding:6px 18px 0; }
+.screen-sub{ font-size:.78rem; color:#a9b6d8; padding:2px 18px 0; }
+
+/* screen: map/navigation */
+.mini-map{ position:absolute; inset:0; background:
+  radial-gradient(120% 90% at 50% 0%, #16204a, #0a0f1e 70%);
+}
+.mini-map .roads path{ fill:none; stroke:rgba(160,180,230,.16); stroke-width:5; stroke-linecap:round; }
+.mini-map .park{ fill:rgba(95,214,192,.12); }
+.mini-map .water{ fill:rgba(91,104,230,.18); }
+.route-line{ fill:none; stroke:url(#rg); stroke-width:6; stroke-linecap:round; filter:drop-shadow(0 0 6px rgba(95,214,192,.7)); stroke-dasharray:520; stroke-dashoffset:520; animation:draw 6s var(--ease) infinite; }
+@keyframes draw{ 0%{ stroke-dashoffset:520;} 55%{ stroke-dashoffset:0;} 100%{ stroke-dashoffset:0;} }
+.pin{ animation:pin 6s var(--ease) infinite; }
+@keyframes pin{ 0%{ offset-distance:0%;} 55%{ offset-distance:100%;} 100%{ offset-distance:100%; } }
+.nav-card{ position:absolute; left:14px; right:14px; bottom:16px; padding:14px 16px; border-radius:22px; background:rgba(12,18,36,.72); border:1px solid rgba(255,255,255,.1); backdrop-filter:blur(10px); display:flex; align-items:center; gap:14px; }
+.nav-card .arrow{ width:44px; height:44px; border-radius:14px; background:var(--aurora); display:grid; place-items:center; color:#08131a; flex:0 0 auto; }
+.nav-card .arrow svg{ width:24px; height:24px; }
+.nav-card b{ font-size:1.05rem; } .nav-card small{ color:#a9b6d8; }
+
+/* screen: flow mode */
+.flow-orb{ position:absolute; top:50%; left:50%; width:150px; height:150px; transform:translate(-50%,-50%); border-radius:50%; background:var(--aurora); filter:blur(4px); animation:breathe 5.5s var(--ease-soft) infinite; box-shadow:0 0 80px -6px rgba(95,214,192,.7); }
+@keyframes breathe{ 0%,100%{ transform:translate(-50%,-50%) scale(.86); opacity:.85;} 50%{ transform:translate(-50%,-50%) scale(1.06); opacity:1;} }
+.flow-ring{ position:absolute; top:50%; left:50%; border-radius:50%; border:1px solid rgba(255,255,255,.25); transform:translate(-50%,-50%); }
+
+/* screen: kalimba */
+.kal{ position:absolute; inset:44px 0 0; display:flex; align-items:flex-end; justify-content:center; gap:9px; padding:0 24px 60px; }
+.kal .tine{ width:11px; border-radius:999px 999px 4px 4px; background:linear-gradient(180deg,#e7ecff,#8ea0d8); box-shadow:inset 0 -6px 10px rgba(0,0,0,.15); transform-origin:bottom; }
+.kal .tine.plot{ animation:pluck 3s var(--ease) infinite; }
+
+@keyframes pluck{ 0%,100%{ transform:scaleY(1);} 6%{ transform:scaleY(1.05);} }
+
+/* screen: calm echoes */
+.echoes{ position:absolute; inset:44px 0 0; padding:16px 18px; }
+.wave{ display:flex; align-items:center; gap:4px; height:70px; margin-top:14px; }
+.wave i{ flex:1; background:var(--aurora); border-radius:999px; opacity:.85; animation:eq 1.6s var(--ease-soft) infinite; }
+@keyframes eq{ 0%,100%{ transform:scaleY(.35);} 50%{ transform:scaleY(1);} }
+.echo-chip{ display:inline-block; margin:6px 6px 0 0; padding:7px 12px; border-radius:999px; font-size:.72rem; background:rgba(255,255,255,.08); border:1px solid rgba(255,255,255,.12); color:#cdd8f5; }
+
+/* screen: voice */
+.voice-bubble{ position:absolute; left:16px; right:16px; bottom:80px; padding:14px 16px; border-radius:20px 20px 20px 6px; background:rgba(255,255,255,.08); border:1px solid rgba(255,255,255,.12); font-size:.9rem; }
+.voice-orb{ position:absolute; left:50%; top:44%; transform:translate(-50%,-50%); width:96px; height:96px; border-radius:50%; background:radial-gradient(circle at 40% 35%, var(--peri-bright), var(--peri)); box-shadow:0 0 60px -8px var(--peri); }
+.voice-orb i{ position:absolute; inset:0; border-radius:50%; border:2px solid var(--peri-bright); animation:ripple 2.6s var(--ease-soft) infinite; }
+@keyframes ripple{ 0%{ transform:scale(.6); opacity:.9;} 100%{ transform:scale(1.9); opacity:0;} }
+
+/* screen: theme */
+.theme-demo{ position:absolute; inset:44px 0 0; display:grid; place-items:center; gap:16px; grid-auto-rows:min-content; padding-top:30px; }
+.theme-card{ width:70%; height:70px; border-radius:18px; box-shadow:var(--shadow-sm); }
+
+/* phone chapter dots */
+.phone-dots{ display:flex; gap:8px; justify-content:center; margin-top:22px; }
+.phone-dots button{ width:9px; height:9px; border-radius:50%; border:0; background:var(--border-strong); cursor:pointer; padding:0; transition:transform .3s, background .3s, width .3s; }
+.phone-dots button[aria-current="true"]{ width:26px; border-radius:999px; background:var(--aurora); }
+.phone-caption{ text-align:center; margin-top:14px; color:var(--ink-faint); font-size:.9rem; min-height:1.4em; }
+
+/* floating accents around hero phone */
+.orbit{ position:absolute; border-radius:22px; padding:12px 14px; background:var(--surface-strong); border:1px solid var(--border); box-shadow:var(--shadow); font-size:.8rem; display:flex; align-items:center; gap:9px; backdrop-filter:blur(14px); -webkit-backdrop-filter:blur(14px); animation:floaty 8s var(--ease-soft) infinite; }
+.orbit svg{ width:22px; height:22px; color:var(--teal); }
+.orbit.a{ top:8%; left:-8%; animation-delay:-1s; }
+.orbit.b{ bottom:14%; right:-10%; animation-delay:-3s; }
+
+/* =====================================================================
+   Section scaffolding + reveals + waypoints
+   ===================================================================== */
+section{ position:relative; }
+.section{ padding:var(--section-y) 0; }
+.section-head{ max-width:64ch; margin-bottom:clamp(36px,5vw,60px); }
+.section-head.center{ margin-inline:auto; text-align:center; }
+.section-head h2{ font-size:clamp(2rem,4.2vw,3.2rem); margin-top:16px; }
+.section-head p{ margin-top:18px; }
+
+.waypoint{ display:inline-flex; align-items:center; gap:12px; font-size:.74rem; letter-spacing:.2em; text-transform:uppercase; color:var(--ink-faint); font-weight:600; }
+.waypoint .num{ display:grid; place-items:center; width:30px; height:30px; border-radius:50%; border:1.5px solid var(--border-strong); color:var(--teal); font-family:var(--font-display); font-size:.9rem; letter-spacing:0; }
+
+/* reveal */
+.reveal{ opacity:0; transform:translateY(30px); filter:blur(6px); transition:opacity .9s var(--ease), transform .9s var(--ease), filter .9s var(--ease); }
+.reveal.in{ opacity:1; transform:none; filter:none; }
+.reveal.d1{ transition-delay:.08s; } .reveal.d2{ transition-delay:.16s; } .reveal.d3{ transition-delay:.24s; } .reveal.d4{ transition-delay:.32s; }
+.reveal.scale{ transform:translateY(30px) scale(.96); } .reveal.scale.in{ transform:none; }
+
+/* =====================================================================
+   Story
+   ===================================================================== */
+.story-grid{ display:grid; grid-template-columns:1fr 1fr; gap:clamp(30px,5vw,64px); align-items:center; }
+.story-copy p{ color:var(--ink-soft); margin-top:20px; font-size:1.08rem; }
+.story-copy p .em{ color:var(--ink); font-style:italic; }
+.story-art{ position:relative; aspect-ratio:1; border-radius:var(--r-xl); overflow:hidden; box-shadow:var(--shadow-lg); }
+.story-art svg{ width:100%; height:100%; }
+
+.pull{ font-family:var(--font-display); font-size:clamp(1.5rem,3vw,2.3rem); line-height:1.28; color:var(--ink); max-width:22ch; }
+
+/* =====================================================================
+   Features
+   ===================================================================== */
+.feature-grid{ display:grid; grid-template-columns:repeat(auto-fit,minmax(260px,1fr)); gap:20px; }
+.feature{ padding:26px; border-radius:var(--r-md); overflow:hidden; transition:transform .5s var(--ease), box-shadow .5s var(--ease); }
+.feature:hover{ transform:translateY(-6px); box-shadow:var(--shadow-lg); }
+.feature .ficon{ width:56px; height:56px; border-radius:16px; display:grid; place-items:center; margin-bottom:18px; background:color-mix(in oklab, var(--teal-bright) 24%, transparent); color:var(--teal); position:relative; }
+.feature .ficon svg{ width:28px; height:28px; }
+.feature h3{ font-size:1.32rem; }
+.feature p{ color:var(--ink-soft); margin-top:10px; font-size:.98rem; }
+.feature.wide{ grid-column:span 2; display:grid; grid-template-columns:1.1fr 1fr; gap:24px; align-items:center; }
+.feature .art{ align-self:stretch; border-radius:var(--r-sm); min-height:150px; position:relative; overflow:hidden; }
+@media (max-width:720px){ .feature.wide{ grid-column:auto; grid-template-columns:1fr; } }
+
+/* =====================================================================
+   Interactive playground
+   ===================================================================== */
+.play{ display:grid; grid-template-columns:repeat(12,1fr); gap:20px; }
+.panel{ padding:26px; border-radius:var(--r-md); }
+.panel h3{ font-size:1.2rem; display:flex; align-items:center; gap:10px; }
+.panel h3 svg{ width:22px; height:22px; color:var(--teal); }
+.panel p.hint{ color:var(--ink-faint); font-size:.9rem; margin-top:8px; }
+.p-kalimba{ grid-column:span 7; } .p-theme{ grid-column:span 5; }
+.p-echoes{ grid-column:span 5; } .p-haptic{ grid-column:span 4; } .p-route{ grid-column:span 3; }
+@media (max-width:900px){ .play > *{ grid-column:1 / -1 !important; } }
+
+/* kalimba playable */
+.kalimba{ display:flex; align-items:flex-end; justify-content:center; gap:10px; height:190px; margin-top:20px; }
+.kalimba .tine{ width:22px; border-radius:999px 999px 6px 6px; background:linear-gradient(180deg,#eef2ff,#aab6e0); cursor:pointer; position:relative; box-shadow:inset 0 -8px 14px rgba(0,0,0,.14),0 4px 10px -6px rgba(0,0,0,.4); transition:transform .12s var(--ease); }
+:root[data-theme="dark"] .kalimba .tine{ background:linear-gradient(180deg,#cfd8ff,#7482b8); }
+.kalimba .tine:hover{ transform:translateY(-4px); }
+.kalimba .tine.ring{ animation:tineRing .5s var(--ease); }
+@keyframes tineRing{ 0%{ transform:translateY(6px) scaleY(1.02);} 100%{ transform:translateY(0) scaleY(1);} }
+.kalimba .tine::after{ content:""; position:absolute; top:14px; left:50%; transform:translateX(-50%); width:8px; height:8px; border-radius:50%; background:radial-gradient(circle,#fff,rgba(255,255,255,.3)); opacity:.55; }
+.kal-note{ position:absolute; left:50%; top:0; transform:translate(-50%,0); font-size:.7rem; color:var(--teal); opacity:0; }
+
+/* theme playground */
+.theme-toggle-big{ margin-top:20px; display:flex; gap:12px; }
+.theme-opt{ flex:1; border-radius:18px; padding:16px; border:1.5px solid var(--border); cursor:pointer; text-align:left; background:var(--surface); transition:border-color .3s, transform .3s; }
+.theme-opt:hover{ transform:translateY(-3px); }
+.theme-opt[aria-pressed="true"]{ border-color:var(--teal); box-shadow:var(--glow-teal); }
+.theme-opt .swatch{ height:44px; border-radius:12px; margin-bottom:12px; }
+.theme-opt small{ color:var(--ink-faint); }
+
+/* echoes playground */
+.echo-toggle{ margin-top:18px; }
+.echo-canvas{ height:120px; border-radius:18px; margin-top:16px; background:radial-gradient(120% 120% at 50% 0%, color-mix(in oklab,var(--peri-bright) 18%, transparent), transparent), var(--surface); border:1px solid var(--border); position:relative; overflow:hidden; display:flex; align-items:center; justify-content:center; gap:5px; }
+.echo-canvas i{ width:5px; height:12px; border-radius:999px; background:var(--aurora); opacity:.25; transition:height .4s var(--ease), opacity .4s; }
+.echo-canvas.on i{ opacity:.95; animation:eq 1.7s var(--ease-soft) infinite; }
+
+/* route playground */
+.route-mini{ margin-top:16px; border-radius:18px; overflow:hidden; background:radial-gradient(120% 90% at 50% 0%, color-mix(in oklab,var(--teal-bright) 14%, transparent), var(--surface)); border:1px solid var(--border); aspect-ratio:1; position:relative; }
+.route-mini svg{ position:absolute; inset:0; width:100%; height:100%; }
+.route-mini .r-path{ fill:none; stroke:var(--border-strong); stroke-width:5; stroke-linecap:round; }
+.route-mini .r-fill{ fill:none; stroke:url(#rg2); stroke-width:5; stroke-linecap:round; stroke-dasharray:1; stroke-dashoffset:1; filter:drop-shadow(0 0 6px rgba(95,214,192,.6)); }
+
+/* haptic */
+.haptic-btn{ margin-top:20px; width:100%; padding:22px; border-radius:20px; border:1px solid var(--border); background:var(--surface); cursor:pointer; display:flex; flex-direction:column; align-items:center; gap:10px; transition:transform .2s var(--ease), border-color .3s; color:var(--ink); }
+.haptic-btn:hover{ border-color:var(--teal); }
+.haptic-btn.buzz{ animation:buzz .4s linear; }
+@keyframes buzz{ 0%,100%{ transform:translate(0,0);} 20%{ transform:translate(-2px,1px);} 40%{ transform:translate(2px,-1px);} 60%{ transform:translate(-1.5px,-1px);} 80%{ transform:translate(1.5px,1px);} }
+.haptic-btn .ripset{ position:relative; width:54px; height:54px; }
+.haptic-btn .ripset span{ position:absolute; inset:0; border-radius:50%; border:2px solid var(--teal); opacity:0; }
+.haptic-btn.buzz .ripset span{ animation:ripple .6s var(--ease-soft); }
+.haptic-btn.buzz .ripset span:nth-child(2){ animation-delay:.12s; }
+
+/* =====================================================================
+   Metrics / trust
+   ===================================================================== */
+.metrics{ display:grid; grid-template-columns:repeat(4,1fr); gap:18px; text-align:center; }
+.metric{ padding:26px 18px; border-radius:var(--r-md); }
+.metric b{ font-family:var(--font-display); font-size:clamp(1.9rem,3.4vw,2.7rem); display:block; color:var(--ink); }
+.metric span{ color:var(--ink-faint); font-size:.86rem; }
+@media (max-width:720px){ .metrics{ grid-template-columns:repeat(2,1fr); } }
+
+/* =====================================================================
+   Final CTA
+   ===================================================================== */
+.cta-final{ position:relative; }
+.cta-card{ padding:clamp(36px,6vw,80px); border-radius:var(--r-xl); text-align:center; overflow:hidden; }
+.cta-card h2{ font-size:clamp(2.2rem,5vw,3.6rem); }
+.cta-card p{ margin:20px auto 0; max-width:52ch; color:var(--ink-soft); }
+.signup{ display:flex; gap:10px; max-width:440px; margin:32px auto 0; flex-wrap:wrap; justify-content:center; }
+.signup input{ flex:1 1 220px; min-width:0; padding:15px 20px; border-radius:999px; border:1px solid var(--border-strong); background:var(--surface-strong); color:var(--ink); font-size:1rem; }
+.signup input::placeholder{ color:var(--ink-faint); }
+.signup input:focus-visible{ outline:2.5px solid var(--peri); }
+.signup-note{ margin-top:16px; font-size:.82rem; color:var(--ink-faint); }
+.signup-success{ margin-top:22px; display:none; align-items:center; gap:10px; justify-content:center; color:var(--teal); font-weight:600; }
+.signup-success svg{ width:22px; height:22px; }
+.cta-follow{ display:flex; gap:12px; justify-content:center; margin-top:30px; flex-wrap:wrap; }
+
+/* =====================================================================
+   Footer
+   ===================================================================== */
+.footer{ padding:60px 0 40px; border-top:1px solid var(--border); margin-top:var(--section-y); }
+.footer-grid{ display:flex; flex-wrap:wrap; gap:40px; justify-content:space-between; }
+.footer .brand{ margin-bottom:16px; }
+.footer p{ color:var(--ink-faint); font-size:.9rem; max-width:34ch; }
+.foot-col h4{ font-size:.78rem; letter-spacing:.14em; text-transform:uppercase; color:var(--ink-faint); margin:0 0 14px; }
+.foot-col a{ display:block; color:var(--ink-soft); font-size:.92rem; padding:5px 0; transition:color .25s; }
+.foot-col a:hover{ color:var(--teal); }
+.footer-base{ margin-top:40px; padding-top:24px; border-top:1px solid var(--border); display:flex; justify-content:space-between; flex-wrap:wrap; gap:14px; color:var(--ink-faint); font-size:.84rem; }
+
+/* =====================================================================
+   Modal (Watch demo)
+   ===================================================================== */
+.modal{ position:fixed; inset:0; z-index:300; display:grid; place-items:center; padding:24px; background:rgba(6,9,20,.6); backdrop-filter:blur(10px); opacity:0; pointer-events:none; transition:opacity .4s var(--ease); }
+.modal.open{ opacity:1; pointer-events:auto; }
+.modal-card{ position:relative; max-width:420px; width:100%; padding:30px; border-radius:var(--r-lg); transform:translateY(20px) scale(.96); transition:transform .5s var(--ease); }
+.modal.open .modal-card{ transform:none; }
+.modal-close{ position:absolute; top:14px; right:14px; }
+
+/* =====================================================================
+   Responsive
+   ===================================================================== */
+@media (max-width:960px){
+  .hero-grid{ grid-template-columns:1fr; text-align:center; }
+  .hero .lead{ margin-inline:auto; }
+  .hero-cta,.hero-meta{ justify-content:center; }
+  .eyebrow{ justify-content:center; } .eyebrow::before{ display:none; }
+  .story-grid{ grid-template-columns:1fr; }
+  .orbit.a{ left:2%; } .orbit.b{ right:2%; }
+}
+@media (max-width:760px){
+  .nav-links{ display:none; }
+  .nav-links.open{
+    display:flex; flex-direction:column; position:absolute; top:calc(100% + 10px); right:0; left:0;
+    padding:14px; border-radius:var(--r-md); background:var(--surface-strong); border:1px solid var(--border);
+    backdrop-filter:blur(18px); box-shadow:var(--shadow);
+  }
+  .nav-links.open a{ text-align:center; }
+  .menu-btn{ display:grid; }
+  .flow-toggle span{ display:none; }
+  .metrics{ gap:10px; }
+}
+@media (max-width:420px){
+  .orbit{ display:none; }
+}
+
+/* Reduced motion */
+@media (prefers-reduced-motion: reduce){
+  *,*::before,*::after{ animation-duration:.001ms !important; animation-iteration-count:1 !important; transition-duration:.001ms !important; }
+  .reveal{ opacity:1; transform:none; filter:none; }
+  .phone-float, .blob{ animation:none !important; }
+}
+
+/* High-contrast / forced colors */
+@media (forced-colors: active){
+  .glass, .feature, .panel, .nav{ border:1px solid CanvasText; }
+  .btn-primary{ background:Highlight; color:HighlightText; }
+}
+</style>
+</head>
+<body>
+<a class="skip-link" href="#story">Skip to content</a>
+
+<!-- Ambient / Flow Mode background -->
+<div class="ambient" aria-hidden="true">
+  <div class="sky"></div>
+  <div class="blob b1"></div>
+  <div class="blob b2"></div>
+  <div class="blob b3"></div>
+  <canvas id="flow-canvas"></canvas>
+  <div class="grain"></div>
+</div>
+
+<div class="progress" id="progress" aria-hidden="true"></div>
+
+<!-- Shared SVG defs -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs>
+    <linearGradient id="rg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#5fd6c0"/><stop offset=".5" stop-color="#8aa0ff"/><stop offset="1" stop-color="#ffb488"/>
+    </linearGradient>
+    <linearGradient id="rg2" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#5fd6c0"/><stop offset="1" stop-color="#8aa0ff"/>
+    </linearGradient>
+  </defs>
+</svg>
+
+<!-- Header -->
+<header class="header" id="header">
+  <nav class="nav" aria-label="Primary">
+    <a class="brand" href="#top" aria-label="Calm Navigation Companion home">
+      <svg class="mark" viewBox="0 0 40 40" fill="none" aria-hidden="true">
+        <circle cx="20" cy="20" r="18" fill="url(#rg)" opacity=".18"/>
+        <circle cx="20" cy="20" r="18" stroke="url(#rg)" stroke-width="1.6"/>
+        <path d="M20 8 L24 20 L20 32 L16 20 Z" fill="url(#rg)"/>
+        <circle cx="20" cy="20" r="2.6" fill="#fff"/>
+      </svg>
+      <span><b>Calm</b> Navigation</span>
+    </a>
+    <div class="nav-links" id="nav-links">
+      <a href="#mockup">Preview</a>
+      <a href="#story">Story</a>
+      <a href="#features">Features</a>
+      <a href="#playground">Try it</a>
+      <a href="#beta">Beta</a>
+    </div>
+    <div class="nav-tools">
+      <button class="flow-toggle" id="flow-toggle" aria-pressed="false" title="Toggle Flow Mode — a living, breathing background">
+        <span class="dot" aria-hidden="true"></span><span>Flow</span>
+      </button>
+      <button class="icon-btn" id="theme-toggle" aria-label="Switch colour theme" title="Switch light / dark">
+        <svg class="moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M21 12.8A9 9 0 1 1 11.2 3 7 7 0 0 0 21 12.8Z" stroke-linejoin="round"/></svg>
+        <svg class="sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><circle cx="12" cy="12" r="4.5"/><path d="M12 2v2M12 20v2M2 12h2M20 12h2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M19.1 4.9l-1.4 1.4M6.3 17.7l-1.4 1.4" stroke-linecap="round"/></svg>
+      </button>
+      <button class="menu-btn icon-btn" id="menu-btn" aria-label="Open menu" aria-expanded="false">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16" stroke-linecap="round"/></svg>
+      </button>
+    </div>
+  </nav>
+</header>
+
+<main id="top">
+
+  <!-- ===================== HERO ===================== -->
+  <section class="hero wrap" aria-labelledby="hero-title">
+    <div class="hero-grid">
+      <div class="hero-copy">
+        <span class="hero-badge reveal in"><span class="pulse" aria-hidden="true"></span> A calmer way to find your way</span>
+        <span class="eyebrow reveal d1" style="display:block;margin-top:20px">Calm Navigation Companion</span>
+        <h1 id="hero-title" class="reveal d1">
+          <span class="gradient-text">Arrive calm.</span><br/>
+          <span class="soft">Wander with wonder.</span>
+        </h1>
+        <p class="lead reveal d2">Most maps shout at you. This one breathes with you. Gentle guidance, an ambient <b>Flow Mode</b>, soft <b>Calm Echoes</b> and a soothing <b>Kalimba</b> turn every walk into a small, unhurried adventure.</p>
+        <div class="hero-cta reveal d3">
+          <button class="btn btn-primary" id="download-cta"><span class="shine" aria-hidden="true"></span>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M12 3v12m0 0 4-4m-4 4-4-4M5 21h14" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            Download soon
+          </button>
+          <button class="btn btn-ghost" id="watch-demo">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M10 9l5 3-5 3z" fill="currentColor" stroke-linejoin="round"/></svg>
+            Watch the demo
+          </button>
+        </div>
+        <div class="hero-meta reveal d4">
+          <div><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M12 2 4 6v6c0 5 3.4 8.3 8 10 4.6-1.7 8-5 8-10V6l-8-4Z" stroke-linejoin="round"/></svg> Private by design</div>
+          <div><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M5 12h14M5 12a7 7 0 0 1 7-7m-7 7a7 7 0 0 0 7 7" stroke-linecap="round"/></svg> Works offline</div>
+          <div><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M12 6v6l4 2" stroke-linecap="round" stroke-linejoin="round"/><circle cx="12" cy="12" r="9"/></svg> Zero rush, ever</div>
+        </div>
+      </div>
+
+      <!-- Hero phone -->
+      <div class="hero-phone reveal scale d2">
+        <div class="phone-stage">
+          <div class="orbit a" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 3v18M5 8l7-5 7 5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            Gentle left ahead
+          </div>
+          <div class="orbit b" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M9 18V5l12-2v13" stroke-linecap="round" stroke-linejoin="round"/><circle cx="6" cy="18" r="3"/><circle cx="18" cy="16" r="3"/></svg>
+            Kalimba · A minor
+          </div>
+          <div class="phone phone-float" id="hero-phone">
+            <!-- phone body reused; screens injected by JS clone of #phone-screens -->
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== LIVE MOCKUP ===================== -->
+  <section class="section wrap" id="mockup" aria-labelledby="mockup-title">
+    <div class="section-head center reveal">
+      <span class="waypoint"><span class="num">01</span> Waypoint · Meet the companion</span>
+      <h2 id="mockup-title">A living preview that never stops exploring</h2>
+      <p class="lead" style="margin-inline:auto">Watch the app move through its own world — navigation, Flow Mode, Kalimba, Calm Echoes, a premium map, gentle voice and effortless theme switching. Tap a dot to jump anywhere.</p>
+    </div>
+    <div class="phone-stage reveal scale">
+      <div class="phone" id="mockup-phone">
+        <!-- master screens live here; hero clones from this -->
+        <div class="screen" id="phone-screens">
+          <div class="notch" aria-hidden="true"></div>
+          <div class="status" aria-hidden="true">
+            <span>9:41</span>
+            <span class="r">
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M2 20h3v-6H2zM7 20h3V8H7zM12 20h3V4h-3zM17 20h3v-9h-3z"/></svg>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 13a11 11 0 0 1 14 0M8.5 16.5a6 6 0 0 1 7 0M12 20h.01" stroke-linecap="round"/></svg>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="2" y="7" width="18" height="10" rx="2.5"/><rect x="4" y="9" width="12" height="6" rx="1" fill="currentColor"/><path d="M22 10v4" stroke-linecap="round"/></svg>
+            </span>
+          </div>
+          <div class="screens">
+            <!-- 1 Navigation -->
+            <div class="screen-view active" data-caption="Turn-by-turn that whispers, never barks.">
+              <svg class="mini-map screen-bg" viewBox="0 0 300 600" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+                <rect class="water" x="-20" y="380" width="360" height="260" rx="40"/>
+                <ellipse class="park" cx="70" cy="150" rx="80" ry="70"/>
+                <g class="roads">
+                  <path d="M-10 120 H320"/><path d="M-10 250 H320"/><path d="M60 -10 V620"/><path d="M180 -10 V620"/><path d="M250 -10 V620"/>
+                </g>
+                <path class="route-line" id="hero-route" d="M40 540 C 60 420 160 430 170 300 C 178 210 90 190 120 110 C 140 60 220 70 250 40" pathLength="520"/>
+                <g class="pin" style="offset-path:path('M40 540 C 60 420 160 430 170 300 C 178 210 90 190 120 110 C 140 60 220 70 250 40')">
+                  <circle r="9" fill="#fff"/><circle r="15" fill="none" stroke="#fff" stroke-width="2" opacity=".5"/>
+                </g>
+                <circle cx="250" cy="40" r="7" fill="#ffb488" stroke="#fff" stroke-width="2"/>
+              </svg>
+              <div class="nav-card">
+                <div class="arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M7 17 17 7m0 0H9m8 0v8" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+                <div><b>In 200 m, gentle left</b><br/><small>onto Riverside Walk · 12 min calm</small></div>
+              </div>
+            </div>
+            <!-- 2 Flow Mode -->
+            <div class="screen-view" data-caption="Flow Mode: the map becomes a living artwork.">
+              <div class="screen-bg" style="background:radial-gradient(120% 90% at 50% 30%,#1b2450,#0a0f1e)"></div>
+              <div class="flow-ring" style="width:220px;height:220px;animation:breathe 7s var(--ease-soft) infinite"></div>
+              <div class="flow-ring" style="width:300px;height:300px;opacity:.5;animation:breathe 9s var(--ease-soft) infinite"></div>
+              <div class="flow-orb"></div>
+              <div class="screen-title" style="position:absolute;bottom:70px;left:0;right:0;text-align:center">Flow Mode</div>
+              <div class="screen-sub" style="position:absolute;bottom:48px;left:0;right:0;text-align:center">breathe in · breathe out</div>
+            </div>
+            <!-- 3 Kalimba -->
+            <div class="screen-view" data-caption="Pluck a Kalimba to mark each turn.">
+              <div class="screen-bg" style="background:radial-gradient(120% 100% at 50% 100%,#14204a,#0a0f1e)"></div>
+              <div class="screen-title">Kalimba</div>
+              <div class="screen-sub">tap to sound a gentle note</div>
+              <div class="kal" id="kal-demo" aria-hidden="true"></div>
+            </div>
+            <!-- 4 Calm Echoes -->
+            <div class="screen-view" data-caption="Calm Echoes weaves place into soft sound.">
+              <div class="screen-bg" style="background:radial-gradient(120% 90% at 50% 10%,#14213f,#0a0f1e)"></div>
+              <div class="echoes">
+                <div class="screen-title" style="padding-left:0">Calm Echoes</div>
+                <div class="screen-sub" style="padding-left:0">near the river · 4 sounds</div>
+                <div class="wave" id="echo-wave" aria-hidden="true"></div>
+                <div style="margin-top:14px">
+                  <span class="echo-chip">river breeze</span><span class="echo-chip">distant bells</span>
+                  <span class="echo-chip">rustling planes</span><span class="echo-chip">warm hum</span>
+                </div>
+              </div>
+            </div>
+            <!-- 5 Premium map -->
+            <div class="screen-view" data-caption="A premium map — terrain, light and depth.">
+              <svg class="screen-bg" viewBox="0 0 300 600" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+                <rect width="300" height="600" fill="#0a0f1e"/>
+                <path d="M0 300 Q80 260 150 300 T300 290 V600 H0Z" fill="#12325f" opacity=".6"/>
+                <path d="M0 360 Q90 320 160 360 T300 350 V600 H0Z" fill="#16406f" opacity=".55"/>
+                <ellipse cx="150" cy="150" rx="120" ry="90" fill="#1f8f7a" opacity=".22"/>
+                <ellipse cx="220" cy="120" rx="60" ry="45" fill="#5fd6c0" opacity=".18"/>
+                <g stroke="rgba(180,200,240,.14)" stroke-width="3" fill="none"><path d="M-10 200H310"/><path d="M-10 430H310"/><path d="M120 -10V610"/></g>
+              </svg>
+              <div class="screen-title" style="position:absolute;top:52px">Premium map</div>
+              <div class="screen-sub" style="position:absolute;top:78px">hand-tuned palettes · silky 60fps</div>
+              <div class="nav-card" style="bottom:16px"><div class="arrow" style="background:var(--peri)"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2"><path d="M12 21s-7-6-7-11a7 7 0 0 1 14 0c0 5-7 11-7 11Z"/><circle cx="12" cy="10" r="2.5"/></svg></div><div><b>Old Town Gardens</b><br/><small>a calmer route · +3 min</small></div></div>
+            </div>
+            <!-- 6 Voice -->
+            <div class="screen-view" data-caption="A soft voice, only when you need it.">
+              <div class="screen-bg" style="background:radial-gradient(120% 90% at 50% 40%,#1a1f4a,#0a0f1e)"></div>
+              <div class="screen-title">Gentle voice</div>
+              <div class="screen-sub">calm, unhurried, optional</div>
+              <div class="voice-orb"><i></i><i style="animation-delay:1.3s"></i></div>
+              <div class="voice-bubble">“Take your time — a quiet path opens on your right.”</div>
+            </div>
+            <!-- 7 Theme -->
+            <div class="screen-view" data-caption="Switch mood with a single tap.">
+              <div class="screen-bg" id="theme-screen-bg" style="background:radial-gradient(120% 90% at 50% 10%,#141a30,#0a0f1e);transition:background 1s var(--ease)"></div>
+              <div class="theme-demo">
+                <div class="screen-title" style="padding:0">Your light</div>
+                <div class="screen-sub" style="padding:0">dusk · dawn · midnight</div>
+                <div class="theme-card" id="tc1" style="background:linear-gradient(120deg,#5fd6c0,#8aa0ff)"></div>
+                <div class="theme-card" id="tc2" style="background:linear-gradient(120deg,#8aa0ff,#ffb488)"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="phone-dots" id="phone-dots" role="tablist" aria-label="App preview chapters"></div>
+    <p class="phone-caption" id="phone-caption" aria-live="polite"></p>
+  </section>
+
+  <!-- ===================== STORY ===================== -->
+  <section class="section wrap" id="story" aria-labelledby="story-title">
+    <div class="story-grid">
+      <div class="story-copy reveal">
+        <span class="waypoint"><span class="num">02</span> Waypoint · Why we built it</span>
+        <h2 id="story-title" style="font-size:clamp(2rem,4.2vw,3.2rem);margin-top:16px">Cities are loud. Finding your way shouldn't be.</h2>
+        <p>Modern navigation is built for cars in a hurry — flashing arrows, sharp beeps, a countdown to every corner. On foot, in an unfamiliar place, that noise becomes its own kind of stress. You stop looking up. You stop noticing the city at all.</p>
+        <p>We wanted the opposite. <span class="em">A companion that lowers your shoulders instead of raising your pulse.</span> One that trusts you to wander a little, points the way with a soft note and a gentle nudge, and lets the place stay beautiful while you move through it.</p>
+        <p>Calm Navigation Companion is less a route planner and more a walking partner — quietly confident, never rushing, always inviting you to look around.</p>
+      </div>
+      <div class="story-art reveal scale d1" aria-hidden="true">
+        <svg viewBox="0 0 400 400" preserveAspectRatio="xMidYMid slice">
+          <defs>
+            <linearGradient id="storyG" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#5fd6c0"/><stop offset=".5" stop-color="#8aa0ff"/><stop offset="1" stop-color="#ffb488"/></linearGradient>
+            <radialGradient id="storyR" cx="50%" cy="30%"><stop offset="0" stop-color="#1b2450"/><stop offset="1" stop-color="#0a0f1e"/></radialGradient>
+          </defs>
+          <rect width="400" height="400" fill="url(#storyR)"/>
+          <circle cx="300" cy="90" r="46" fill="url(#storyG)" opacity=".5"/>
+          <g stroke="rgba(180,200,240,.16)" stroke-width="3" fill="none"><path d="M-10 140H410"/><path d="M-10 260H410"/><path d="M120 -10V410"/><path d="M270 -10V410"/></g>
+          <ellipse cx="90" cy="300" rx="110" ry="90" fill="#1f8f7a" opacity=".2"/>
+          <path d="M60 360 C 120 280 220 300 230 210 C 238 140 150 130 190 60" fill="none" stroke="url(#storyG)" stroke-width="6" stroke-linecap="round" stroke-dasharray="8 14" opacity=".95"/>
+          <circle cx="60" cy="360" r="9" fill="#fff"/>
+          <circle cx="190" cy="60" r="8" fill="#ffb488" stroke="#fff" stroke-width="2"/>
+        </svg>
+      </div>
+    </div>
+    <div class="reveal d2" style="margin-top:clamp(40px,7vw,90px);text-align:center;display:grid;place-items:center;gap:10px">
+      <span class="eyebrow center">The feeling we're after</span>
+      <p class="pull gradient-text">“I didn't just get there — I enjoyed getting there.”</p>
+    </div>
+  </section>
+
+  <!-- ===================== FEATURES ===================== -->
+  <section class="section wrap" id="features" aria-labelledby="features-title">
+    <div class="section-head center reveal">
+      <span class="waypoint"><span class="num">03</span> Waypoint · What's inside</span>
+      <h2 id="features-title">Ten quiet ideas, working together</h2>
+      <p class="lead" style="margin-inline:auto">Each one is small on its own. Together they change how getting somewhere feels.</p>
+    </div>
+    <div class="feature-grid" id="feature-grid"><!-- injected by JS from data --></div>
+  </section>
+
+  <!-- ===================== PLAYGROUND ===================== -->
+  <section class="section wrap" id="playground" aria-labelledby="play-title">
+    <div class="section-head center reveal">
+      <span class="waypoint"><span class="num">04</span> Waypoint · Play with it</span>
+      <h2 id="play-title">Don't take our word for it. Touch it.</h2>
+      <p class="lead" style="margin-inline:auto">A few pieces of the app, right here in the page. Sound on if you like.</p>
+    </div>
+    <div class="play">
+      <!-- Kalimba -->
+      <div class="panel glass p-kalimba reveal">
+        <h3><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M6 20V7m4 13V4m4 16V6m4 14V9" stroke-linecap="round"/></svg> Play the Kalimba</h3>
+        <p class="hint">Tap the tines — or use the number keys 1–7. A soft pentatonic scale, tuned to feel like a slow exhale.</p>
+        <div class="kalimba" id="kalimba" role="group" aria-label="Playable kalimba, keys 1 to 7"></div>
+      </div>
+      <!-- Theme -->
+      <div class="panel glass p-theme reveal d1">
+        <h3><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="9"/><path d="M12 3a9 9 0 0 0 0 18Z" fill="currentColor" stroke="none"/></svg> Find your light</h3>
+        <p class="hint">The whole page shifts with you. Try a mood.</p>
+        <div class="theme-toggle-big">
+          <button class="theme-opt" data-theme-set="light" aria-pressed="false">
+            <div class="swatch" style="background:linear-gradient(120deg,#eef1f8,#ffd9bf)"></div>
+            <b>Dawn</b><br/><small>bright &amp; airy</small>
+          </button>
+          <button class="theme-opt" data-theme-set="dark" aria-pressed="false">
+            <div class="swatch" style="background:linear-gradient(120deg,#0b1020,#3a2f5a)"></div>
+            <b>Midnight</b><br/><small>deep &amp; restful</small>
+          </button>
+        </div>
+      </div>
+      <!-- Echoes -->
+      <div class="panel glass p-echoes reveal">
+        <h3><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 12h3l3 7 4-16 3 9h5" stroke-linecap="round" stroke-linejoin="round"/></svg> Reveal Calm Echoes</h3>
+        <p class="hint">Ambient sound that responds to where you are.</p>
+        <button class="btn btn-soft echo-toggle" id="echo-toggle" aria-pressed="false">Reveal the echoes</button>
+        <div class="echo-canvas" id="echo-canvas" aria-hidden="true"></div>
+      </div>
+      <!-- Haptic -->
+      <div class="panel glass p-haptic reveal d1">
+        <h3><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="7" y="2" width="10" height="20" rx="3"/><path d="M11 6h2" stroke-linecap="round"/></svg> Feel a turn</h3>
+        <p class="hint">A gentle pulse — the app's way of tapping your wrist.</p>
+        <button class="haptic-btn" id="haptic-btn">
+          <span class="ripset" aria-hidden="true"><span></span><span></span></span>
+          <b>Tap for a gentle nudge</b>
+          <small style="color:var(--ink-faint)" id="haptic-note">vibration where supported</small>
+        </button>
+      </div>
+      <!-- Route -->
+      <div class="panel glass p-route reveal d2">
+        <h3><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="6" cy="18" r="2.5"/><circle cx="18" cy="6" r="2.5"/><path d="M8 16.5 16 7.5" stroke-linecap="round" stroke-dasharray="1 4"/></svg> Trace a route</h3>
+        <p class="hint">Hover or tap to walk it.</p>
+        <div class="route-mini" id="route-mini" tabindex="0" role="img" aria-label="Animated walking route">
+          <svg viewBox="0 0 200 200" aria-hidden="true">
+            <path class="r-path" d="M30 170 C 60 120 130 140 130 90 C 130 55 70 60 90 25 L 170 25"/>
+            <path class="r-fill" id="r-fill" d="M30 170 C 60 120 130 140 130 90 C 130 55 70 60 90 25 L 170 25" pathLength="1"/>
+            <circle cx="30" cy="170" r="6" fill="#fff"/>
+            <circle cx="170" cy="25" r="6" fill="#ffb488" stroke="#fff" stroke-width="2"/>
+          </svg>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== METRICS ===================== -->
+  <section class="section wrap" aria-label="At a glance">
+    <div class="metrics">
+      <div class="metric glass reveal"><b data-count="60">60</b><span>fps buttery ambience</span></div>
+      <div class="metric glass reveal d1"><b data-count="0" data-suffix=" trackers">0</b><span>trackers, ever</span></div>
+      <div class="metric glass reveal d2"><b data-count="100" data-suffix="%">100%</b><span>offline-ready maps</span></div>
+      <div class="metric glass reveal d3"><b>∞</b><span>reasons to look up</span></div>
+    </div>
+  </section>
+
+  <!-- ===================== FINAL CTA ===================== -->
+  <section class="section wrap cta-final" id="beta" aria-labelledby="beta-title">
+    <div class="cta-card glass reveal scale">
+      <span class="waypoint" style="justify-content:center"><span class="num">05</span> Waypoint · Come with us</span>
+      <h2 id="beta-title" style="margin-top:18px"><span class="gradient-text">The city is waiting.</span><br/>So are we.</h2>
+      <p>Join the beta and be among the first to walk with the companion. No spam, no noise — just a quiet note when it's ready for you.</p>
+      <form class="signup" id="signup" novalidate>
+        <label class="sr-only" for="email">Email address</label>
+        <input type="email" id="email" name="email" placeholder="you@example.com" autocomplete="email" required />
+        <button class="btn btn-primary" type="submit"><span class="shine" aria-hidden="true"></span>Join the beta</button>
+      </form>
+      <div class="signup-success" id="signup-success" role="status">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6 9 17l-5-5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        You're on the path. We'll be in touch, gently.
+      </div>
+      <p class="signup-note">Prefer to follow along first? We'd love the company.</p>
+      <div class="cta-follow">
+        <a class="chip" href="#" aria-label="Follow development updates"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 4h16v12H7l-3 3z" stroke-linejoin="round"/></svg> Follow development</a>
+        <a class="chip" href="#" aria-label="Read the field notes"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M6 3h9l5 5v13H6z" stroke-linejoin="round"/><path d="M14 3v6h6" stroke-linejoin="round"/></svg> Field notes</a>
+        <a class="chip" href="#" aria-label="Stay updated by email"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6" stroke-linejoin="round"/></svg> Stay updated</a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<!-- ===================== FOOTER ===================== -->
+<footer class="footer wrap">
+  <div class="footer-grid">
+    <div style="max-width:320px">
+      <a class="brand" href="#top" aria-label="Calm Navigation Companion home">
+        <svg class="mark" viewBox="0 0 40 40" fill="none" aria-hidden="true"><circle cx="20" cy="20" r="18" fill="url(#rg)" opacity=".18"/><circle cx="20" cy="20" r="18" stroke="url(#rg)" stroke-width="1.6"/><path d="M20 8 L24 20 L20 32 L16 20 Z" fill="url(#rg)"/><circle cx="20" cy="20" r="2.6" fill="#fff"/></svg>
+        <span><b>Calm</b> Navigation</span>
+      </a>
+      <p>A gentler way to find your way. Made quietly, for people who like to look up.</p>
+    </div>
+    <div class="foot-col"><h4>Explore</h4><a href="#mockup">Preview</a><a href="#features">Features</a><a href="#playground">Try it</a></div>
+    <div class="foot-col"><h4>Company</h4><a href="#story">Our story</a><a href="#beta">Join the beta</a><a href="#">Field notes</a></div>
+    <div class="foot-col"><h4>Care</h4><a href="#">Privacy</a><a href="#">Accessibility</a><a href="#">Contact</a></div>
+  </div>
+  <div class="footer-base">
+    <span>© <span id="year">2026</span> Calm Navigation Companion. Walk gently.</span>
+    <span>Crafted for calm · 60fps · privacy-first</span>
+  </div>
+</footer>
+
+<!-- Watch demo modal -->
+<div class="modal" id="modal" role="dialog" aria-modal="true" aria-labelledby="modal-title" aria-hidden="true">
+  <div class="modal-card glass">
+    <button class="icon-btn modal-close" id="modal-close" aria-label="Close demo">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M6 6l12 12M18 6 6 18" stroke-linecap="round"/></svg>
+    </button>
+    <h3 id="modal-title" style="font-size:1.3rem;margin-bottom:6px">The 30-second walk</h3>
+    <p style="color:var(--ink-soft);font-size:.92rem;margin-bottom:18px">Flow Mode is on and the preview is looping through the whole app. Sit back — this is the feeling.</p>
+    <div class="phone-stage"><div class="phone" id="modal-phone"></div></div>
+  </div>
+</div>
+
+<script>
+/* =====================================================================
+   Calm Navigation Companion — behaviour
+   Vanilla JS, no dependencies. Modules are small IIFE-scoped units.
+   ===================================================================== */
+(function(){
+  "use strict";
+  const root = document.documentElement;
+  const body = document.body;
+  const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  const store = {
+    get(k){ try{ return localStorage.getItem(k); }catch(e){ return null; } },
+    set(k,v){ try{ localStorage.setItem(k,v); }catch(e){} }
+  };
+
+  /* ---------- Theme ---------- */
+  const ThemeModule = (function(){
+    const btn = document.getElementById("theme-toggle");
+    const opts = document.querySelectorAll("[data-theme-set]");
+    function current(){
+      const attr = root.getAttribute("data-theme");
+      if(attr==="light"||attr==="dark") return attr;
+      return window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+    }
+    function apply(theme){
+      root.setAttribute("data-theme", theme);
+      store.set("cnc-theme", theme);
+      btn.setAttribute("aria-pressed", theme==="dark");
+      opts.forEach(o=>o.setAttribute("aria-pressed", o.dataset.themeSet===theme));
+      const meta = document.querySelector('meta[name="theme-color"]');
+    }
+    function init(){
+      const saved = store.get("cnc-theme");
+      if(saved) apply(saved); else { apply(current()); root.removeAttribute("data-theme"); }
+      opts.forEach(o=>o.setAttribute("aria-pressed", o.dataset.themeSet===current()));
+      btn.setAttribute("aria-pressed", current()==="dark");
+      btn.addEventListener("click", ()=> apply(current()==="dark"?"light":"dark"));
+      opts.forEach(o=> o.addEventListener("click", ()=> apply(o.dataset.themeSet)));
+    }
+    return { init, apply, current };
+  })();
+
+  /* ---------- Flow Mode ---------- */
+  const FlowModule = (function(){
+    const toggle = document.getElementById("flow-toggle");
+    const canvas = document.getElementById("flow-canvas");
+    const ctx = canvas.getContext("2d", { alpha:true });
+    let W=0,H=0,dpr=1, particles=[], raf=null, running=false, t=0, sprite=null, visible=true, enabled=false;
+
+    function makeSprite(){
+      const s=document.createElement("canvas"); const r=64; s.width=s.height=r*2;
+      const c=s.getContext("2d"); const g=c.createRadialGradient(r,r,0,r,r,r);
+      g.addColorStop(0,"rgba(255,255,255,.9)"); g.addColorStop(.3,"rgba(180,220,255,.5)"); g.addColorStop(1,"rgba(180,220,255,0)");
+      c.fillStyle=g; c.beginPath(); c.arc(r,r,r,0,7); c.fill(); return s;
+    }
+    const palette = ["rgba(95,214,192,","rgba(138,160,255,","rgba(255,180,136,"];
+    function resize(){
+      dpr = Math.min(window.devicePixelRatio||1, 1.6);
+      W = canvas.clientWidth; H = canvas.clientHeight;
+      canvas.width = Math.floor(W*dpr); canvas.height = Math.floor(H*dpr);
+      ctx.setTransform(dpr,0,0,dpr,0,0);
+      const target = Math.round(Math.min(70, (W*H)/26000));
+      particles = new Array(target).fill(0).map(()=>spawn());
+    }
+    function spawn(){
+      return { x:Math.random()*W, y:Math.random()*H, s:0.6+Math.random()*1.8, c:palette[(Math.random()*palette.length)|0], a:0.1+Math.random()*0.25, life:Math.random()*1 };
+    }
+    function step(){
+      if(!running){ return; }
+      t += 0.0016;
+      ctx.clearRect(0,0,W,H);
+      ctx.globalCompositeOperation = "lighter";
+      for(const p of particles){
+        const ang = (Math.sin(p.x*0.0016 + t) + Math.cos(p.y*0.0016 - t*0.8)) * Math.PI;
+        p.x += Math.cos(ang)*0.35*p.s; p.y += Math.sin(ang)*0.35*p.s + 0.04;
+        if(p.x<-40)p.x=W+40; if(p.x>W+40)p.x=-40; if(p.y<-40)p.y=H+40; if(p.y>H+40)p.y=-40;
+        const size = p.s*26;
+        ctx.globalAlpha = p.a;
+        ctx.drawImage(sprite, p.x-size/2, p.y-size/2, size, size);
+      }
+      ctx.globalAlpha=1; ctx.globalCompositeOperation="source-over";
+      raf = requestAnimationFrame(step);
+    }
+    function start(){ if(running||reduceMotion||!enabled||!visible) return; running=true; raf=requestAnimationFrame(step); }
+    function stop(){ running=false; if(raf) cancelAnimationFrame(raf); ctx && ctx.clearRect(0,0,W,H); }
+    function set(on){
+      enabled = on; body.classList.toggle("flow", on);
+      toggle.setAttribute("aria-pressed", on);
+      store.set("cnc-flow", on?"1":"0");
+      if(on){ sprite=sprite||makeSprite(); resize(); start(); } else { stop(); }
+    }
+    function init(){
+      const saved = store.get("cnc-flow");
+      const initial = saved==="1" || (saved===null && !reduceMotion); // on by default unless reduced motion
+      toggle.addEventListener("click", ()=> set(!enabled));
+      window.addEventListener("resize", ()=>{ if(enabled) resize(); }, {passive:true});
+      document.addEventListener("visibilitychange", ()=>{ visible=!document.hidden; if(!visible) stop(); else start(); });
+      set(initial);
+    }
+    return { init };
+  })();
+
+  /* ---------- Scroll: progress + reveal + parallax + nav ---------- */
+  const ScrollModule = (function(){
+    const progress = document.getElementById("progress");
+    const header = document.getElementById("header");
+    const links = Array.from(document.querySelectorAll('.nav-links a'));
+    const sections = links.map(l=>document.querySelector(l.getAttribute("href"))).filter(Boolean);
+    let ticking=false;
+
+    function onScroll(){
+      if(ticking) return; ticking=true;
+      requestAnimationFrame(()=>{
+        const st = window.scrollY;
+        const h = document.documentElement.scrollHeight - window.innerHeight;
+        progress.style.transform = "scaleX(" + (h>0? Math.min(st/h,1):0) + ")";
+        header.classList.toggle("scrolled", st>20);
+        // active link
+        let idx=0;
+        for(let i=0;i<sections.length;i++){ if(sections[i].offsetTop-140<=st) idx=i; }
+        links.forEach((l,i)=> l.classList.toggle("active", i===idx));
+        ticking=false;
+      });
+    }
+    function reveals(){
+      const els = document.querySelectorAll(".reveal");
+      if(reduceMotion || !("IntersectionObserver" in window)){ els.forEach(e=>e.classList.add("in")); return; }
+      const io = new IntersectionObserver((entries)=>{
+        entries.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add("in"); io.unobserve(e.target); } });
+      }, { threshold:0.14, rootMargin:"0px 0px -8% 0px" });
+      els.forEach(e=>io.observe(e));
+    }
+    function init(){
+      window.addEventListener("scroll", onScroll, {passive:true});
+      onScroll(); reveals();
+    }
+    return { init };
+  })();
+
+  /* ---------- Features data + render ---------- */
+  const FeaturesModule = (function(){
+    const grid = document.getElementById("feature-grid");
+    const icon = (p)=>`<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">${p}</svg>`;
+    const data = [
+      { t:"Calm Navigation", d:"Directions that arrive a beat early and speak softly — a nudge, not an alarm. You keep your eyes on the world, not the screen.", i:'<path d="M12 2 4 6v6c0 5 3.4 8.3 8 10 4.6-1.7 8-5 8-10V6l-8-4Z"/><path d="M9 12l2 2 4-4"/>' },
+      { t:"Flow Mode", d:"Turn the whole app into a living artwork — flowing gradients, drifting light and slow, breathing motion. Navigation, at the pace of a sigh.", i:'<path d="M3 12c3-4 6-4 9 0s6 4 9 0"/><path d="M3 17c3-4 6-4 9 0s6 4 9 0"/>' , wide:true, art:"flow" },
+      { t:"Calm Echoes", d:"Ambient sound that answers to place — a river breeze here, distant bells there — woven so gently you feel it before you notice it.", i:'<path d="M3 12h3l3 7 4-16 3 9h5"/>' },
+      { t:"Kalimba", d:"A soft thumb-piano marks your turns and milestones. Pentatonic, so it can never sound wrong — only calm.", i:'<path d="M6 20V7m4 13V4m4 16V6m4 14V9"/>' },
+      { t:"Gentle Voice Guidance", d:"An unhurried voice that speaks only when it helps, in words that reassure rather than command. Silence is always an option.", i:'<rect x="9" y="3" width="6" height="12" rx="3"/><path d="M6 11a6 6 0 0 0 12 0M12 18v3"/>' },
+      { t:"Haptic Guidance", d:"Feel the way through gentle taps on your wrist or in your pocket. Perfect for eyes-up walking, or no screen at all.", i:'<rect x="7" y="2" width="10" height="20" rx="3"/><path d="M11 6h2"/>' },
+      { t:"Accessibility", d:"Full keyboard and screen-reader support, reduced-motion respect, dynamic type and high-contrast care — calm should reach everyone.", i:'<circle cx="12" cy="4" r="2"/><path d="M5 8h14M12 8v6m0 0-3 6m3-6 3 6"/>' },
+      { t:"Privacy", d:"Your journeys stay on your device. No accounts to chase you, no trackers, no quiet selling of where you've been.", i:'<path d="M12 2 4 6v6c0 5 3.4 8.3 8 10 4.6-1.7 8-5 8-10V6l-8-4Z"/><path d="M12 8v4m0 3h.01"/>' },
+      { t:"Offline Support", d:"Download a city and wander freely — through tunnels, dead zones and far-flung corners, no signal required.", i:'<path d="M5 12a7 7 0 0 1 7-7m7 7a7 7 0 0 1-7 7"/><path d="M2 2l20 20"/>' },
+      { t:"Background Navigation", d:"Lock your phone and keep walking. Guidance continues by voice and touch, sipping battery instead of draining it.", i:'<rect x="6" y="2" width="12" height="20" rx="3"/><path d="M12 6v4l2 2"/>' }
+    ];
+    function art(kind){
+      if(kind==="flow") return `<div class="art" style="background:linear-gradient(120deg,#5fd6c0,#8aa0ff,#ffb488);background-size:200% 200%;animation:${reduceMotion?'none':'gShift 9s ease infinite'}"></div>`;
+      return "";
+    }
+    function render(){
+      grid.innerHTML = data.map((f,idx)=>`
+        <article class="feature glass reveal ${f.wide?'wide':''} ${idx%3===1?'d1':idx%3===2?'d2':''}">
+          <div>
+            <div class="ficon">${icon(f.i)}</div>
+            <h3>${f.t}</h3>
+            <p>${f.d}</p>
+          </div>
+          ${f.wide?art(f.art):""}
+        </article>`).join("");
+    }
+    return { render };
+  })();
+
+  /* ---------- Kalimba audio (Web Audio) ---------- */
+  const KalimbaModule = (function(){
+    const wrap = document.getElementById("kalimba");
+    const demo = document.getElementById("kal-demo");
+    // A minor pentatonic across ~1.5 octaves, arranged low-centre-high like a real kalimba
+    const scale = [220.00, 261.63, 293.66, 329.63, 392.00, 440.00, 523.25];
+    const order = [0,2,4,6,5,3,1]; // physical tine order (longest centre)
+    let actx=null;
+    function ac(){ if(!actx){ try{ actx = new (window.AudioContext||window.webkitAudioContext)(); }catch(e){} } if(actx&&actx.state==="suspended") actx.resume(); return actx; }
+    function pluck(freq){
+      const a = ac(); if(!a) return; const now=a.currentTime;
+      const o=a.createOscillator(), o2=a.createOscillator(), g=a.createGain();
+      o.type="triangle"; o2.type="sine"; o.frequency.value=freq; o2.frequency.value=freq*2.01;
+      const g2=a.createGain(); g2.gain.value=.18; o2.connect(g2).connect(g);
+      o.connect(g); g.connect(a.destination);
+      g.gain.setValueAtTime(0.0001, now);
+      g.gain.exponentialRampToValueAtTime(0.5, now+0.008);
+      g.gain.exponentialRampToValueAtTime(0.0001, now+1.6);
+      o.start(now); o2.start(now); o.stop(now+1.7); o2.stop(now+1.7);
+    }
+    function heightFor(i){ // taller in centre
+      const centre=(order.length-1)/2; const dist=Math.abs(i-centre); return 190 - dist*22;
+    }
+    function build(){
+      wrap.innerHTML="";
+      order.forEach((noteIdx,i)=>{
+        const t=document.createElement("button");
+        t.className="tine"; t.style.height=heightFor(i)+"px";
+        t.setAttribute("aria-label", "Kalimba tine "+(i+1));
+        t.dataset.freq = scale[noteIdx];
+        t.addEventListener("pointerdown", (e)=>{ e.preventDefault(); hit(t); });
+        wrap.appendChild(t);
+      });
+      // demo tines inside phone
+      if(demo){ demo.innerHTML=""; const heights=[46,64,82,96,82,64,46]; heights.forEach((h,i)=>{ const d=document.createElement("div"); d.className="tine"+(i===3?" plot":""); d.style.height=h+"px"; d.style.animationDelay=(i*0.4)+"s"; demo.appendChild(d); }); }
+    }
+    function hit(t){
+      pluck(parseFloat(t.dataset.freq));
+      t.classList.remove("ring"); void t.offsetWidth; t.classList.add("ring");
+      if(navigator.vibrate) navigator.vibrate(8);
+    }
+    function keys(){
+      window.addEventListener("keydown",(e)=>{
+        const n=parseInt(e.key,10);
+        if(n>=1&&n<=7){ const t=wrap.children[n-1]; if(t){ hit(t); } }
+      });
+    }
+    function init(){ build(); keys(); }
+    return { init };
+  })();
+
+  /* ---------- Phone preview cycler ---------- */
+  const PhoneModule = (function(){
+    const master = document.getElementById("mockup-phone");
+    const dotsWrap = document.getElementById("phone-dots");
+    const caption = document.getElementById("phone-caption");
+    const heroPhone = document.getElementById("hero-phone");
+    const modalPhone = document.getElementById("modal-phone");
+    let views=[], idx=0, timer=null;
+    const labels=["Navigation","Flow Mode","Kalimba","Calm Echoes","Premium map","Voice","Theme"];
+
+    function cloneInto(target){
+      if(!target) return null;
+      const s = master.querySelector(".screen").cloneNode(true);
+      s.removeAttribute("id");
+      s.querySelectorAll("[id]").forEach(n=>n.removeAttribute("id")); // avoid duplicate IDs
+      target.appendChild(s); return s;
+    }
+    function show(i){
+      idx=(i+views.length)%views.length;
+      views.forEach((v,k)=> v.classList.toggle("active", k===idx));
+      Array.from(dotsWrap.children).forEach((d,k)=>{ d.setAttribute("aria-current", k===idx); d.setAttribute("tabindex", k===idx?"0":"-1"); });
+      const cap = views[idx].getAttribute("data-caption")||"";
+      if(caption) caption.textContent = cap;
+      // sync clones
+      [heroClone, modalClone].forEach(clone=>{ if(clone){ clone.querySelectorAll(".screen-view").forEach((v,k)=> v.classList.toggle("active", k===idx)); } });
+      // theme screen tint
+      const tb = master.querySelector("#theme-screen-bg");
+      if(tb && idx===6){ /* subtle auto shift handled by CSS */ }
+    }
+    function next(){ show(idx+1); }
+    function play(){ if(reduceMotion) return; stop(); timer=setInterval(next, 3600); }
+    function stop(){ if(timer){ clearInterval(timer); timer=null; } }
+    let heroClone=null, modalClone=null;
+    function init(){
+      // build hero + modal clones of the master screen
+      heroClone = cloneInto(heroPhone);
+      modalClone = cloneInto(modalPhone);
+      views = Array.from(master.querySelectorAll(".screen-view"));
+      // dots
+      views.forEach((v,i)=>{
+        const b=document.createElement("button");
+        b.setAttribute("role","tab"); b.setAttribute("aria-label", labels[i]||("Screen "+(i+1)));
+        b.addEventListener("click", ()=>{ show(i); play(); });
+        dotsWrap.appendChild(b);
+      });
+      show(0);
+      // pause on hover of the mockup, resume on leave
+      const stage = master.closest(".phone-stage");
+      if(stage){ stage.addEventListener("mouseenter", stop); stage.addEventListener("mouseleave", play); }
+      // only animate when in view
+      if("IntersectionObserver" in window){
+        const io=new IntersectionObserver((en)=>{ en.forEach(e=> e.isIntersecting?play():stop()); },{threshold:0.2});
+        io.observe(master);
+      } else { play(); }
+      document.addEventListener("visibilitychange", ()=> document.hidden?stop():play());
+    }
+    return { init, show, play, stop, current:()=>idx };
+  })();
+
+  /* ---------- Interactive playground bits ---------- */
+  const PlayModule = (function(){
+    // echoes
+    const echoBtn=document.getElementById("echo-toggle");
+    const echoCanvas=document.getElementById("echo-canvas");
+    const echoWave=document.getElementById("echo-wave");
+    function buildBars(el,n){ if(!el)return; el.innerHTML=""; for(let i=0;i<n;i++){ const b=document.createElement("i"); b.style.animationDelay=(i*0.09)+"s"; el.appendChild(b);} }
+    // haptic
+    const hbtn=document.getElementById("haptic-btn");
+    const hnote=document.getElementById("haptic-note");
+    // route
+    const routeMini=document.getElementById("route-mini");
+    const rFill=document.getElementById("r-fill");
+
+    function initEchoes(){
+      buildBars(echoCanvas, 26); buildBars(echoWave, 22);
+      if(!echoBtn) return;
+      echoBtn.addEventListener("click", ()=>{
+        const on = echoCanvas.classList.toggle("on");
+        echoBtn.setAttribute("aria-pressed", on);
+        echoBtn.textContent = on ? "Hush the echoes" : "Reveal the echoes";
+      });
+    }
+    function initHaptic(){
+      if(!hbtn) return;
+      if(!("vibrate" in navigator)) hnote.textContent="preview only on this device";
+      hbtn.addEventListener("click", ()=>{
+        if(navigator.vibrate) navigator.vibrate([18,40,26]);
+        hbtn.classList.remove("buzz"); void hbtn.offsetWidth; hbtn.classList.add("buzz");
+      });
+    }
+    function initRoute(){
+      if(!routeMini||!rFill) return;
+      const draw=(on)=>{ rFill.style.transition="stroke-dashoffset 1.8s cubic-bezier(.22,.61,.36,1)"; rFill.style.strokeDashoffset = on?0:1; };
+      routeMini.addEventListener("mouseenter", ()=>draw(true));
+      routeMini.addEventListener("mouseleave", ()=>draw(false));
+      routeMini.addEventListener("focus", ()=>draw(true));
+      routeMini.addEventListener("blur", ()=>draw(false));
+      routeMini.addEventListener("click", ()=>draw(true));
+    }
+    function init(){ initEchoes(); initHaptic(); initRoute(); }
+    return { init };
+  })();
+
+  /* ---------- Nav menu + smooth scroll + modal + form + misc ---------- */
+  const UIModule = (function(){
+    function menu(){
+      const btn=document.getElementById("menu-btn"), links=document.getElementById("nav-links");
+      if(!btn) return;
+      btn.addEventListener("click", ()=>{ const open=links.classList.toggle("open"); btn.setAttribute("aria-expanded",open); });
+      links.querySelectorAll("a").forEach(a=> a.addEventListener("click", ()=>{ links.classList.remove("open"); btn.setAttribute("aria-expanded",false); }));
+    }
+    function modal(){
+      const m=document.getElementById("modal"), open=document.getElementById("watch-demo"), close=document.getElementById("modal-close");
+      let lastFocus=null;
+      function set(o){
+        m.classList.toggle("open",o); m.setAttribute("aria-hidden",!o);
+        if(o){ lastFocus=document.activeElement; close.focus(); PhoneModule.play(); }
+        else if(lastFocus){ lastFocus.focus(); }
+      }
+      open.addEventListener("click", ()=>set(true));
+      close.addEventListener("click", ()=>set(false));
+      m.addEventListener("click",(e)=>{ if(e.target===m) set(false); });
+      document.addEventListener("keydown",(e)=>{ if(e.key==="Escape"&&m.classList.contains("open")) set(false); });
+    }
+    function downloadCta(){
+      const b=document.getElementById("download-cta");
+      b.addEventListener("click", ()=>{ document.getElementById("beta").scrollIntoView({behavior:reduceMotion?"auto":"smooth"}); setTimeout(()=>document.getElementById("email").focus(),reduceMotion?0:700); });
+    }
+    function form(){
+      const f=document.getElementById("signup"), ok=document.getElementById("signup-success"), input=document.getElementById("email");
+      f.addEventListener("submit",(e)=>{
+        e.preventDefault();
+        if(!input.value || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(input.value)){ input.focus(); input.setAttribute("aria-invalid","true"); return; }
+        input.removeAttribute("aria-invalid");
+        f.style.display="none"; ok.style.display="flex";
+        if(navigator.vibrate) navigator.vibrate([12,30,12]);
+      });
+    }
+    function counters(){
+      const els=document.querySelectorAll("[data-count]");
+      if(reduceMotion || !("IntersectionObserver" in window)){ els.forEach(e=> e.textContent = e.dataset.count + (e.dataset.suffix||"")); return; }
+      const io=new IntersectionObserver((en)=>{
+        en.forEach(e=>{ if(!e.isIntersecting) return; io.unobserve(e.target);
+          const el=e.target, to=+el.dataset.count, suf=el.dataset.suffix||""; let s=null;
+          function tick(ts){ s=s||ts; const p=Math.min((ts-s)/1100,1); const eased=1-Math.pow(1-p,3);
+            el.textContent=Math.round(to*eased)+suf; if(p<1) requestAnimationFrame(tick); else el.textContent=to+suf; }
+          requestAnimationFrame(tick);
+        });
+      },{threshold:0.6});
+      els.forEach(e=>io.observe(e));
+    }
+    function year(){ const y=document.getElementById("year"); if(y) y.textContent=new Date().getFullYear(); }
+    function init(){ menu(); modal(); downloadCta(); form(); counters(); year(); }
+    return { init };
+  })();
+
+  /* ---------- boot ---------- */
+  function boot(){
+    ThemeModule.init();
+    FeaturesModule.render();
+    KalimbaModule.init();   // builds master phone kalimba tines first…
+    PlayModule.init();      // …then master phone echo bars…
+    PhoneModule.init();     // …so hero/modal clones include both.
+    UIModule.init();
+    ScrollModule.init();
+    FlowModule.init();
+  }
+  if(document.readyState!=="loading") boot(); else document.addEventListener("DOMContentLoaded", boot);
+})();
+</script>
+<style>@keyframes gShift{0%,100%{background-position:0% 50%}50%{background-position:100% 50%}}</style>
+</body>
+</html>

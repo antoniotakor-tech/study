@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://antoniotakor-tech.github.io/study/sitemap.xml
