@@ -6,19 +6,19 @@
 <title>Calm Navigation Companion — Find your way, gently</title>
 
 <!-- Primary meta -->
-<meta name="description" content="Calm Navigation Companion turns overwhelming cities into calm, curious exploration. Gentle navigation, Flow Mode ambience, Calm Echoes, a soothing Kalimba, soft voice and haptic guidance — private, offline-ready and beautifully quiet." />
-<meta name="theme-color" content="#0b1020" media="(prefers-color-scheme: dark)" />
-<meta name="theme-color" content="#eef1f8" media="(prefers-color-scheme: light)" />
+<meta name="description" content="Calm Navigation Companion is a live, free walking-navigation web app: calm routing, Flow Mode ambience, Calm Echoes left by real walkers, a soothing Kalimba, soft voice guidance, and real transit and places data — no account, install it straight from your browser." />
+<meta name="theme-color" content="#12141F" media="(prefers-color-scheme: dark)" />
+<meta name="theme-color" content="#FAF9F6" media="(prefers-color-scheme: light)" />
 <meta name="color-scheme" content="light dark" />
 <meta name="author" content="Calm Navigation Companion" />
-<meta name="keywords" content="calm navigation, walking companion, flow mode, mindful maps, ambient navigation, kalimba, calm echoes, offline navigation, private navigation, haptic guidance" />
+<meta name="keywords" content="calm navigation, walking companion, flow mode, mindful maps, ambient navigation, kalimba, calm echoes, transit directions, private navigation, gentle haptics" />
 <link rel="canonical" href="https://antoniotakor-tech.github.io/study/" />
 
 <!-- Open Graph -->
 <meta property="og:type" content="website" />
 <meta property="og:site_name" content="Calm Navigation Companion" />
 <meta property="og:title" content="Calm Navigation Companion — Find your way, gently" />
-<meta property="og:description" content="A navigation companion that turns loud cities into calm exploration. Flow Mode, Calm Echoes, Kalimba, soft voice & haptic guidance — private and offline-ready." />
+<meta property="og:description" content="A live, free walking-navigation web app. Flow Mode, Calm Echoes, Kalimba, soft voice guidance, and real transit & places data — no account needed." />
 <meta property="og:url" content="https://antoniotakor-tech.github.io/study/" />
 <meta property="og:image" content="https://antoniotakor-tech.github.io/study/assets/og-image.png" />
 <meta property="og:image:width" content="1200" />
@@ -28,10 +28,14 @@
 <!-- Twitter -->
 <meta name="twitter:card" content="summary_large_image" />
 <meta name="twitter:title" content="Calm Navigation Companion — Find your way, gently" />
-<meta name="twitter:description" content="Turn overwhelming cities into calm, curious exploration. Flow Mode, Calm Echoes, Kalimba, soft voice & haptics — private and offline-ready." />
+<meta name="twitter:description" content="A live, free walking-navigation web app. Flow Mode, Calm Echoes, Kalimba, soft voice guidance, and real transit & places data — no account needed." />
 <meta name="twitter:image" content="https://antoniotakor-tech.github.io/study/assets/og-image.png" />
 
 <!-- Icons / PWA -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<!-- Same type pairing as the live app (calm-navigation-companion.pages.dev): Fraunces for display moments, Inter for everything else. -->
 <link rel="icon" href="assets/favicon.svg" type="image/svg+xml" />
 <link rel="apple-touch-icon" href="assets/icon-192.png" />
 <link rel="manifest" href="site.webmanifest" />
@@ -43,13 +47,12 @@
   "@type": "SoftwareApplication",
   "name": "Calm Navigation Companion",
   "applicationCategory": "TravelApplication",
-  "operatingSystem": "iOS, Android",
-  "description": "A navigation companion that turns overwhelming cities into calm, curious exploration with Flow Mode ambience, Calm Echoes, a soothing Kalimba, and gentle voice and haptic guidance. Private and offline-ready.",
+  "operatingSystem": "Web",
+  "description": "A live, free walking-navigation web app with Flow Mode ambience, Calm Echoes left by real walkers, a soothing Kalimba, gentle voice guidance, and real transit and places data. Installable straight from the browser, no account required.",
   "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
-  "aggregateRating": { "@type": "AggregateRating", "ratingValue": "4.9", "ratingCount": "1280" },
   "featureList": [
     "Calm Navigation", "Flow Mode", "Calm Echoes", "Kalimba", "Gentle Voice Guidance",
-    "Haptic Guidance", "Accessibility", "Privacy", "Offline Support", "Background Navigation"
+    "Gentle Haptics", "Transit Journeys", "Places to Discover", "Accessibility", "Privacy"
   ]
 }
 </script>
@@ -65,50 +68,56 @@
 :root{
   color-scheme: light dark;
 
-  /* Ground & surfaces (light / misty) */
-  --bg:        #eef1f8;
-  --bg-2:      #e5eaf6;
-  --bg-3:      #dbe2f2;
-  --surface:         rgba(255,255,255,.58);
-  --surface-strong:  rgba(255,255,255,.80);
-  --surface-solid:   #f7f9fe;
-  --border:    rgba(24,34,64,.12);
-  --border-strong: rgba(24,34,64,.20);
+  /* Ground & surfaces — ported 2026-08-02 directly from the live app's own
+     design tokens (calm-navigation-companion/style.css) so this page reads
+     as the same product, not a generic tech-marketing look-alike. Same
+     variable NAMES as before (--teal/--peri/--dawn etc.) so every rule
+     below still works unchanged — only the values moved. */
+  --bg:        #FAF9F6;
+  --bg-2:      #F2F0EA;
+  --bg-3:      #EDEAE1;
+  --surface:         color-mix(in srgb, #FFFFFF 70%, transparent);
+  --surface-strong:  color-mix(in srgb, #FFFFFF 88%, transparent);
+  --surface-solid:   #FFFFFF;
+  --border:    rgba(28,32,51,.10);
+  --border-strong: rgba(28,32,51,.18);
 
   /* Ink */
-  --ink:       #1a2236;
-  --ink-soft:  #46536f;
-  --ink-faint: #6a7690;
+  --ink:       #1C2033;
+  --ink-soft:  #565C72;
+  --ink-faint: #9297A8;
 
-  /* Aurora accents */
-  --teal:        #17a58c;   /* accessible on light */
-  --teal-bright: #5fd6c0;
-  --peri:        #5b68e6;
-  --peri-bright: #8aa0ff;
-  --dawn:        #f2874f;
-  --dawn-bright: #ffb488;
+  /* App accents (calm green / lavender-sky / warm coral — same trio as the
+     app's --calm/--sky/--accent) */
+  --teal:        #3FAE7D;
+  --teal-bright: #6FCB9F;
+  --peri:        #0E7490;
+  --peri-bright: #38BDF8;
+  --dawn:        #FF8A65;
+  --dawn-bright: #FFB39C;
 
-  /* Aurora gradient (used for text & buttons) */
-  --aurora: linear-gradient(115deg, var(--teal-bright) 0%, var(--peri-bright) 48%, var(--dawn-bright) 100%);
-  --aurora-ink: linear-gradient(115deg, var(--teal) 0%, var(--peri) 52%, var(--dawn) 100%);
+  /* Same gradient formula and stop positions as the app's --gradient-accent */
+  --aurora: linear-gradient(120deg, var(--teal-bright) 0%, var(--peri-bright) 100%);
+  --aurora-ink: linear-gradient(120deg, var(--teal) 0%, var(--peri) 100%);
 
-  /* Radii */
+  /* Radii — the app only ever uses clean rounded rects/pills, never organic
+     blobs, so --r-blob resolves to a normal large radius, not a blob shape. */
   --r-xs: 12px;
   --r-sm: 18px;
   --r-md: 24px;
   --r-lg: 34px;
   --r-xl: 46px;
-  --r-blob: 44% 56% 58% 42% / 52% 44% 56% 48%;
+  --r-blob: 46px;
 
-  /* Shadows (soft) */
-  --shadow-sm: 0 2px 10px -4px rgba(20,30,70,.30);
-  --shadow:    0 26px 60px -34px rgba(20,30,70,.45);
-  --shadow-lg: 0 50px 110px -46px rgba(20,30,70,.55);
-  --glow-teal: 0 0 60px -12px rgba(95,214,192,.55);
+  /* Shadows (soft, ink-tinted like the app's, not blue-tinted) */
+  --shadow-sm: 0 2px 10px -4px rgba(28,32,51,.22);
+  --shadow:    0 26px 60px -34px rgba(28,32,51,.32);
+  --shadow-lg: 0 50px 110px -46px rgba(28,32,51,.40);
+  --glow-teal: 0 0 60px -12px rgba(111,203,159,.55);
 
   /* Type */
-  --font-display: "Iowan Old Style", "Palatino Linotype", Palatino, "Book Antiqua", Georgia, "Times New Roman", serif;
-  --font-sans: system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, "Apple Color Emoji", sans-serif;
+  --font-display: "Fraunces", Georgia, "Iowan Old Style", serif;
+  --font-sans: "Manrope", "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
 
   /* Rhythm */
   --maxw: 1180px;
@@ -122,43 +131,42 @@
 /* Dark tokens — applied on OS dark (unless user forced light) and on forced dark */
 @media (prefers-color-scheme: dark){
   :root:not([data-theme="light"]){
-    --bg:        #0b1020;
-    --bg-2:      #0a0e1c;
-    --bg-3:      #0e1428;
-    --surface:         rgba(255,255,255,.055);
-    --surface-strong:  rgba(255,255,255,.10);
-    --surface-solid:   #121a30;
-    --border:    rgba(255,255,255,.10);
-    --border-strong: rgba(255,255,255,.18);
-    --ink:       #eaf0ff;
-    --ink-soft:  #b3bfe0;
-    --ink-faint: #828fb2;
-    --teal:        #5fd6c0;
-    --peri:        #8aa0ff;
-    --dawn:        #ffb488;
-    --aurora-ink: linear-gradient(115deg, var(--teal-bright) 0%, var(--peri-bright) 52%, var(--dawn-bright) 100%);
-    --border-strong: rgba(255,255,255,.20);
+    --bg:        #12141F;
+    --bg-2:      #1A1D2B;
+    --bg-3:      #232637;
+    --surface:         color-mix(in srgb, #1A1D2B 78%, transparent);
+    --surface-strong:  color-mix(in srgb, #1A1D2B 92%, transparent);
+    --surface-solid:   #1A1D2B;
+    --border:    rgba(241,240,245,.10);
+    --border-strong: rgba(241,240,245,.18);
+    --ink:       #F1F0F5;
+    --ink-soft:  #B4B8CC;
+    --ink-faint: #767C93;
+    --teal:        #4ECB9A;
+    --peri:        #9CA3F5;
+    --dawn:        #FF9270;
+    --aurora-ink: linear-gradient(120deg, var(--teal-bright) 0%, var(--peri-bright) 100%);
     --shadow-sm: 0 2px 10px -4px rgba(0,0,0,.5);
     --shadow:    0 26px 60px -30px rgba(0,0,0,.65);
     --shadow-lg: 0 50px 120px -46px rgba(0,0,0,.75);
   }
 }
 :root[data-theme="dark"]{
-  --bg:        #0b1020;
-  --bg-2:      #0a0e1c;
-  --bg-3:      #0e1428;
-  --surface:         rgba(255,255,255,.055);
-  --surface-strong:  rgba(255,255,255,.10);
-  --surface-solid:   #121a30;
-  --border:    rgba(255,255,255,.10);
-  --border-strong: rgba(255,255,255,.20);
-  --ink:       #eaf0ff;
-  --ink-soft:  #b3bfe0;
-  --ink-faint: #828fb2;
-  --teal:        #5fd6c0;
-  --peri:        #8aa0ff;
-  --dawn:        #ffb488;
-  --aurora-ink: linear-gradient(115deg, var(--teal-bright) 0%, var(--peri-bright) 52%, var(--dawn-bright) 100%);
+  --bg:        #12141F;
+  --bg-2:      #1A1D2B;
+  --bg-3:      #232637;
+  --surface:         color-mix(in srgb, #1A1D2B 78%, transparent);
+  --surface-strong:  color-mix(in srgb, #1A1D2B 92%, transparent);
+  --surface-solid:   #1A1D2B;
+  --border:    rgba(241,240,245,.10);
+  --border-strong: rgba(241,240,245,.18);
+  --ink:       #F1F0F5;
+  --ink-soft:  #B4B8CC;
+  --ink-faint: #767C93;
+  --teal:        #4ECB9A;
+  --peri:        #9CA3F5;
+  --dawn:        #FF9270;
+  --aurora-ink: linear-gradient(120deg, var(--teal-bright) 0%, var(--peri-bright) 100%);
   --shadow-sm: 0 2px 10px -4px rgba(0,0,0,.5);
   --shadow:    0 26px 60px -30px rgba(0,0,0,.65);
   --shadow-lg: 0 50px 120px -46px rgba(0,0,0,.75);
@@ -367,23 +375,25 @@ body.flow .flow-toggle{ color:var(--teal); border-color:var(--teal); }
 .phone{
   position:relative; width:clamp(248px, 30vw, 320px); aspect-ratio:9/19.3;
   border-radius:46px; padding:12px;
-  background:linear-gradient(160deg,#2a3350,#0c1122);
+  background:linear-gradient(160deg,#1E3A46,#0B1520);
   box-shadow:var(--shadow-lg), 0 0 0 2px rgba(255,255,255,.06) inset, 0 0 60px -20px rgba(95,214,192,.5);
 }
-:root[data-theme="light"] .phone{ background:linear-gradient(160deg,#c8cfe4,#8b93b4); }
-@media (prefers-color-scheme: light){ :root:not([data-theme="dark"]) .phone{ background:linear-gradient(160deg,#c8cfe4,#8b93b4); } }
+:root[data-theme="light"] .phone{ background:linear-gradient(160deg,#CFE0E6,#8FA9B4); }
+@media (prefers-color-scheme: light){ :root:not([data-theme="dark"]) .phone{ background:linear-gradient(160deg,#CFE0E6,#8FA9B4); } }
 .phone .screen{
   position:relative; width:100%; height:100%; border-radius:36px; overflow:hidden;
-  background:#0a0f1e; color:#eaf0ff; isolation:isolate;
+  background:#0A1520; color:#eaf0ff; isolation:isolate;
 }
-.phone .notch{ position:absolute; top:9px; left:50%; transform:translateX(-50%); width:34%; height:22px; background:#05070f; border-radius:0 0 16px 16px; z-index:8; }
-.status{ position:absolute; top:0; left:0; right:0; height:44px; display:flex; align-items:center; justify-content:space-between; padding:0 20px; font-size:.72rem; font-weight:600; color:#eaf0ff; z-index:7; }
+/* No notch/Dynamic-Island shape — that's a specific, recognizable Apple
+   device signifier; a plain rounded screen keeps this a generic phone
+   frame for the demo, not an iPhone render. */
+.status{ position:absolute; top:0; left:0; right:0; height:34px; display:flex; align-items:center; justify-content:space-between; padding:0 20px; font-size:.72rem; font-weight:600; color:#eaf0ff; z-index:7; }
 .status .r{ display:flex; gap:6px; align-items:center; }
 .status svg{ width:16px; height:16px; }
 
 /* screens stack */
 .screens{ position:absolute; inset:0; }
-.screen-view{ position:absolute; inset:0; opacity:0; transform:scale(1.04); transition:opacity .8s var(--ease), transform .8s var(--ease); pointer-events:none; padding-top:44px; }
+.screen-view{ position:absolute; inset:0; opacity:0; transform:scale(1.04); transition:opacity .8s var(--ease), transform .8s var(--ease); pointer-events:none; padding-top:34px; }
 .screen-view.active{ opacity:1; transform:none; pointer-events:auto; }
 .screen-bg{ position:absolute; inset:0; z-index:-1; }
 .screen-title{ font-family:var(--font-display); font-size:1.3rem; padding:6px 18px 0; }
@@ -391,7 +401,7 @@ body.flow .flow-toggle{ color:var(--teal); border-color:var(--teal); }
 
 /* screen: map/navigation */
 .mini-map{ position:absolute; inset:0; background:
-  radial-gradient(120% 90% at 50% 0%, #16204a, #0a0f1e 70%);
+  radial-gradient(120% 90% at 50% 0%, #10303C, #0A1520 70%);
 }
 .mini-map .roads path{ fill:none; stroke:rgba(160,180,230,.16); stroke-width:5; stroke-linecap:round; }
 .mini-map .park{ fill:rgba(95,214,192,.12); }
@@ -411,14 +421,14 @@ body.flow .flow-toggle{ color:var(--teal); border-color:var(--teal); }
 .flow-ring{ position:absolute; top:50%; left:50%; border-radius:50%; border:1px solid rgba(255,255,255,.25); transform:translate(-50%,-50%); }
 
 /* screen: kalimba */
-.kal{ position:absolute; inset:44px 0 0; display:flex; align-items:flex-end; justify-content:center; gap:9px; padding:0 24px 60px; }
-.kal .tine{ width:11px; border-radius:999px 999px 4px 4px; background:linear-gradient(180deg,#e7ecff,#8ea0d8); box-shadow:inset 0 -6px 10px rgba(0,0,0,.15); transform-origin:bottom; }
+.kal{ position:absolute; inset:34px 0 0; display:flex; align-items:flex-end; justify-content:center; gap:9px; padding:0 24px 60px; }
+.kal .tine{ width:11px; border-radius:999px 999px 4px 4px; background:linear-gradient(180deg,#E6F4F8,#8CB3C2); box-shadow:inset 0 -6px 10px rgba(0,0,0,.15); transform-origin:bottom; }
 .kal .tine.plot{ animation:pluck 3s var(--ease) infinite; }
 
 @keyframes pluck{ 0%,100%{ transform:scaleY(1);} 6%{ transform:scaleY(1.05);} }
 
 /* screen: calm echoes */
-.echoes{ position:absolute; inset:44px 0 0; padding:16px 18px; }
+.echoes{ position:absolute; inset:34px 0 0; padding:16px 18px; }
 .wave{ display:flex; align-items:center; gap:4px; height:70px; margin-top:14px; }
 .wave i{ flex:1; background:var(--aurora); border-radius:999px; opacity:.85; animation:eq 1.6s var(--ease-soft) infinite; }
 @keyframes eq{ 0%,100%{ transform:scaleY(.35);} 50%{ transform:scaleY(1);} }
@@ -431,7 +441,7 @@ body.flow .flow-toggle{ color:var(--teal); border-color:var(--teal); }
 @keyframes ripple{ 0%{ transform:scale(.6); opacity:.9;} 100%{ transform:scale(1.9); opacity:0;} }
 
 /* screen: theme */
-.theme-demo{ position:absolute; inset:44px 0 0; display:grid; place-items:center; gap:16px; grid-auto-rows:min-content; padding-top:30px; }
+.theme-demo{ position:absolute; inset:34px 0 0; display:grid; place-items:center; gap:16px; grid-auto-rows:min-content; padding-top:30px; }
 .theme-card{ width:70%; height:70px; border-radius:18px; box-shadow:var(--shadow-sm); }
 
 /* phone chapter dots */
@@ -504,7 +514,7 @@ section{ position:relative; }
 
 /* kalimba playable */
 .kalimba{ display:flex; align-items:flex-end; justify-content:center; gap:10px; height:190px; margin-top:20px; }
-.kalimba .tine{ width:22px; border-radius:999px 999px 6px 6px; background:linear-gradient(180deg,#eef2ff,#aab6e0); cursor:pointer; position:relative; box-shadow:inset 0 -8px 14px rgba(0,0,0,.14),0 4px 10px -6px rgba(0,0,0,.4); transition:transform .12s var(--ease); }
+.kalimba .tine{ width:22px; border-radius:999px 999px 6px 6px; background:linear-gradient(180deg,#EDF6F9,#A6C6D2); cursor:pointer; position:relative; box-shadow:inset 0 -8px 14px rgba(0,0,0,.14),0 4px 10px -6px rgba(0,0,0,.4); transition:transform .12s var(--ease); }
 :root[data-theme="dark"] .kalimba .tine{ background:linear-gradient(180deg,#cfd8ff,#7482b8); }
 .kalimba .tine:hover{ transform:translateY(-4px); }
 .kalimba .tine.ring{ animation:tineRing .5s var(--ease); }
@@ -648,10 +658,10 @@ section{ position:relative; }
 <svg width="0" height="0" style="position:absolute" aria-hidden="true">
   <defs>
     <linearGradient id="rg" x1="0" y1="0" x2="1" y2="1">
-      <stop offset="0" stop-color="#5fd6c0"/><stop offset=".5" stop-color="#8aa0ff"/><stop offset="1" stop-color="#ffb488"/>
+      <stop offset="0" stop-color="#6FCB9F"/><stop offset=".5" stop-color="#38BDF8"/><stop offset="1" stop-color="#FFB39C"/>
     </linearGradient>
     <linearGradient id="rg2" x1="0" y1="0" x2="1" y2="1">
-      <stop offset="0" stop-color="#5fd6c0"/><stop offset="1" stop-color="#8aa0ff"/>
+      <stop offset="0" stop-color="#6FCB9F"/><stop offset="1" stop-color="#38BDF8"/>
     </linearGradient>
   </defs>
 </svg>
@@ -660,11 +670,12 @@ section{ position:relative; }
 <header class="header" id="header">
   <nav class="nav" aria-label="Primary">
     <a class="brand" href="#top" aria-label="Calm Navigation Companion home">
+      <!-- Kalimba silhouette, not a compass — the instrument is this app's
+           own distinctive feature (Calm Echoes), not a generic nav-app trope. -->
       <svg class="mark" viewBox="0 0 40 40" fill="none" aria-hidden="true">
-        <circle cx="20" cy="20" r="18" fill="url(#rg)" opacity=".18"/>
-        <circle cx="20" cy="20" r="18" stroke="url(#rg)" stroke-width="1.6"/>
-        <path d="M20 8 L24 20 L20 32 L16 20 Z" fill="url(#rg)"/>
-        <circle cx="20" cy="20" r="2.6" fill="#fff"/>
+        <rect x="7" y="21" width="26" height="13" rx="5" fill="url(#rg)" opacity=".18"/>
+        <rect x="7" y="21" width="26" height="13" rx="5" stroke="url(#rg)" stroke-width="1.6"/>
+        <path d="M13 21V12M18.5 21V8.5M25.5 21V8.5M31 21V12" stroke="url(#rg)" stroke-width="1.8" stroke-linecap="round"/>
       </svg>
       <span><b>Calm</b> Navigation</span>
     </a>
@@ -673,7 +684,7 @@ section{ position:relative; }
       <a href="#story">Story</a>
       <a href="#features">Features</a>
       <a href="#playground">Try it</a>
-      <a href="#beta">Beta</a>
+      <a href="#beta">Get it</a>
     </div>
     <div class="nav-tools">
       <button class="flow-toggle" id="flow-toggle" aria-pressed="false" title="Toggle Flow Mode — a living, breathing background">
@@ -702,12 +713,12 @@ section{ position:relative; }
           <span class="gradient-text">Arrive calm.</span><br/>
           <span class="soft">Wander with wonder.</span>
         </h1>
-        <p class="lead reveal d2">Most maps shout at you. This one breathes with you. Gentle guidance, an ambient <b>Flow Mode</b>, soft <b>Calm Echoes</b> and a soothing <b>Kalimba</b> turn every walk into a small, unhurried adventure.</p>
+        <p class="lead reveal d2">Most maps shout at you. This one breathes with you. Gentle guidance, an ambient <b>Flow Mode</b>, a soothing <b>Kalimba</b>, and <b>Calm Echoes</b> — short melodies other walkers left behind — turn every walk into a small, unhurried adventure.</p>
         <div class="hero-cta reveal d3">
-          <button class="btn btn-primary" id="download-cta"><span class="shine" aria-hidden="true"></span>
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M12 3v12m0 0 4-4m-4 4-4-4M5 21h14" stroke-linecap="round" stroke-linejoin="round"/></svg>
-            Download soon
-          </button>
+          <a class="btn btn-primary" id="download-cta" href="https://calm-navigation-companion.pages.dev" target="_blank" rel="noopener"><span class="shine" aria-hidden="true"></span>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            Open the app
+          </a>
           <button class="btn btn-ghost" id="watch-demo">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M10 9l5 3-5 3z" fill="currentColor" stroke-linejoin="round"/></svg>
             Watch the demo
@@ -715,7 +726,7 @@ section{ position:relative; }
         </div>
         <div class="hero-meta reveal d4">
           <div><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M12 2 4 6v6c0 5 3.4 8.3 8 10 4.6-1.7 8-5 8-10V6l-8-4Z" stroke-linejoin="round"/></svg> Private by design</div>
-          <div><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M5 12h14M5 12a7 7 0 0 1 7-7m-7 7a7 7 0 0 0 7 7" stroke-linecap="round"/></svg> Works offline</div>
+          <div><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M12 4v16m8-8H4" stroke-linecap="round"/></svg> No account needed</div>
           <div><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M12 6v6l4 2" stroke-linecap="round" stroke-linejoin="round"/><circle cx="12" cy="12" r="9"/></svg> Zero rush, ever</div>
         </div>
       </div>
@@ -729,7 +740,7 @@ section{ position:relative; }
           </div>
           <div class="orbit b" aria-hidden="true">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M9 18V5l12-2v13" stroke-linecap="round" stroke-linejoin="round"/><circle cx="6" cy="18" r="3"/><circle cx="18" cy="16" r="3"/></svg>
-            Kalimba · A minor
+            Kalimba · C major
           </div>
           <div class="phone phone-float" id="hero-phone">
             <!-- phone body reused; screens injected by JS clone of #phone-screens -->
@@ -744,15 +755,14 @@ section{ position:relative; }
     <div class="section-head center reveal">
       <span class="waypoint"><span class="num">01</span> Waypoint · Meet the companion</span>
       <h2 id="mockup-title">A living preview that never stops exploring</h2>
-      <p class="lead" style="margin-inline:auto">Watch the app move through its own world — navigation, Flow Mode, Kalimba, Calm Echoes, a premium map, gentle voice and effortless theme switching. Tap a dot to jump anywhere.</p>
+      <p class="lead" style="margin-inline:auto">A tour of the actual app — navigation, Flow Mode, Kalimba, Calm Echoes, the map, gentle voice and effortless theme switching. Tap a dot to jump anywhere.</p>
     </div>
     <div class="phone-stage reveal scale">
       <div class="phone" id="mockup-phone">
         <!-- master screens live here; hero clones from this -->
         <div class="screen" id="phone-screens">
-          <div class="notch" aria-hidden="true"></div>
           <div class="status" aria-hidden="true">
-            <span>9:41</span>
+            <span>10:24</span>
             <span class="r">
               <svg viewBox="0 0 24 24" fill="currentColor"><path d="M2 20h3v-6H2zM7 20h3V8H7zM12 20h3V4h-3zM17 20h3v-9h-3z"/></svg>
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 13a11 11 0 0 1 14 0M8.5 16.5a6 6 0 0 1 7 0M12 20h.01" stroke-linecap="round"/></svg>
@@ -772,7 +782,7 @@ section{ position:relative; }
                 <g class="pin" style="offset-path:path('M40 540 C 60 420 160 430 170 300 C 178 210 90 190 120 110 C 140 60 220 70 250 40')">
                   <circle r="9" fill="#fff"/><circle r="15" fill="none" stroke="#fff" stroke-width="2" opacity=".5"/>
                 </g>
-                <circle cx="250" cy="40" r="7" fill="#ffb488" stroke="#fff" stroke-width="2"/>
+                <circle cx="250" cy="40" r="7" fill="#FFB39C" stroke="#fff" stroke-width="2"/>
               </svg>
               <div class="nav-card">
                 <div class="arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M7 17 17 7m0 0H9m8 0v8" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
@@ -781,7 +791,7 @@ section{ position:relative; }
             </div>
             <!-- 2 Flow Mode -->
             <div class="screen-view" data-caption="Flow Mode: the map becomes a living artwork.">
-              <div class="screen-bg" style="background:radial-gradient(120% 90% at 50% 30%,#1b2450,#0a0f1e)"></div>
+              <div class="screen-bg" style="background:radial-gradient(120% 90% at 50% 30%,#0F2E38,#0A1520)"></div>
               <div class="flow-ring" style="width:220px;height:220px;animation:breathe 7s var(--ease-soft) infinite"></div>
               <div class="flow-ring" style="width:300px;height:300px;opacity:.5;animation:breathe 9s var(--ease-soft) infinite"></div>
               <div class="flow-orb"></div>
@@ -790,32 +800,32 @@ section{ position:relative; }
             </div>
             <!-- 3 Kalimba -->
             <div class="screen-view" data-caption="Pluck a Kalimba to mark each turn.">
-              <div class="screen-bg" style="background:radial-gradient(120% 100% at 50% 100%,#14204a,#0a0f1e)"></div>
+              <div class="screen-bg" style="background:radial-gradient(120% 100% at 50% 100%,#14204a,#0A1520)"></div>
               <div class="screen-title">Kalimba</div>
               <div class="screen-sub">tap to sound a gentle note</div>
               <div class="kal" id="kal-demo" aria-hidden="true"></div>
             </div>
             <!-- 4 Calm Echoes -->
-            <div class="screen-view" data-caption="Calm Echoes weaves place into soft sound.">
-              <div class="screen-bg" style="background:radial-gradient(120% 90% at 50% 10%,#14213f,#0a0f1e)"></div>
+            <div class="screen-view" data-caption="Calm Echoes: melodies other walkers left behind.">
+              <div class="screen-bg" style="background:radial-gradient(120% 90% at 50% 10%,#14213f,#0A1520)"></div>
               <div class="echoes">
                 <div class="screen-title" style="padding-left:0">Calm Echoes</div>
-                <div class="screen-sub" style="padding-left:0">near the river · 4 sounds</div>
+                <div class="screen-sub" style="padding-left:0">3 left nearby · tap to listen</div>
                 <div class="wave" id="echo-wave" aria-hidden="true"></div>
                 <div style="margin-top:14px">
-                  <span class="echo-chip">river breeze</span><span class="echo-chip">distant bells</span>
-                  <span class="echo-chip">rustling planes</span><span class="echo-chip">warm hum</span>
+                  <span class="echo-chip">🪕 morning walk</span><span class="echo-chip">🪕 quiet detour</span>
+                  <span class="echo-chip">🪕 first light</span>
                 </div>
               </div>
             </div>
             <!-- 5 Premium map -->
             <div class="screen-view" data-caption="A premium map — terrain, light and depth.">
               <svg class="screen-bg" viewBox="0 0 300 600" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
-                <rect width="300" height="600" fill="#0a0f1e"/>
+                <rect width="300" height="600" fill="#0A1520"/>
                 <path d="M0 300 Q80 260 150 300 T300 290 V600 H0Z" fill="#12325f" opacity=".6"/>
                 <path d="M0 360 Q90 320 160 360 T300 350 V600 H0Z" fill="#16406f" opacity=".55"/>
                 <ellipse cx="150" cy="150" rx="120" ry="90" fill="#1f8f7a" opacity=".22"/>
-                <ellipse cx="220" cy="120" rx="60" ry="45" fill="#5fd6c0" opacity=".18"/>
+                <ellipse cx="220" cy="120" rx="60" ry="45" fill="#6FCB9F" opacity=".18"/>
                 <g stroke="rgba(180,200,240,.14)" stroke-width="3" fill="none"><path d="M-10 200H310"/><path d="M-10 430H310"/><path d="M120 -10V610"/></g>
               </svg>
               <div class="screen-title" style="position:absolute;top:52px">Premium map</div>
@@ -824,7 +834,7 @@ section{ position:relative; }
             </div>
             <!-- 6 Voice -->
             <div class="screen-view" data-caption="A soft voice, only when you need it.">
-              <div class="screen-bg" style="background:radial-gradient(120% 90% at 50% 40%,#1a1f4a,#0a0f1e)"></div>
+              <div class="screen-bg" style="background:radial-gradient(120% 90% at 50% 40%,#0F2E38,#0A1520)"></div>
               <div class="screen-title">Gentle voice</div>
               <div class="screen-sub">calm, unhurried, optional</div>
               <div class="voice-orb"><i></i><i style="animation-delay:1.3s"></i></div>
@@ -832,12 +842,12 @@ section{ position:relative; }
             </div>
             <!-- 7 Theme -->
             <div class="screen-view" data-caption="Switch mood with a single tap.">
-              <div class="screen-bg" id="theme-screen-bg" style="background:radial-gradient(120% 90% at 50% 10%,#141a30,#0a0f1e);transition:background 1s var(--ease)"></div>
+              <div class="screen-bg" id="theme-screen-bg" style="background:radial-gradient(120% 90% at 50% 10%,#0E2630,#0A1520);transition:background 1s var(--ease)"></div>
               <div class="theme-demo">
                 <div class="screen-title" style="padding:0">Your light</div>
                 <div class="screen-sub" style="padding:0">dusk · dawn · midnight</div>
-                <div class="theme-card" id="tc1" style="background:linear-gradient(120deg,#5fd6c0,#8aa0ff)"></div>
-                <div class="theme-card" id="tc2" style="background:linear-gradient(120deg,#8aa0ff,#ffb488)"></div>
+                <div class="theme-card" id="tc1" style="background:linear-gradient(120deg,#6FCB9F,#38BDF8)"></div>
+                <div class="theme-card" id="tc2" style="background:linear-gradient(120deg,#38BDF8,#FFB39C)"></div>
               </div>
             </div>
           </div>
@@ -861,8 +871,8 @@ section{ position:relative; }
       <div class="story-art reveal scale d1" aria-hidden="true">
         <svg viewBox="0 0 400 400" preserveAspectRatio="xMidYMid slice">
           <defs>
-            <linearGradient id="storyG" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#5fd6c0"/><stop offset=".5" stop-color="#8aa0ff"/><stop offset="1" stop-color="#ffb488"/></linearGradient>
-            <radialGradient id="storyR" cx="50%" cy="30%"><stop offset="0" stop-color="#1b2450"/><stop offset="1" stop-color="#0a0f1e"/></radialGradient>
+            <linearGradient id="storyG" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#6FCB9F"/><stop offset=".5" stop-color="#38BDF8"/><stop offset="1" stop-color="#FFB39C"/></linearGradient>
+            <radialGradient id="storyR" cx="50%" cy="30%"><stop offset="0" stop-color="#0F2E38"/><stop offset="1" stop-color="#0A1520"/></radialGradient>
           </defs>
           <rect width="400" height="400" fill="url(#storyR)"/>
           <circle cx="300" cy="90" r="46" fill="url(#storyG)" opacity=".5"/>
@@ -870,7 +880,7 @@ section{ position:relative; }
           <ellipse cx="90" cy="300" rx="110" ry="90" fill="#1f8f7a" opacity=".2"/>
           <path d="M60 360 C 120 280 220 300 230 210 C 238 140 150 130 190 60" fill="none" stroke="url(#storyG)" stroke-width="6" stroke-linecap="round" stroke-dasharray="8 14" opacity=".95"/>
           <circle cx="60" cy="360" r="9" fill="#fff"/>
-          <circle cx="190" cy="60" r="8" fill="#ffb488" stroke="#fff" stroke-width="2"/>
+          <circle cx="190" cy="60" r="8" fill="#FFB39C" stroke="#fff" stroke-width="2"/>
         </svg>
       </div>
     </div>
@@ -884,7 +894,7 @@ section{ position:relative; }
   <section class="section wrap" id="features" aria-labelledby="features-title">
     <div class="section-head center reveal">
       <span class="waypoint"><span class="num">03</span> Waypoint · What's inside</span>
-      <h2 id="features-title">Ten quiet ideas, working together</h2>
+      <h2 id="features-title">Quiet ideas, working together</h2>
       <p class="lead" style="margin-inline:auto">Each one is small on its own. Together they change how getting somewhere feels.</p>
     </div>
     <div class="feature-grid" id="feature-grid"><!-- injected by JS from data --></div>
@@ -901,8 +911,8 @@ section{ position:relative; }
       <!-- Kalimba -->
       <div class="panel glass p-kalimba reveal">
         <h3><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M6 20V7m4 13V4m4 16V6m4 14V9" stroke-linecap="round"/></svg> Play the Kalimba</h3>
-        <p class="hint">Tap the tines — or use the number keys 1–7. A soft pentatonic scale, tuned to feel like a slow exhale.</p>
-        <div class="kalimba" id="kalimba" role="group" aria-label="Playable kalimba, keys 1 to 7"></div>
+        <p class="hint">Tap the tines, or use number keys 1–9. Fifteen tines, three octaves, one pentatonic scale — tuned so nothing can sound wrong.</p>
+        <div class="kalimba" id="kalimba" role="group" aria-label="Playable kalimba"></div>
       </div>
       <!-- Theme -->
       <div class="panel glass p-theme reveal d1">
@@ -910,11 +920,11 @@ section{ position:relative; }
         <p class="hint">The whole page shifts with you. Try a mood.</p>
         <div class="theme-toggle-big">
           <button class="theme-opt" data-theme-set="light" aria-pressed="false">
-            <div class="swatch" style="background:linear-gradient(120deg,#eef1f8,#ffd9bf)"></div>
+            <div class="swatch" style="background:linear-gradient(120deg,#EDF6F9,#FFD9BF)"></div>
             <b>Dawn</b><br/><small>bright &amp; airy</small>
           </button>
           <button class="theme-opt" data-theme-set="dark" aria-pressed="false">
-            <div class="swatch" style="background:linear-gradient(120deg,#0b1020,#3a2f5a)"></div>
+            <div class="swatch" style="background:linear-gradient(120deg,#0B1520,#14414F)"></div>
             <b>Midnight</b><br/><small>deep &amp; restful</small>
           </button>
         </div>
@@ -922,14 +932,14 @@ section{ position:relative; }
       <!-- Echoes -->
       <div class="panel glass p-echoes reveal">
         <h3><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 12h3l3 7 4-16 3 9h5" stroke-linecap="round" stroke-linejoin="round"/></svg> Reveal Calm Echoes</h3>
-        <p class="hint">Ambient sound that responds to where you are.</p>
+        <p class="hint">Short kalimba melodies other walkers left behind, waiting to be found.</p>
         <button class="btn btn-soft echo-toggle" id="echo-toggle" aria-pressed="false">Reveal the echoes</button>
         <div class="echo-canvas" id="echo-canvas" aria-hidden="true"></div>
       </div>
       <!-- Haptic -->
       <div class="panel glass p-haptic reveal d1">
         <h3><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="7" y="2" width="10" height="20" rx="3"/><path d="M11 6h2" stroke-linecap="round"/></svg> Feel a turn</h3>
-        <p class="hint">A gentle pulse — the app's way of tapping your wrist.</p>
+        <p class="hint">A gentle pulse in your pocket — the app's way of marking a turn.</p>
         <button class="haptic-btn" id="haptic-btn">
           <span class="ripset" aria-hidden="true"><span></span><span></span></span>
           <b>Tap for a gentle nudge</b>
@@ -945,7 +955,7 @@ section{ position:relative; }
             <path class="r-path" d="M30 170 C 60 120 130 140 130 90 C 130 55 70 60 90 25 L 170 25"/>
             <path class="r-fill" id="r-fill" d="M30 170 C 60 120 130 140 130 90 C 130 55 70 60 90 25 L 170 25" pathLength="1"/>
             <circle cx="30" cy="170" r="6" fill="#fff"/>
-            <circle cx="170" cy="25" r="6" fill="#ffb488" stroke="#fff" stroke-width="2"/>
+            <circle cx="170" cy="25" r="6" fill="#FFB39C" stroke="#fff" stroke-width="2"/>
           </svg>
         </div>
       </div>
@@ -957,7 +967,7 @@ section{ position:relative; }
     <div class="metrics">
       <div class="metric glass reveal"><b data-count="60">60</b><span>fps buttery ambience</span></div>
       <div class="metric glass reveal d1"><b data-count="0" data-suffix=" trackers">0</b><span>trackers, ever</span></div>
-      <div class="metric glass reveal d2"><b data-count="100" data-suffix="%">100%</b><span>offline-ready maps</span></div>
+      <div class="metric glass reveal d2"><b data-count="1">1</b><span>tap to Start</span></div>
       <div class="metric glass reveal d3"><b>∞</b><span>reasons to look up</span></div>
     </div>
   </section>
@@ -966,22 +976,22 @@ section{ position:relative; }
   <section class="section wrap cta-final" id="beta" aria-labelledby="beta-title">
     <div class="cta-card glass reveal scale">
       <span class="waypoint" style="justify-content:center"><span class="num">05</span> Waypoint · Come with us</span>
-      <h2 id="beta-title" style="margin-top:18px"><span class="gradient-text">The city is waiting.</span><br/>So are we.</h2>
-      <p>Join the beta and be among the first to walk with the companion. No spam, no noise — just a quiet note when it's ready for you.</p>
-      <form class="signup" id="signup" novalidate>
+      <h2 id="beta-title" style="margin-top:18px"><span class="gradient-text">The city is waiting.</span><br/>It's ready when you are.</h2>
+      <p>Calm Navigation Companion is live and free to use, right now, in your browser — no account, no app-store download. Add it to your home screen and start walking with it today.</p>
+      <div class="hero-cta" style="justify-content:center;margin-top:8px">
+        <a class="btn btn-primary" href="https://calm-navigation-companion.pages.dev" target="_blank" rel="noopener"><span class="shine" aria-hidden="true"></span>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          Open Calm Navigation Companion
+        </a>
+      </div>
+      <form class="signup" id="signup" novalidate style="margin-top:22px">
         <label class="sr-only" for="email">Email address</label>
         <input type="email" id="email" name="email" placeholder="you@example.com" autocomplete="email" required />
-        <button class="btn btn-primary" type="submit"><span class="shine" aria-hidden="true"></span>Join the beta</button>
+        <button class="btn btn-soft" type="submit">Get notified about new features</button>
       </form>
       <div class="signup-success" id="signup-success" role="status">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6 9 17l-5-5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-        You're on the path. We'll be in touch, gently.
-      </div>
-      <p class="signup-note">Prefer to follow along first? We'd love the company.</p>
-      <div class="cta-follow">
-        <a class="chip" href="#" aria-label="Follow development updates"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 4h16v12H7l-3 3z" stroke-linejoin="round"/></svg> Follow development</a>
-        <a class="chip" href="#" aria-label="Read the field notes"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M6 3h9l5 5v13H6z" stroke-linejoin="round"/><path d="M14 3v6h6" stroke-linejoin="round"/></svg> Field notes</a>
-        <a class="chip" href="#" aria-label="Stay updated by email"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6" stroke-linejoin="round"/></svg> Stay updated</a>
+        You're in. We'll let you know what's new.
       </div>
     </div>
   </section>
@@ -998,7 +1008,7 @@ section{ position:relative; }
       <p>A gentler way to find your way. Made quietly, for people who like to look up.</p>
     </div>
     <div class="foot-col"><h4>Explore</h4><a href="#mockup">Preview</a><a href="#features">Features</a><a href="#playground">Try it</a></div>
-    <div class="foot-col"><h4>Company</h4><a href="#story">Our story</a><a href="#beta">Join the beta</a><a href="#">Field notes</a></div>
+    <div class="foot-col"><h4>Company</h4><a href="#story">Our story</a><a href="https://calm-navigation-companion.pages.dev" target="_blank" rel="noopener">Open the app</a></div>
     <div class="foot-col"><h4>Care</h4><a href="#">Privacy</a><a href="#">Accessibility</a><a href="#">Contact</a></div>
   </div>
   <div class="footer-base">
@@ -1148,8 +1158,17 @@ section{ position:relative; }
       if(reduceMotion || !("IntersectionObserver" in window)){ els.forEach(e=>e.classList.add("in")); return; }
       const io = new IntersectionObserver((entries)=>{
         entries.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add("in"); io.unobserve(e.target); } });
-      }, { threshold:0.14, rootMargin:"0px 0px -8% 0px" });
+      }, { threshold:0, rootMargin:"0px 0px -8% 0px" });
       els.forEach(e=>io.observe(e));
+      // Safety net: never leave content invisible if the observer does not fire.
+      // Anything already in the viewport after first paint is revealed regardless.
+      requestAnimationFrame(()=>{
+        els.forEach(e=>{
+          const r = e.getBoundingClientRect();
+          if(r.top < window.innerHeight && r.bottom > 0){ e.classList.add("in"); io.unobserve(e); }
+        });
+      });
+      setTimeout(()=>{ els.forEach(e=>e.classList.add("in")); }, 2500);
     }
     function init(){
       window.addEventListener("scroll", onScroll, {passive:true});
@@ -1163,19 +1182,20 @@ section{ position:relative; }
     const grid = document.getElementById("feature-grid");
     const icon = (p)=>`<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">${p}</svg>`;
     const data = [
-      { t:"Calm Navigation", d:"Directions that arrive a beat early and speak softly — a nudge, not an alarm. You keep your eyes on the world, not the screen.", i:'<path d="M12 2 4 6v6c0 5 3.4 8.3 8 10 4.6-1.7 8-5 8-10V6l-8-4Z"/><path d="M9 12l2 2 4-4"/>' },
+      { t:"Calm Navigation", d:"A calm route is picked for you automatically — quieter streets over busy ones — with one tap to Start. The fastest alternative is one tap away if you'd rather have that instead.", i:'<path d="M12 2 4 6v6c0 5 3.4 8.3 8 10 4.6-1.7 8-5 8-10V6l-8-4Z"/><path d="M9 12l2 2 4-4"/>' },
       { t:"Flow Mode", d:"Turn the whole app into a living artwork — flowing gradients, drifting light and slow, breathing motion. Navigation, at the pace of a sigh.", i:'<path d="M3 12c3-4 6-4 9 0s6 4 9 0"/><path d="M3 17c3-4 6-4 9 0s6 4 9 0"/>' , wide:true, art:"flow" },
-      { t:"Calm Echoes", d:"Ambient sound that answers to place — a river breeze here, distant bells there — woven so gently you feel it before you notice it.", i:'<path d="M3 12h3l3 7 4-16 3 9h5"/>' },
-      { t:"Kalimba", d:"A soft thumb-piano marks your turns and milestones. Pentatonic, so it can never sound wrong — only calm.", i:'<path d="M6 20V7m4 13V4m4 16V6m4 14V9"/>' },
-      { t:"Gentle Voice Guidance", d:"An unhurried voice that speaks only when it helps, in words that reassure rather than command. Silence is always an option.", i:'<rect x="9" y="3" width="6" height="12" rx="3"/><path d="M6 11a6 6 0 0 0 12 0M12 18v3"/>' },
-      { t:"Haptic Guidance", d:"Feel the way through gentle taps on your wrist or in your pocket. Perfect for eyes-up walking, or no screen at all.", i:'<rect x="7" y="2" width="10" height="20" rx="3"/><path d="M11 6h2"/>' },
-      { t:"Accessibility", d:"Full keyboard and screen-reader support, reduced-motion respect, dynamic type and high-contrast care — calm should reach everyone.", i:'<circle cx="12" cy="4" r="2"/><path d="M5 8h14M12 8v6m0 0-3 6m3-6 3 6"/>' },
-      { t:"Privacy", d:"Your journeys stay on your device. No accounts to chase you, no trackers, no quiet selling of where you've been.", i:'<path d="M12 2 4 6v6c0 5 3.4 8.3 8 10 4.6-1.7 8-5 8-10V6l-8-4Z"/><path d="M12 8v4m0 3h.01"/>' },
-      { t:"Offline Support", d:"Download a city and wander freely — through tunnels, dead zones and far-flung corners, no signal required.", i:'<path d="M5 12a7 7 0 0 1 7-7m7 7a7 7 0 0 1-7 7"/><path d="M2 2l20 20"/>' },
-      { t:"Background Navigation", d:"Lock your phone and keep walking. Guidance continues by voice and touch, sipping battery instead of draining it.", i:'<rect x="6" y="2" width="12" height="20" rx="3"/><path d="M12 6v4l2 2"/>' }
+      { t:"Calm Echoes", d:"Play a short melody on the Kalimba after a real 500 m walk, and leave it exactly where you played it. Walk near it another day — or let someone else find it — and it plays back.", i:'<path d="M3 12h3l3 7 4-16 3 9h5"/>' },
+      { t:"Kalimba", d:"Fifteen tines across three octaves, one pentatonic scale — so it can never sound wrong, only calm. Layer a second melody over your first before you leave it as an Echo.", i:'<path d="M6 20V7m4 13V4m4 16V6m4 14V9"/>' },
+      { t:"Gentle Voice Guidance", d:"An unhurried voice that speaks only when it helps, in words that reassure rather than command. Off by default — silence is always an option.", i:'<rect x="9" y="3" width="6" height="12" rx="3"/><path d="M6 11a6 6 0 0 0 12 0M12 18v3"/>' },
+      { t:"Places to Discover", d:"Real shops, cafés, bars and restaurants from OpenStreetMap appear as you get close, right on the map — tap a dot for its name.", i:'<path d="M3 9 12 3l9 6v11a1 1 0 0 1-1 1h-5v-6H9v6H4a1 1 0 0 1-1-1Z"/>' },
+      { t:"Transit Journeys", d:"Prefer public transport? Real train, tram, bus and ferry itineraries from an open journey planner, drawn leg by leg on the map.", i:'<rect x="4" y="3" width="16" height="13" rx="3"/><circle cx="8" cy="19" r="1.5"/><circle cx="16" cy="19" r="1.5"/>' },
+      { t:"Gentle Haptics", d:"Turns and arrivals land as a soft pulse in your pocket where the device supports vibration, with a visual pulse standing in on iOS, which doesn't.", i:'<rect x="7" y="2" width="10" height="20" rx="3"/><path d="M11 6h2"/>' },
+      { t:"Accessibility", d:"Reduced-motion and high-contrast toggles, full keyboard access, and screen-reader labeling throughout — calm should reach everyone.", i:'<circle cx="12" cy="4" r="2"/><path d="M5 8h14M12 8v6m0 0-3 6m3-6 3 6"/>' },
+      { t:"Privacy", d:"No accounts, no analytics, no ad trackers. Your searches and GPS fixes are used only to answer that request, never stored. The one exception is a Calm Echo — you choose to leave it, at a fuzzed location, for others to find.", i:'<path d="M12 2 4 6v6c0 5 3.4 8.3 8 10 4.6-1.7 8-5 8-10V6l-8-4Z"/><path d="M12 8v4m0 3h.01"/>' },
+      { t:"Installable, Not a Download", d:"Add it to your home screen straight from the browser on iOS or Android — no app store, no account, no install size to worry about.", i:'<path d="M12 3v12m0 0 4-4m-4 4-4-4M5 21h14" stroke-linecap="round" stroke-linejoin="round"/>' }
     ];
     function art(kind){
-      if(kind==="flow") return `<div class="art" style="background:linear-gradient(120deg,#5fd6c0,#8aa0ff,#ffb488);background-size:200% 200%;animation:${reduceMotion?'none':'gShift 9s ease infinite'}"></div>`;
+      if(kind==="flow") return `<div class="art" style="background:linear-gradient(120deg,#6FCB9F,#38BDF8,#FFB39C);background-size:200% 200%;animation:${reduceMotion?'none':'gShift 9s ease infinite'}"></div>`;
       return "";
     }
     function render(){
@@ -1196,9 +1216,12 @@ section{ position:relative; }
   const KalimbaModule = (function(){
     const wrap = document.getElementById("kalimba");
     const demo = document.getElementById("kal-demo");
-    // A minor pentatonic across ~1.5 octaves, arranged low-centre-high like a real kalimba
-    const scale = [220.00, 261.63, 293.66, 329.63, 392.00, 440.00, 523.25];
-    const order = [0,2,4,6,5,3,1]; // physical tine order (longest centre)
+    // Same tuning as the live app's kalimba: C major pentatonic across 3 octaves
+    // (G3..E6, 15 tines) — no semitones at all, so no combination of notes can
+    // sound wrong. Visual order matches the app's: lowest note centered,
+    // pitch fanning outward to each side.
+    const scale = [196.00, 220.00, 261.63, 293.66, 329.63, 392.00, 440.00, 523.25, 587.33, 659.25, 783.99, 880.00, 1046.50, 1174.66, 1318.51];
+    const order = [14,12,10,8,6,4,2,0,1,3,5,7,9,11,13];
     let actx=null;
     function ac(){ if(!actx){ try{ actx = new (window.AudioContext||window.webkitAudioContext)(); }catch(e){} } if(actx&&actx.state==="suspended") actx.resume(); return actx; }
     function pluck(freq){
@@ -1236,7 +1259,7 @@ section{ position:relative; }
     function keys(){
       window.addEventListener("keydown",(e)=>{
         const n=parseInt(e.key,10);
-        if(n>=1&&n<=7){ const t=wrap.children[n-1]; if(t){ hit(t); } }
+        if(n>=1&&n<=9){ const t=wrap.children[n-1]; if(t){ hit(t); } }
       });
     }
     function init(){ build(); keys(); }
