@@ -1,0 +1,138 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Sorted — Share &amp; Print</title>
+<meta name="description" content="QR code and printable poster for the campus waste-sorting survey.">
+<meta name="theme-color" content="#f1f2ec" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#12140f" media="(prefers-color-scheme: dark)">
+<link rel="icon" href="./assets/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700&family=IBM+Plex+Mono:wght@400;500&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400&display=swap">
+<link rel="stylesheet" href="./assets/css/site.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/qrious/4.0.2/qrious.min.js"></script>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+
+<header class="masthead no-print">
+  <div class="wrap masthead__in">
+    <a class="wordmark" href="./index.html">Sorted<span class="wordmark__dot" aria-hidden="true"></span></a>
+    <nav class="mainnav" aria-label="Main">
+      <div class="mainnav__links">
+        <a href="./index.html#context">Context</a>
+        <a href="./index.html#findings">Findings</a>
+        <a href="./survey.html">Survey</a>
+        <a href="./share.html" aria-current="page">Share</a>
+      </div>
+      <button class="themetoggle" type="button" data-theme-toggle aria-label="Switch colour theme">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true">
+          <path d="M12 3v2m0 14v2M5.6 5.6l1.4 1.4m10 10 1.4 1.4M3 12h2m14 0h2M5.6 18.4 7 17m10-10 1.4-1.4"/>
+          <circle cx="12" cy="12" r="3.4"/>
+        </svg>
+      </button>
+    </nav>
+  </div>
+</header>
+
+<main id="main" class="wrap" style="padding-block: var(--s-7) var(--s-8)">
+
+  <div class="stack-6">
+    <div class="stack-3 no-print" style="max-width: 46rem">
+      <p class="eyebrow">Distribution</p>
+      <h1 style="font-size: var(--t-xl)">Put this on a wall</h1>
+      <p style="color: var(--ink-2); font-size: var(--t-md); max-width: 54ch">
+        The code below points at the survey. Scanning it opens the questions straight away —
+        no app, no login, no account. Print the poster, or just hold your phone screen up
+        in the corridor.
+      </p>
+    </div>
+
+    <div class="sharegrid">
+      <div class="stack-3">
+        <div class="qrcard">
+          <div class="qrcard__canvas" data-qr-canvas>
+            <p class="qrcard__fallback" data-qr-fallback>Generating code…</p>
+          </div>
+          <p class="qrcard__caption" data-qr-caption>Scan for the survey</p>
+        </div>
+        <div class="btnrow no-print">
+          <button class="btn btn--quiet" type="button" data-qr-target="survey" aria-pressed="true">Survey</button>
+          <button class="btn btn--quiet" type="button" data-qr-target="study" aria-pressed="false">Study</button>
+          <button class="btn btn--quiet" type="button" data-qr-download>Download PNG</button>
+        </div>
+      </div>
+
+      <div class="stack-5 no-print">
+        <div class="stack-3">
+          <h2 style="font-size: var(--t-lg)">The link</h2>
+          <div class="linkrow">
+            <code data-share-url>…</code>
+            <button class="btn btn--quiet" type="button" data-copy-url>Copy</button>
+          </div>
+          <p class="figure__note">
+            If you opened this page from a local file the link will read <code>file://…</code> and
+            the code won't work on anyone else's phone. Open the published site first, then come back here.
+          </p>
+        </div>
+
+        <div class="stack-3">
+          <h2 style="font-size: var(--t-lg)">Where to put it</h2>
+          <ul class="ticks">
+            <li><strong>Next to the bins.</strong> The one place people are already thinking about the question. Eye height, not floor height.</li>
+            <li><strong>At the canteen exit.</strong> Catches people holding the packaging the survey asks about.</li>
+            <li><strong>In your class channel.</strong> Paste the link rather than the QR — a code inside a screen is one scan too many.</li>
+            <li><strong>Ask, don't post.</strong> Handing your phone to someone gets a response rate a poster never will.</li>
+          </ul>
+        </div>
+
+        <div class="notice">
+          <svg class="notice__icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+            <circle cx="12" cy="12" r="9"/><path d="M12 8v5m0 3.2v.1"/>
+          </svg>
+          <p><strong>Check your school's rules before putting posters up.</strong> Most buildings have designated boards and will remove anything else — ask the facilities desk, and mention it's for a course project.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="section">
+      <div class="stack-5">
+        <div class="figure__head no-print">
+          <h2 class="figure__title" style="font-size: var(--t-lg)">Printable poster</h2>
+          <div class="figure__tools">
+            <button class="btn btn--quiet" type="button" data-print>Print this page</button>
+          </div>
+        </div>
+
+        <div class="poster">
+          <p class="eyebrow">Two minutes · anonymous · no login</p>
+          <h2>What did you actually do with your last coffee cup?</h2>
+          <p>A student research project on why waste separation fails on this campus. Fourteen questions about what you did — not what you believe.</p>
+          <div class="qrcard" style="border:0; padding:0">
+            <div class="qrcard__canvas" data-qr-canvas-poster></div>
+          </div>
+          <p class="qrcard__caption" data-share-url-poster>…</p>
+          <!-- FILL: your name, programme and contact for the poster -->
+          <p class="figure__note" style="text-align:center">Research contact — add your name, programme and email here.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</main>
+
+<footer class="foot no-print">
+  <div class="wrap foot__in">
+    <p>Sorted — campus waste-sorting field study</p>
+    <div class="foot__right">
+      <a href="./index.html">Study</a>
+      <a href="./survey.html">Survey</a>
+    </div>
+  </div>
+</footer>
+
+<script src="./assets/js/site.js"></script>
+<script src="./assets/js/share.js"></script>
+</body>
+</html>
