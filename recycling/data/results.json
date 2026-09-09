@@ -1,0 +1,35 @@
+{
+  "_README": "Paste your real numbers here. Anything left null stays as an empty state on the page — nothing is ever invented. Delete no keys; set values as they arrive.",
+  "collection": {
+    "opened": null,
+    "closed": null
+  },
+  "counts": {
+    "survey": 0,
+    "audit_items": 0,
+    "interviews": 0
+  },
+  "gap": {
+    "reported_separated_pct": null,
+    "observed_correct_pct": null
+  },
+  "calibration": {
+    "mean_confidence_of_5": null,
+    "mean_score_of_3": null,
+    "correlation_r": null,
+    "item_error_pct": {
+      "Greasy pizza box": null,
+      "Drink carton": null,
+      "Plastic fork": null
+    }
+  },
+  "barriers": {
+    "_note": "Counts from Q7 — the single barrier that mattered most.",
+    "counts": {}
+  },
+  "tradeoff": {
+    "_note": "Counts from Q12 (revealed) and Q13 (stated).",
+    "q12_counts": {},
+    "q13_counts": {}
+  }
+}

@@ -47,14 +47,39 @@ grep -rn "FILL:" recycling/
 | `index.html` hero | Your programme, year and semester |
 | `index.html` §02 | Your actual hypothesis |
 | `index.html` §03 | Bin-audit locations, dates, sample sizes; interview count |
-| `index.html` §04 | **The four findings.** Replace each "Awaiting data" block with a real one |
+| `data/results.json` | **Your numbers.** Section 04 renders itself from this file — see below |
 | `index.html` §05 | **The intervention.** What it is, why not the obvious alternative, what must be true, prototype images |
 | `index.html` §07 | Your own sources and interview references |
 | `survey.html` Q1 | Your campus's real building names |
 | `share.html` poster | Your name, programme and contact email |
 
-Keep the shape of each findings block: **a claim, the number behind it, and which
-instrument produced it.** That structure is what makes it read as evidence.
+### Section 04 fills itself in
+
+Section 04 holds four **pre-registered predictions** — each states what is expected and
+the condition that would falsify it, written before collection opened. You do not write
+results into the HTML by hand. Put the numbers in `recycling/data/results.json` and the
+page renders them: the counts, the verdict badge (prediction held / failed), and the bar
+charts for the barrier and trade-off questions.
+
+Anything left `null` or `{}` stays as an empty state. The page cannot display a number
+you did not measure, which is the point — it can't accidentally claim a result.
+
+```jsonc
+"gap": {
+  "reported_separated_pct": 71,   // survey Q5, % reporting 3+ separations a week
+  "observed_correct_pct": 34      // bin audit, % of scored items in the right stream
+},
+"barriers": {
+  "counts": { "No bin nearby": 31, "In a hurry": 22 }   // Q7, free labels, any order
+}
+```
+
+Label keys however you like — they're printed verbatim and sorted largest-first, with the
+top bar emphasised.
+
+**On predictions:** a prediction that fails is a better finding than one that holds, and
+the page says so. If prediction 4 fails — if students correctly diagnose their own
+constraint — write that up. It's the most interesting outcome available to this study.
 
 ## 3. Renaming the project
 

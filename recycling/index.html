@@ -219,7 +219,7 @@
           </div>
           <div>
             <dt>Hypothesis</dt>
-            <dd><!-- FILL: your actual hypothesis -->Stated intention will exceed observed behaviour by a wide margin, and self-rated confidence will not correlate with measured sorting knowledge.</dd>
+            <dd>The binding constraint is <strong>situational, not attitudinal</strong>. Students will report separating far more often than the bins show; self-rated confidence will not predict measured sorting knowledge; and when forced to choose, students will name a knowledge fix while behaving as though distance is what actually binds.</dd>
           </div>
         </dl>
       </div>
@@ -246,21 +246,44 @@
           <li>
             <div>
               <h4>Bin audit — observation</h4>
-              <p>Contents of paired bins in one building, sampled at fixed times, scored for contamination by stream. Measures behaviour with no self-report involved.<br>
-              <!-- FILL: locations, dates, sample sizes --><em>Locations, dates and sample size to be recorded.</em></p>
+              <p>
+                Three paired bin stations, sampled on three fixed passes a day: 11:00 (after the
+                morning break), 13:30 (after lunch) and 16:00 (end of teaching). On each pass every
+                item in the separated bin is scored <em>correct</em> or <em>incorrect</em> for that
+                stream. Count items, not weight — weight is confounded by leftover liquid and needs
+                scales you won't have. Target a minimum of <strong>100 scored items per station</strong>
+                before quoting a rate. Photograph each bin before sorting, as an audit trail you can
+                put in the appendix. On the first pass two people score independently so you can
+                report inter-rater agreement rather than assert it.
+              </p>
+              <p><!-- FILL: your three station locations and the dates you ran the passes -->
+              <em>Stations and dates: to be recorded.</em></p>
             </div>
           </li>
           <li>
             <div>
               <h4>Survey — recalled behaviour, knowledge, and a forced trade-off</h4>
-              <p>Fourteen items. Asks what happened to the last container the respondent held, tests sorting knowledge objectively against self-rated confidence, and forces a choice between the intervention and lazier alternatives. Ends with a costly signal rather than a satisfaction rating.</p>
+              <p>
+                Fourteen items. Asks what happened to the last container the respondent held, tests
+                sorting knowledge objectively against self-rated confidence, and forces a choice
+                between the intervention and lazier alternatives. Ends with a costly signal rather
+                than a satisfaction rating. Distributed by QR code at the bin stations and in class
+                channels; responses are anonymous unless a respondent opts into the pilot.
+              </p>
             </div>
           </li>
           <li>
             <div>
               <h4>Intercept interviews</h4>
-              <p>Short interviews at the bin, immediately after the decision, while the reason is still available to the person.<br>
-              <!-- FILL: number of interviews, guide --><em>Interview guide and count to be recorded.</em></p>
+              <p>
+                Short interviews at the bin, immediately after the decision, while the reason is still
+                available to the person. Ninety seconds, five questions, no notebook in their face:
+                what did you just throw away · which bin did you use · did you consider another one ·
+                what would have made the other bin easier · do you know what happens to it after this.
+                Aim for 15–20 across the three stations and both a busy and a quiet period.
+              </p>
+              <p><!-- FILL: how many interviews you ran, and where -->
+              <em>Count and locations: to be recorded.</em></p>
             </div>
           </li>
         </ol>
@@ -268,7 +291,10 @@
     </div>
   </section>
 
-  <!-- ===================== 04 FINDINGS ===================== -->
+  <!-- ===================== 04 FINDINGS =====================
+       Each block states a PREDICTION made before data collection, and a result
+       slot that fills automatically from recycling/data/results.json.
+       Do not write results here by hand — put the numbers in the JSON. -->
   <section class="section" id="findings">
     <div class="wrap section__grid">
       <div class="rail">
@@ -277,39 +303,119 @@
       </div>
       <div class="stack-6">
         <div class="prose stack-3">
-          <h2>What the data says</h2>
+          <h2>Four predictions, made before the data</h2>
+          <p class="lead">
+            Each prediction below was written before collection opened, with the condition that
+            would falsify it stated up front. Results fill in underneath as the instruments report.
+          </p>
           <p>
-            This section fills in as the instruments return data. Nothing is written here before it is measured.
+            Committing in advance is the point. A prediction on record can be wrong, which is what
+            makes it worth anything — findings assembled after the fact can always be made to agree
+            with whatever the data happened to do.
           </p>
         </div>
 
-        <!-- FILL: replace each pending block with a real finding.
-             Keep the shape: a claim, the number behind it, and the instrument it came from. -->
-        <div class="pending">
-          <span class="pending__tag">Awaiting data</span>
-          <h4>Finding 1 — the reported/observed gap</h4>
-          <p>Bin audit vs. survey self-report. Replace with the measured gap and the n for each instrument.</p>
+        <div class="statstrip" data-collection-summary>
+          <div class="stat"><span class="stat__fig" data-n="survey">0</span><span class="stat__unit">survey responses</span><span class="stat__label">Collection has not opened yet.</span></div>
+          <div class="stat"><span class="stat__fig" data-n="audit">0</span><span class="stat__unit">items scored</span><span class="stat__label">Bin audit, across all stations and passes.</span></div>
+          <div class="stat"><span class="stat__fig" data-n="interviews">0</span><span class="stat__unit">interviews</span><span class="stat__label">Intercept interviews at the bin.</span></div>
         </div>
-        <div class="pending">
-          <span class="pending__tag">Awaiting data</span>
-          <h4>Finding 2 — confidence calibration</h4>
-          <p>Self-rated sorting confidence against the three-item knowledge test. Replace with the correlation and the per-item error rates.</p>
-        </div>
-        <div class="pending">
-          <span class="pending__tag">Awaiting data</span>
-          <h4>Finding 3 — the ranked barrier</h4>
-          <p>Which barrier respondents named as mattering most. Replace with the distribution, and note how it differs from what the intercept interviews suggested.</p>
-        </div>
-        <div class="pending">
-          <span class="pending__tag">Awaiting data</span>
-          <h4>Finding 4 — revealed preference under trade-off</h4>
-          <p>What people chose when the correct bin was 40&nbsp;m away and the wrong one was 5&nbsp;m. Replace with the split.</p>
+
+        <article class="pred" data-finding="gap">
+          <div class="pred__head">
+            <span class="pred__tag">Prediction 1</span>
+            <h4>Reported separation will substantially exceed observed separation</h4>
+          </div>
+          <p>
+            Chung and Leung found exactly this gap among undergraduates by setting on-site
+            observation against the same students' self-reports. The survey asks how often
+            respondents deliberately separated in the last seven days; the audit measures what
+            the bins actually contain. The two should not agree.
+          </p>
+          <dl class="deflist">
+            <div><dt>Instrument</dt><dd>Bin audit correct-sort rate vs. survey Q5</dd></div>
+            <div><dt>Falsified if</dt><dd>The audit's correct-sort rate lands within 10 percentage points of the reported rate.</dd></div>
+          </dl>
+          <div class="pred__result" data-result="gap">
+            <p class="pred__empty">No result yet — awaiting the bin audit and survey. This fills in from <code>data/results.json</code>.</p>
+          </div>
+        </article>
+
+        <article class="pred" data-finding="calibration">
+          <div class="pred__head">
+            <span class="pred__tag">Prediction 2</span>
+            <h4>Confidence will not predict knowledge</h4>
+          </div>
+          <p>
+            Q8 asks how confident people are that they sort correctly; Q9–Q11 then test it. Both the
+            drink carton and the plastic fork are designed to catch a specific wrong mental model —
+            “it looks like paper, so it is paper” and “it is plastic, so it is PMD”. Expect high
+            confidence alongside low scores, with those two items producing most of the errors.
+          </p>
+          <dl class="deflist">
+            <div><dt>Instrument</dt><dd>Survey Q8 against the Q9–Q11 knowledge score</dd></div>
+            <div><dt>Predicted</dt><dd>Mean confidence ≥ 3.5 / 5, mean score ≤ 1.5 / 3, correlation weak (|r| &lt; 0.3)</dd></div>
+            <div><dt>Falsified if</dt><dd>Confidence and score correlate at r ≥ 0.5 — people would then know what they don't know.</dd></div>
+          </dl>
+          <div class="pred__result" data-result="calibration">
+            <p class="pred__empty">No result yet — awaiting the survey. This fills in from <code>data/results.json</code>.</p>
+          </div>
+        </article>
+
+        <article class="pred" data-finding="barriers">
+          <div class="pred__head">
+            <span class="pred__tag">Prediction 3</span>
+            <h4>The barrier named will be situational, not attitudinal</h4>
+          </div>
+          <p>
+            “No bin nearby”, “in a hurry” and “didn't think about it” describe a situation. “Don't
+            care” and “felt pointless” describe an attitude. Campaigns are built for the second group;
+            the prediction is that the first group is far larger, which would mean most campaigns are
+            aimed at the wrong people.
+          </p>
+          <dl class="deflist">
+            <div><dt>Instrument</dt><dd>Survey Q6 (all that applied) and Q7 (the one that mattered most)</dd></div>
+            <div><dt>Falsified if</dt><dd>“Don't care” or “felt pointless” is the modal answer to Q7.</dd></div>
+          </dl>
+          <div class="pred__result" data-result="barriers">
+            <p class="pred__empty">No result yet — awaiting the survey. This fills in from <code>data/results.json</code>.</p>
+          </div>
+        </article>
+
+        <article class="pred" data-finding="tradeoff">
+          <div class="pred__head">
+            <span class="pred__tag">Prediction 4</span>
+            <h4>People will misdiagnose their own constraint</h4>
+          </div>
+          <p>
+            This is the sharpest of the four. Q12 reveals behaviour — 5&nbsp;m to the wrong bin against
+            40&nbsp;m to the right one. Q13 asks which single change would move them. The prediction is
+            that a majority take the near bin while a majority also ask for <em>clearer pictures</em>:
+            behaving as though distance binds, while naming knowledge as the fix. If that holds, asking
+            students what they want would have produced the wrong intervention.
+          </p>
+          <dl class="deflist">
+            <div><dt>Instrument</dt><dd>Survey Q12 (revealed) against Q13 (stated)</dd></div>
+            <div><dt>Falsified if</dt><dd>“A separated bin within 10&nbsp;m of every exit” is the modal answer to Q13 — students would then be diagnosing themselves correctly.</dd></div>
+          </dl>
+          <div class="pred__result" data-result="tradeoff">
+            <p class="pred__empty">No result yet — awaiting the survey. This fills in from <code>data/results.json</code>.</p>
+          </div>
+        </article>
+
+        <div class="notice">
+          <svg class="notice__icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+            <circle cx="12" cy="12" r="9"/><path d="M12 8v5m0 3.2v.1"/>
+          </svg>
+          <p><strong>A prediction that survives contact with data is a finding. One that doesn't is a better finding.</strong> If prediction 4 fails, write that up — it is the most interesting outcome available to this study, and it is worth more than four confirmations.</p>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- ===================== 05 INTERVENTION ===================== -->
+  <!-- ===================== 05 INTERVENTION =====================
+       FILL: this section is yours to decide. The mapping below is the frame;
+       the choice of intervention and the prototype are your design work. -->
   <section class="section" id="intervention">
     <div class="wrap section__grid">
       <div class="rail">
@@ -318,26 +424,71 @@
       </div>
       <div class="stack-6">
         <div class="prose stack-3">
-          <h2>The intervention</h2>
-          <p class="lead"><!-- FILL: one sentence naming what you built and the mechanism it acts on. -->
-            One sentence: what it is, and which constraint from section&nbsp;02 it removes.
+          <h2>One constraint, one intervention</h2>
+          <p class="lead">
+            Section&nbsp;02 names three candidate constraints. An intervention is only defensible
+            once the data says which one binds — so this section is written last, not first.
+          </p>
+          <p>
+            The mapping below is the decision to be made, not the decision itself. Each row attacks a
+            different constraint, and picking one means giving up the others: that trade-off is the
+            argument the report has to make.
           </p>
         </div>
 
+        <div class="tablewrap">
+          <table class="data">
+            <caption>Candidate interventions by the constraint each attacks</caption>
+            <thead>
+              <tr>
+                <th scope="col">If the binding constraint is…</th>
+                <th scope="col">…then the intervention is</th>
+                <th scope="col">Evidence that would justify it</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>Knowledge</strong><br><small>people want to sort and get it wrong</small></td>
+                <td>Item-level pictures on the bin lid, showing the specific things this building throws away</td>
+                <td>Low knowledge scores <em>and</em> low confidence in Q8 — people who know they don't know</td>
+              </tr>
+              <tr>
+                <td><strong>Distance</strong><br><small>the correct bin is too far at the moment of decision</small></td>
+                <td>Separated bins within 10&nbsp;m of every exit and seating cluster; remove lone residual bins</td>
+                <td>“No bin nearby” or “in a hurry” dominant in Q7, and the near bin chosen in Q12</td>
+              </tr>
+              <tr>
+                <td><strong>Feedback</strong><br><small>sorting well and sorting badly feel identical</small></td>
+                <td>A per-building display showing what last week's waste actually became</td>
+                <td>“Felt pointless” significant in Q7, or “knowing what happens to it” leading Q13</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="prose stack-3">
+          <h3>How might we…</h3>
+        </div>
+        <ul class="ticks">
+          <li><strong>Knowledge framing.</strong> How might we make the correct bin obvious in the two seconds someone spends deciding, without asking them to read anything?</li>
+          <li><strong>Distance framing.</strong> How might we make the correct bin the <em>nearest</em> bin, rather than the virtuous detour?</li>
+          <li><strong>Feedback framing.</strong> How might we make the consequence of sorting visible to the person who sorted, on a timescale they can feel?</li>
+        </ul>
+
         <div class="pending">
-          <span class="pending__tag">To write</span>
+          <span class="pending__tag">Your decision</span>
           <h4>What it is</h4>
-          <p>The concrete thing — a bin system, signage, an app, a building-level feedback display, a scheme. Describe it so a reader could build it.</p>
+          <p>The concrete thing, described so a reader could build it. Name which row above it comes from.</p>
         </div>
         <div class="pending">
-          <span class="pending__tag">To write</span>
-          <h4>Why this and not the obvious alternative</h4>
-          <p>Name the cheaper option you rejected (usually “explain sorting again”) and the finding that rules it out. This is the trade-off argument.</p>
+          <span class="pending__tag">Your decision</span>
+          <h4>What you gave up</h4>
+          <p>Choosing one row rejects the other two. Say which finding rules them out — this is the trade-off argument, and it is a learning outcome in its own right.</p>
         </div>
         <div class="pending">
-          <span class="pending__tag">To write</span>
-          <h4>What would have to be true for it to work</h4>
-          <p>List the assumptions the design rests on, and which of them the survey and pilot actually test. Assumptions you cannot test belong here too, named as such.</p>
+          <span class="pending__tag">Your decision</span>
+          <h4>What would have to be true</h4>
+          <p>The assumptions the design rests on, and which ones the survey and pilot actually test. Assumptions you cannot test belong here too, named as such.</p>
         </div>
         <div class="pending">
           <span class="pending__tag">To add</span>
@@ -440,5 +591,6 @@
 </footer>
 
 <script src="./assets/js/site.js"></script>
+<script src="./assets/js/findings.js"></script>
 </body>
 </html>
