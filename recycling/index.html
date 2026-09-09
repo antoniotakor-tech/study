@@ -1,0 +1,444 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Sorted — Campus waste-sorting field study</title>
+<meta name="description" content="A field study of why students on campus don't separate their waste — and a tested intervention. Behaviour-first research, not opinion polling.">
+<meta name="theme-color" content="#f1f2ec" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#12140f" media="(prefers-color-scheme: dark)">
+<link rel="icon" href="./assets/favicon.svg" type="image/svg+xml">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Sorted — Campus waste-sorting field study">
+<meta property="og:description" content="Everyone says they sort. The bins disagree. A behaviour-first field study and a tested intervention.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700&family=IBM+Plex+Mono:wght@400;500&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400&display=swap">
+<link rel="stylesheet" href="./assets/css/site.css">
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+
+<header class="masthead">
+  <div class="wrap masthead__in">
+    <a class="wordmark" href="./index.html">Sorted<span class="wordmark__dot" aria-hidden="true"></span></a>
+    <nav class="mainnav" aria-label="Main">
+      <div class="mainnav__links">
+        <a href="#context">Context</a>
+        <a href="#findings">Findings</a>
+        <a href="#intervention">The idea</a>
+        <a href="#validation">Validation</a>
+        <a href="./share.html">Share</a>
+      </div>
+      <a class="btn btn--signal" href="./survey.html">Take the survey</a>
+      <button class="themetoggle" type="button" data-theme-toggle aria-label="Switch colour theme">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true">
+          <path d="M12 3v2m0 14v2M5.6 5.6l1.4 1.4m10 10 1.4 1.4M3 12h2m14 0h2M5.6 18.4 7 17m10-10 1.4-1.4"/>
+          <circle cx="12" cy="12" r="3.4"/>
+        </svg>
+      </button>
+    </nav>
+  </div>
+</header>
+
+<main id="main">
+
+  <!-- ===================== HERO ===================== -->
+  <section class="wrap hero">
+    <div class="hero__meta">
+      <p class="eyebrow">Field study · Campus waste behaviour</p>
+      <!-- FILL: your programme, year and semester -->
+      <p class="eyebrow">Semester 1 · 2026&ndash;27</p>
+    </div>
+    <h1>Everyone says they sort.<br><em>The bins disagree.</em></h1>
+    <p class="hero__deck">
+      Dutch households put out <strong>456&nbsp;kg of waste per person</strong> a year, and
+      <strong>149&nbsp;kg of it goes straight to residual</strong> — the stream that gets burned.
+      Ask students whether they separate and almost all say yes. Watch the bins and the answer changes.
+      This study measures what people actually do, finds the thing that's really in the way, and tests one fix.
+    </p>
+    <div class="hero__cta btnrow">
+      <a class="btn btn--signal" href="./survey.html">Take the 3-minute survey</a>
+      <a class="btn btn--ghost" href="#context">Read the study</a>
+    </div>
+    <p class="hero__note">Anonymous. No login. 14 questions about what you did, not what you believe.</p>
+  </section>
+
+  <!-- ===================== STAT STRIP ===================== -->
+  <section class="wrap" aria-label="Headline figures">
+    <div class="statstrip">
+      <div class="stat">
+        <span class="stat__fig">456</span>
+        <span class="stat__unit">kg / inhabitant / year</span>
+        <span class="stat__label">Household waste collected in the Netherlands, 2024 — up from 452&nbsp;kg in 2023.</span>
+      </div>
+      <div class="stat stat--lead">
+        <span class="stat__fig">149</span>
+        <span class="stat__unit">kg / inhabitant / year</span>
+        <span class="stat__label">Residual waste — not separated, not recovered. The stream this project targets.</span>
+      </div>
+      <div class="stat">
+        <span class="stat__fig">8.2</span>
+        <span class="stat__unit">billion kg</span>
+        <span class="stat__label">Total household waste Dutch municipalities collected in 2024.</span>
+      </div>
+      <div class="stat">
+        <span class="stat__fig">~60</span>
+        <span class="stat__unit">% of municipalities</span>
+        <span class="stat__label">Now sort residual waste <em>after</em> collection, rather than relying on residents to separate it.</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== 01 CONTEXT ===================== -->
+  <section class="section" id="context">
+    <div class="wrap section__grid">
+      <div class="rail">
+        <span class="rail__num">01</span>
+        <span class="rail__label">Context</span>
+      </div>
+      <div class="stack-6">
+        <div class="prose stack-3">
+          <h2>The waste is measured. The behaviour isn't.</h2>
+          <p class="lead">
+            National waste statistics are precise to the kilogram. What happens in the ten seconds
+            between finishing a drink and letting go of the cup is not measured at all — and that
+            is where the sorting decision is actually made.
+          </p>
+          <p>
+            Statistics Netherlands reports household waste per inhabitant by stream every year.
+            Residual waste is still the largest single stream that residents themselves hand over
+            unsorted: 149&nbsp;kg per person in 2024, against 91&nbsp;kg of organic waste and
+            40&nbsp;kg of paper and cardboard.
+          </p>
+        </div>
+
+        <figure class="figure">
+          <div class="figure__head">
+            <figcaption class="figure__title">Household waste per inhabitant by stream, Netherlands 2024</figcaption>
+            <div class="figure__tools">
+              <button class="btn btn--quiet" type="button" data-toggle-table="fig-streams" aria-expanded="false">Show table</button>
+            </div>
+          </div>
+
+          <div class="barchart" data-chart="streams" role="img"
+               aria-label="Bar chart of household waste per inhabitant by stream in 2024. Other separately collected 176 kilograms, residual waste 149 kilograms, organic waste 91 kilograms, paper and cardboard 40 kilograms.">
+            <div class="bar">
+              <span class="bar__name">Other separated<br><small>glass, textiles, PMD, bulky, rubble</small></span>
+              <span class="bar__track"><span class="bar__fill" style="width:100%"></span><span class="bar__val">176 kg</span></span>
+            </div>
+            <div class="bar bar--lead">
+              <span class="bar__name">Residual waste</span>
+              <span class="bar__track"><span class="bar__fill" style="width:84.7%"></span><span class="bar__val">149 kg</span></span>
+            </div>
+            <div class="bar">
+              <span class="bar__name">Organic (GFT)</span>
+              <span class="bar__track"><span class="bar__fill" style="width:51.7%"></span><span class="bar__val">91 kg</span></span>
+            </div>
+            <div class="bar">
+              <span class="bar__name">Paper &amp; cardboard</span>
+              <span class="bar__track"><span class="bar__fill" style="width:22.7%"></span><span class="bar__val">40 kg</span></span>
+            </div>
+            <div class="barchart__axis" aria-hidden="true"><span>0</span><span>90</span><span>180 kg</span></div>
+          </div>
+
+          <div class="tablewrap" id="fig-streams" hidden>
+            <table class="data">
+              <caption>Household waste per inhabitant by stream, Netherlands 2024 (kg)</caption>
+              <thead><tr><th scope="col">Stream</th><th scope="col" class="num">kg / inhabitant</th><th scope="col" class="num">Share of total</th></tr></thead>
+              <tbody>
+                <tr><td>Other separately collected</td><td class="num">176</td><td class="num">38.6%</td></tr>
+                <tr><td>Residual waste</td><td class="num">149</td><td class="num">32.7%</td></tr>
+                <tr><td>Organic (GFT)</td><td class="num">91</td><td class="num">20.0%</td></tr>
+                <tr><td>Paper &amp; cardboard</td><td class="num">40</td><td class="num">8.8%</td></tr>
+                <tr><td><strong>Total</strong></td><td class="num"><strong>456</strong></td><td class="num"><strong>100%</strong></td></tr>
+              </tbody>
+            </table>
+          </div>
+
+          <p class="figure__note">
+            Source: Statistics Netherlands (CBS), household waste collected by municipalities, 2024.
+            Residual, organic, and paper are reported individually; “other separated” is derived as the
+            remainder of the 456&nbsp;kg total and covers glass, textiles, PMD and waste taken to
+            collection centres. Provisional CBS figures put 2025 at 449&nbsp;kg per person.
+          </p>
+        </figure>
+
+        <div class="callout">
+          <p class="callout__kicker">The part nobody mentions</p>
+          <p>
+            About <strong>60% of Dutch municipalities now sort residual waste after collection</strong>.
+            In much of the country a machine re-does part of the job residents are asked to do by hand —
+            while the person at the bin gets no signal either way. Careful sorting and careless sorting
+            feel identical at the moment of the decision.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== 02 THE QUESTION ===================== -->
+  <section class="section" id="question">
+    <div class="wrap section__grid">
+      <div class="rail">
+        <span class="rail__num">02</span>
+        <span class="rail__label">Question</span>
+      </div>
+      <div class="stack-6">
+        <div class="prose stack-3">
+          <h2>Is the constraint knowledge, distance, or feedback?</h2>
+          <p class="lead">
+            Campaigns almost always assume the problem is knowledge — so they explain sorting again.
+            If the real constraint is distance or the absence of feedback, more explaining changes nothing.
+          </p>
+          <p>
+            The research literature is blunt about this. A study of undergraduates that compared
+            on-site observation against the same students' self-reports found a measurable gap between
+            stated recycling commitment and actual behaviour on campus. Willingness and action turn out
+            to be predicted by <em>different</em> factors, which is why a survey asking people whether
+            they care produces numbers that don't predict anything.
+          </p>
+        </div>
+
+        <dl class="deflist">
+          <div>
+            <dt>Main question</dt>
+            <dd>What is the binding constraint on correct waste separation by students on campus — knowledge, physical distance to a correct bin, or the absence of any feedback on the outcome?</dd>
+          </div>
+          <div>
+            <dt>Sub-question 1</dt>
+            <dd>How large is the gap between reported and observed separation behaviour on this campus?</dd>
+          </div>
+          <div>
+            <dt>Sub-question 2</dt>
+            <dd>How well calibrated is students' confidence in their sorting against a measured knowledge test?</dd>
+          </div>
+          <div>
+            <dt>Sub-question 3</dt>
+            <dd>Which intervention do students choose when forced to trade it off against a cheaper, lazier alternative?</dd>
+          </div>
+          <div>
+            <dt>Hypothesis</dt>
+            <dd><!-- FILL: your actual hypothesis -->Stated intention will exceed observed behaviour by a wide margin, and self-rated confidence will not correlate with measured sorting knowledge.</dd>
+          </div>
+        </dl>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== 03 METHOD ===================== -->
+  <section class="section" id="method">
+    <div class="wrap section__grid">
+      <div class="rail">
+        <span class="rail__num">03</span>
+        <span class="rail__label">Method</span>
+      </div>
+      <div class="stack-6">
+        <div class="prose stack-3">
+          <h2>Three instruments, deliberately triangulated</h2>
+          <p>
+            No single instrument here is trusted on its own. Self-reports are checked against
+            observation, and both are checked against what people do when asked to give something up.
+          </p>
+        </div>
+
+        <ol class="steps">
+          <li>
+            <div>
+              <h4>Bin audit — observation</h4>
+              <p>Contents of paired bins in one building, sampled at fixed times, scored for contamination by stream. Measures behaviour with no self-report involved.<br>
+              <!-- FILL: locations, dates, sample sizes --><em>Locations, dates and sample size to be recorded.</em></p>
+            </div>
+          </li>
+          <li>
+            <div>
+              <h4>Survey — recalled behaviour, knowledge, and a forced trade-off</h4>
+              <p>Fourteen items. Asks what happened to the last container the respondent held, tests sorting knowledge objectively against self-rated confidence, and forces a choice between the intervention and lazier alternatives. Ends with a costly signal rather than a satisfaction rating.</p>
+            </div>
+          </li>
+          <li>
+            <div>
+              <h4>Intercept interviews</h4>
+              <p>Short interviews at the bin, immediately after the decision, while the reason is still available to the person.<br>
+              <!-- FILL: number of interviews, guide --><em>Interview guide and count to be recorded.</em></p>
+            </div>
+          </li>
+        </ol>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== 04 FINDINGS ===================== -->
+  <section class="section" id="findings">
+    <div class="wrap section__grid">
+      <div class="rail">
+        <span class="rail__num">04</span>
+        <span class="rail__label">Findings</span>
+      </div>
+      <div class="stack-6">
+        <div class="prose stack-3">
+          <h2>What the data says</h2>
+          <p>
+            This section fills in as the instruments return data. Nothing is written here before it is measured.
+          </p>
+        </div>
+
+        <!-- FILL: replace each pending block with a real finding.
+             Keep the shape: a claim, the number behind it, and the instrument it came from. -->
+        <div class="pending">
+          <span class="pending__tag">Awaiting data</span>
+          <h4>Finding 1 — the reported/observed gap</h4>
+          <p>Bin audit vs. survey self-report. Replace with the measured gap and the n for each instrument.</p>
+        </div>
+        <div class="pending">
+          <span class="pending__tag">Awaiting data</span>
+          <h4>Finding 2 — confidence calibration</h4>
+          <p>Self-rated sorting confidence against the three-item knowledge test. Replace with the correlation and the per-item error rates.</p>
+        </div>
+        <div class="pending">
+          <span class="pending__tag">Awaiting data</span>
+          <h4>Finding 3 — the ranked barrier</h4>
+          <p>Which barrier respondents named as mattering most. Replace with the distribution, and note how it differs from what the intercept interviews suggested.</p>
+        </div>
+        <div class="pending">
+          <span class="pending__tag">Awaiting data</span>
+          <h4>Finding 4 — revealed preference under trade-off</h4>
+          <p>What people chose when the correct bin was 40&nbsp;m away and the wrong one was 5&nbsp;m. Replace with the split.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== 05 INTERVENTION ===================== -->
+  <section class="section" id="intervention">
+    <div class="wrap section__grid">
+      <div class="rail">
+        <span class="rail__num">05</span>
+        <span class="rail__label">Intervention</span>
+      </div>
+      <div class="stack-6">
+        <div class="prose stack-3">
+          <h2>The intervention</h2>
+          <p class="lead"><!-- FILL: one sentence naming what you built and the mechanism it acts on. -->
+            One sentence: what it is, and which constraint from section&nbsp;02 it removes.
+          </p>
+        </div>
+
+        <div class="pending">
+          <span class="pending__tag">To write</span>
+          <h4>What it is</h4>
+          <p>The concrete thing — a bin system, signage, an app, a building-level feedback display, a scheme. Describe it so a reader could build it.</p>
+        </div>
+        <div class="pending">
+          <span class="pending__tag">To write</span>
+          <h4>Why this and not the obvious alternative</h4>
+          <p>Name the cheaper option you rejected (usually “explain sorting again”) and the finding that rules it out. This is the trade-off argument.</p>
+        </div>
+        <div class="pending">
+          <span class="pending__tag">To write</span>
+          <h4>What would have to be true for it to work</h4>
+          <p>List the assumptions the design rests on, and which of them the survey and pilot actually test. Assumptions you cannot test belong here too, named as such.</p>
+        </div>
+        <div class="pending">
+          <span class="pending__tag">To add</span>
+          <h4>Prototype</h4>
+          <p>Drop images into <code>recycling/assets/</code> and place them here.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== 06 VALIDATION ===================== -->
+  <section class="section" id="validation">
+    <div class="wrap section__grid">
+      <div class="rail">
+        <span class="rail__num">06</span>
+        <span class="rail__label">Validation</span>
+      </div>
+      <div class="stack-6">
+        <div class="prose stack-3">
+          <h2>The survey does not ask whether you'd use it</h2>
+          <p class="lead">
+            “Would you use this?” is the question most student projects run on, and it is close to
+            worthless — especially here.
+          </p>
+          <p>
+            Recycling is the textbook case of the value–action gap: stated environmental intention
+            systematically overstates behaviour, and asking classmates face to face adds social
+            desirability on top of it. A survey built that way reliably returns a large majority
+            saying yes, and predicts nothing about whether a single bin gets used correctly.
+          </p>
+          <p>So the instrument is built to measure four things that are harder to fake:</p>
+        </div>
+
+        <ul class="ticks">
+          <li><strong>Recalled behaviour, not intention.</strong> What happened to the last container you actually held, including the honest option — nearest bin, whichever one it was.</li>
+          <li><strong>Measured knowledge against self-rated confidence.</strong> Three objective items after a confidence rating, so the gap between believing and knowing is a number rather than an impression.</li>
+          <li><strong>A forced trade-off.</strong> The intervention is put against a cheaper, lazier alternative, because anything rated in isolation rates well.</li>
+          <li><strong>A costly signal.</strong> The final question asks for something real — joining a two-week pilot — because giving something up is evidence and clicking “yes, good idea” is not.</li>
+        </ul>
+
+        <div class="notice">
+          <svg class="notice__icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+            <circle cx="12" cy="12" r="9"/><path d="M12 8v5m0 3.2v.1"/>
+          </svg>
+          <p><strong>Known limitation.</strong> Recalled behaviour is still self-reported and subject to memory error. It is checked against the bin audit rather than trusted on its own — and where the two disagree, the audit wins.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== 07 SOURCES ===================== -->
+  <section class="section" id="sources">
+    <div class="wrap section__grid">
+      <div class="rail">
+        <span class="rail__num">07</span>
+        <span class="rail__label">Sources</span>
+      </div>
+      <div class="stack-6">
+        <div class="prose stack-3">
+          <h2>Sources</h2>
+          <p>Public statistics and literature cited above. Your own fieldwork data is listed in section&nbsp;04 as it lands.</p>
+        </div>
+        <ul class="sources">
+          <li>Statistics Netherlands (CBS). <em>End of a downward trend: more waste collected in 2024.</em> <a href="https://www.cbs.nl/en-gb/news/2025/29/end-of-a-downward-trend-more-waste-collected-in-2024">cbs.nl</a></li>
+          <li>Statistics Netherlands (CBS). <em>Municipal waste; quantities</em> (table 83558ENG). <a href="https://www.cbs.nl/en-gb/figures/detail/83558ENG">cbs.nl</a></li>
+          <li>European Environment Agency. <em>Netherlands — municipal waste management country profile, 2025.</em> <a href="https://www.eea.europa.eu/en/topics/in-depth/waste-and-recycling/municipal-and-packaging-waste-management-country-profiles-2025/nl-municipal-waste-factsheet.pdf/@@download/file">eea.europa.eu</a></li>
+          <li>Chung, S.-S. &amp; Leung, M. M.-Y. (2007). <em>The value–action gap in waste recycling: the case of undergraduates in Hong Kong.</em> Environmental Management, 40(4). <a href="https://pubmed.ncbi.nlm.nih.gov/17638045/">pubmed</a></li>
+          <li>Wikipedia. <em>Value–action gap</em> — overview and further references. <a href="https://en.wikipedia.org/wiki/Value-action_gap">wikipedia.org</a></li>
+          <!-- FILL: add your own sources, interviews and internal documents here -->
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== CTA ===================== -->
+  <section class="wrap" style="padding-block: var(--s-7)">
+    <div class="ctaband">
+      <div>
+        <h2>Fourteen questions. Three minutes. No login.</h2>
+        <p>The survey asks what you actually did with your last coffee cup — not whether you think recycling matters. Answers are anonymous unless you choose to join the pilot.</p>
+      </div>
+      <div class="btnrow">
+        <a class="btn btn--signal" href="./survey.html">Take the survey</a>
+        <a class="btn btn--ghost" href="./share.html" style="border-color:currentColor;color:inherit">Get the QR code</a>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="foot">
+  <div class="wrap foot__in">
+    <p>Sorted — campus waste-sorting field study</p>
+    <div class="foot__right">
+      <a href="./survey.html">Survey</a>
+      <a href="./share.html">Share</a>
+      <a href="#main">Top</a>
+    </div>
+  </div>
+</footer>
+
+<script src="./assets/js/site.js"></script>
+</body>
+</html>

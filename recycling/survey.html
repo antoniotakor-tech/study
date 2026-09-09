@@ -1,0 +1,367 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Sorted — The Survey</title>
+<meta name="description" content="Fourteen questions about what you actually did with your last coffee cup on campus. Anonymous, three minutes, no login.">
+<meta name="theme-color" content="#f1f2ec" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#12140f" media="(prefers-color-scheme: dark)">
+<link rel="icon" href="./assets/favicon.svg" type="image/svg+xml">
+<meta property="og:title" content="Sorted — The Survey">
+<meta property="og:description" content="What did you actually do with your last coffee cup? Three minutes, anonymous.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700&family=IBM+Plex+Mono:wght@400;500&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400&display=swap">
+<link rel="stylesheet" href="./assets/css/site.css">
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+
+<header class="masthead">
+  <div class="wrap masthead__in">
+    <a class="wordmark" href="./index.html">Sorted<span class="wordmark__dot" aria-hidden="true"></span></a>
+    <nav class="mainnav" aria-label="Main">
+      <div class="mainnav__links">
+        <a href="./index.html#context">Context</a>
+        <a href="./index.html#findings">Findings</a>
+        <a href="./survey.html" aria-current="page">Survey</a>
+        <a href="./share.html">Share</a>
+      </div>
+      <button class="themetoggle" type="button" data-theme-toggle aria-label="Switch colour theme">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true">
+          <path d="M12 3v2m0 14v2M5.6 5.6l1.4 1.4m10 10 1.4 1.4M3 12h2m14 0h2M5.6 18.4 7 17m10-10 1.4-1.4"/>
+          <circle cx="12" cy="12" r="3.4"/>
+        </svg>
+      </button>
+    </nav>
+  </div>
+</header>
+
+<main id="main" class="wrap survey">
+
+  <div class="stack-6" style="max-width: 44rem">
+
+    <div class="stack-3">
+      <p class="eyebrow">Campus waste behaviour · Field survey</p>
+      <h1 style="font-size: var(--t-xl)">What did you actually do with it?</h1>
+      <p style="color: var(--ink-2); font-size: var(--t-md); max-width: 52ch">
+        Fourteen questions about what you did, not what you believe. Three minutes.
+        Anonymous — an email address is asked for only at the end, and only if you want to join the pilot.
+      </p>
+    </div>
+
+    <div class="progress" data-progress hidden>
+      <div class="progress__meta">
+        <span data-progress-label>Section 1 of 6</span>
+        <span data-progress-pct>0%</span>
+      </div>
+      <div class="progress__track"><div class="progress__fill" data-progress-fill></div></div>
+    </div>
+
+    <div data-endpoint-notice hidden></div>
+
+    <form id="survey" data-survey novalidate>
+
+      <!-- ============ STEP 1 ============ -->
+      <section class="step" data-step aria-labelledby="s1h">
+        <div class="step__head">
+          <p class="eyebrow">Section 01</p>
+          <h2 id="s1h">Where you are</h2>
+          <p>So results can be compared between buildings.</p>
+        </div>
+
+        <fieldset class="q" data-q data-required>
+          <legend class="q__label">1. Which building are you usually in on campus? <span class="q__req">required</span></legend>
+          <!-- FILL: replace with your campus's real buildings -->
+          <select class="text" name="q1_building" data-input>
+            <option value="">Select a building…</option>
+            <option>Main building</option>
+            <option>Library</option>
+            <option>Science / lab building</option>
+            <option>Sports hall</option>
+            <option>Canteen / food court</option>
+            <option>Other</option>
+          </select>
+          <p class="q__error">Pick a building so your answers can be grouped.</p>
+        </fieldset>
+
+        <fieldset class="q" data-q data-required>
+          <legend class="q__label">2. How many days a week are you on campus? <span class="q__req">required</span></legend>
+          <div class="opts">
+            <label class="opt"><input type="radio" name="q2_days" value="0-1"><span class="opt__text">0–1 days</span></label>
+            <label class="opt"><input type="radio" name="q2_days" value="2-3"><span class="opt__text">2–3 days</span></label>
+            <label class="opt"><input type="radio" name="q2_days" value="4-5"><span class="opt__text">4–5 days</span></label>
+          </div>
+          <p class="q__error">Choose one.</p>
+        </fieldset>
+      </section>
+
+      <!-- ============ STEP 2 ============ -->
+      <section class="step" data-step aria-labelledby="s2h">
+        <div class="step__head">
+          <p class="eyebrow">Section 02</p>
+          <h2 id="s2h">What actually happened</h2>
+          <p>Think of the real, most recent occasion — not what you usually intend to do. There is no wrong answer here and nobody sees your individual response.</p>
+        </div>
+
+        <fieldset class="q" data-q data-required>
+          <legend class="q__label">3. The last drink container you finished on campus — what actually happened to it? <span class="q__req">required</span></legend>
+          <div class="opts">
+            <label class="opt"><input type="radio" name="q3_drink" value="nearest_bin"><span class="opt__text">Put it in the nearest bin, whichever one that was</span></label>
+            <label class="opt"><input type="radio" name="q3_drink" value="found_correct"><span class="opt__text">Looked for the right bin and used it</span></label>
+            <label class="opt"><input type="radio" name="q3_drink" value="took_home"><span class="opt__text">Took it home with me</span></label>
+            <label class="opt"><input type="radio" name="q3_drink" value="left_it"><span class="opt__text">Left it on a table, desk or windowsill</span></label>
+            <label class="opt"><input type="radio" name="q3_drink" value="cant_remember"><span class="opt__text">Can't remember</span></label>
+          </div>
+          <p class="q__error">Choose the closest one.</p>
+        </fieldset>
+
+        <fieldset class="q" data-q data-required>
+          <legend class="q__label">4. And the last food packaging — wrapper, container, cup? <span class="q__req">required</span></legend>
+          <div class="opts">
+            <label class="opt"><input type="radio" name="q4_food" value="nearest_bin"><span class="opt__text">Nearest bin, whichever one that was</span></label>
+            <label class="opt"><input type="radio" name="q4_food" value="found_correct"><span class="opt__text">Looked for the right bin and used it</span></label>
+            <label class="opt"><input type="radio" name="q4_food" value="took_home"><span class="opt__text">Took it home with me</span></label>
+            <label class="opt"><input type="radio" name="q4_food" value="left_it"><span class="opt__text">Left it somewhere on campus</span></label>
+            <label class="opt"><input type="radio" name="q4_food" value="na"><span class="opt__text">Haven't eaten on campus recently</span></label>
+          </div>
+          <p class="q__error">Choose the closest one.</p>
+        </fieldset>
+
+        <fieldset class="q" data-q data-required>
+          <legend class="q__label">5. In the last 7 days on campus, how many times did you deliberately separate waste? <span class="q__req">required</span></legend>
+          <div class="opts">
+            <label class="opt"><input type="radio" name="q5_count" value="0"><span class="opt__text">Not once</span></label>
+            <label class="opt"><input type="radio" name="q5_count" value="1-2"><span class="opt__text">1–2 times</span></label>
+            <label class="opt"><input type="radio" name="q5_count" value="3-5"><span class="opt__text">3–5 times</span></label>
+            <label class="opt"><input type="radio" name="q5_count" value="6+"><span class="opt__text">6 or more times</span></label>
+          </div>
+          <p class="q__error">Choose one.</p>
+        </fieldset>
+      </section>
+
+      <!-- ============ STEP 3 ============ -->
+      <section class="step" data-step aria-labelledby="s3h">
+        <div class="step__head">
+          <p class="eyebrow">Section 03</p>
+          <h2 id="s3h">What got in the way</h2>
+          <p>The last time you didn't separate something. Be honest — “didn't think about it” is the most useful answer we can get.</p>
+        </div>
+
+        <fieldset class="q" data-q data-required>
+          <legend class="q__label">6. What was in the way? <span class="q__hint">Select all that applied</span> <span class="q__req">required</span></legend>
+          <div class="opts">
+            <label class="opt"><input type="checkbox" name="q6_barriers" value="no_bin_nearby"><span class="opt__text">There was no separated bin nearby</span></label>
+            <label class="opt"><input type="checkbox" name="q6_barriers" value="didnt_know"><span class="opt__text">I didn't know which bin it went in</span></label>
+            <label class="opt"><input type="checkbox" name="q6_barriers" value="bin_full"><span class="opt__text">The right bin was full</span></label>
+            <label class="opt"><input type="checkbox" name="q6_barriers" value="in_a_hurry"><span class="opt__text">I was in a hurry, between classes</span></label>
+            <label class="opt"><input type="checkbox" name="q6_barriers" value="felt_pointless"><span class="opt__text">The bins looked mixed together anyway, so it felt pointless</span></label>
+            <label class="opt"><input type="checkbox" name="q6_barriers" value="hands_full"><span class="opt__text">My hands were full</span></label>
+            <label class="opt"><input type="checkbox" name="q6_barriers" value="didnt_think"><span class="opt__text">I honestly didn't think about it</span></label>
+            <label class="opt"><input type="checkbox" name="q6_barriers" value="dont_care"><span class="opt__text">It isn't something I care about</span></label>
+          </div>
+          <p class="q__error">Select at least one.</p>
+        </fieldset>
+
+        <fieldset class="q" data-q data-required>
+          <legend class="q__label">7. Of those, which one mattered <em>most</em>? <span class="q__req">required</span></legend>
+          <div class="opts">
+            <label class="opt"><input type="radio" name="q7_main" value="no_bin_nearby"><span class="opt__text">No separated bin nearby</span></label>
+            <label class="opt"><input type="radio" name="q7_main" value="didnt_know"><span class="opt__text">Didn't know which bin</span></label>
+            <label class="opt"><input type="radio" name="q7_main" value="bin_full"><span class="opt__text">Bin was full</span></label>
+            <label class="opt"><input type="radio" name="q7_main" value="in_a_hurry"><span class="opt__text">In a hurry</span></label>
+            <label class="opt"><input type="radio" name="q7_main" value="felt_pointless"><span class="opt__text">Felt pointless</span></label>
+            <label class="opt"><input type="radio" name="q7_main" value="hands_full"><span class="opt__text">Hands full</span></label>
+            <label class="opt"><input type="radio" name="q7_main" value="didnt_think"><span class="opt__text">Didn't think about it</span></label>
+            <label class="opt"><input type="radio" name="q7_main" value="dont_care"><span class="opt__text">Don't care about it</span></label>
+          </div>
+          <p class="q__error">Choose the single biggest one.</p>
+        </fieldset>
+      </section>
+
+      <!-- ============ STEP 4 ============ -->
+      <section class="step" data-step aria-labelledby="s4h">
+        <div class="step__head">
+          <p class="eyebrow">Section 04</p>
+          <h2 id="s4h">Sorting knowledge</h2>
+          <p>Confidence first, then three real items. You'll see the correct answers at the end — please don't look them up now, a wrong answer is genuinely more useful to us than a researched one.</p>
+        </div>
+
+        <fieldset class="q" data-q data-required>
+          <legend class="q__label">8. How confident are you that you sort waste correctly? <span class="q__req">required</span></legend>
+          <div class="scale" role="group" aria-label="Confidence from 1 to 5">
+            <label class="scale__item"><input type="radio" name="q8_confidence" value="1"><span>1</span></label>
+            <label class="scale__item"><input type="radio" name="q8_confidence" value="2"><span>2</span></label>
+            <label class="scale__item"><input type="radio" name="q8_confidence" value="3"><span>3</span></label>
+            <label class="scale__item"><input type="radio" name="q8_confidence" value="4"><span>4</span></label>
+            <label class="scale__item"><input type="radio" name="q8_confidence" value="5"><span>5</span></label>
+          </div>
+          <div class="scale__ends"><span>1 — no idea</span><span>5 — always correct</span></div>
+          <p class="q__error">Pick a number.</p>
+        </fieldset>
+
+        <fieldset class="q" data-q data-required>
+          <legend class="q__label">9. A pizza box with grease and cheese stuck to it goes in: <span class="q__req">required</span></legend>
+          <div class="opts">
+            <label class="opt"><input type="radio" name="q9_pizza" value="paper"><span class="opt__text">Paper &amp; cardboard</span></label>
+            <label class="opt"><input type="radio" name="q9_pizza" value="pmd"><span class="opt__text">PMD</span></label>
+            <label class="opt"><input type="radio" name="q9_pizza" value="gft"><span class="opt__text">Organic (GFT)</span></label>
+            <label class="opt"><input type="radio" name="q9_pizza" value="residual"><span class="opt__text">Residual</span></label>
+            <label class="opt"><input type="radio" name="q9_pizza" value="dont_know"><span class="opt__text">Don't know</span></label>
+          </div>
+          <p class="q__error">Give your best guess, or “don't know”.</p>
+        </fieldset>
+
+        <fieldset class="q" data-q data-required>
+          <legend class="q__label">10. An empty drink carton (juice or milk pak) goes in: <span class="q__req">required</span></legend>
+          <div class="opts">
+            <label class="opt"><input type="radio" name="q10_carton" value="paper"><span class="opt__text">Paper &amp; cardboard</span></label>
+            <label class="opt"><input type="radio" name="q10_carton" value="pmd"><span class="opt__text">PMD</span></label>
+            <label class="opt"><input type="radio" name="q10_carton" value="gft"><span class="opt__text">Organic (GFT)</span></label>
+            <label class="opt"><input type="radio" name="q10_carton" value="residual"><span class="opt__text">Residual</span></label>
+            <label class="opt"><input type="radio" name="q10_carton" value="dont_know"><span class="opt__text">Don't know</span></label>
+          </div>
+          <p class="q__error">Give your best guess, or “don't know”.</p>
+        </fieldset>
+
+        <fieldset class="q" data-q data-required>
+          <legend class="q__label">11. A plastic fork from the canteen goes in: <span class="q__req">required</span></legend>
+          <div class="opts">
+            <label class="opt"><input type="radio" name="q11_fork" value="paper"><span class="opt__text">Paper &amp; cardboard</span></label>
+            <label class="opt"><input type="radio" name="q11_fork" value="pmd"><span class="opt__text">PMD</span></label>
+            <label class="opt"><input type="radio" name="q11_fork" value="gft"><span class="opt__text">Organic (GFT)</span></label>
+            <label class="opt"><input type="radio" name="q11_fork" value="residual"><span class="opt__text">Residual</span></label>
+            <label class="opt"><input type="radio" name="q11_fork" value="dont_know"><span class="opt__text">Don't know</span></label>
+          </div>
+          <p class="q__error">Give your best guess, or “don't know”.</p>
+        </fieldset>
+      </section>
+
+      <!-- ============ STEP 5 ============ -->
+      <section class="step" data-step aria-labelledby="s5h">
+        <div class="step__head">
+          <p class="eyebrow">Section 05</p>
+          <h2 id="s5h">A real trade-off</h2>
+          <p>Not “is this a good idea”, but “which would you actually pick”.</p>
+        </div>
+
+        <fieldset class="q" data-q data-required>
+          <legend class="q__label">12. You're between classes with an empty plastic bottle. There's a residual-only bin 5&nbsp;m away and the correct PMD bin is 40&nbsp;m in the other direction. Honestly — what do you do? <span class="q__req">required</span></legend>
+          <div class="opts">
+            <label class="opt"><input type="radio" name="q12_tradeoff" value="nearest"><span class="opt__text">Use the bin 5&nbsp;m away</span></label>
+            <label class="opt"><input type="radio" name="q12_tradeoff" value="walk"><span class="opt__text">Walk the 40&nbsp;m to the correct bin</span></label>
+            <label class="opt"><input type="radio" name="q12_tradeoff" value="carry"><span class="opt__text">Carry it until I pass a correct bin</span></label>
+            <label class="opt"><input type="radio" name="q12_tradeoff" value="depends_hurry"><span class="opt__text">Depends entirely on how late I am</span></label>
+          </div>
+          <p class="q__error">Choose the honest one.</p>
+        </fieldset>
+
+        <fieldset class="q" data-q data-required>
+          <legend class="q__label">13. Only one of these can happen. Which would change your behaviour most? <span class="q__req">required</span></legend>
+          <div class="opts">
+            <label class="opt"><input type="radio" name="q13_change" value="pictures"><span class="opt__text">Pictures on the bin showing exactly what goes in<small>Attacks knowledge</small></span></label>
+            <label class="opt"><input type="radio" name="q13_change" value="proximity"><span class="opt__text">A separated bin within 10&nbsp;m of every exit<small>Attacks distance</small></span></label>
+            <label class="opt"><input type="radio" name="q13_change" value="feedback"><span class="opt__text">Knowing what actually happens to it afterwards<small>Attacks feedback</small></span></label>
+            <label class="opt"><input type="radio" name="q13_change" value="competition"><span class="opt__text">A visible score comparing buildings<small>Attacks social norms</small></span></label>
+            <label class="opt"><input type="radio" name="q13_change" value="nothing"><span class="opt__text">Nothing here would change what I do</span></label>
+          </div>
+          <p class="q__error">Pick one.</p>
+        </fieldset>
+      </section>
+
+      <!-- ============ STEP 6 ============ -->
+      <section class="step" data-step aria-labelledby="s6h">
+        <div class="step__head">
+          <p class="eyebrow">Section 06</p>
+          <h2 id="s6h">One real ask</h2>
+          <p>This is the question that actually tells us something. Saying no is a completely fine answer and is recorded as data, not as failure.</p>
+        </div>
+
+        <fieldset class="q" data-q data-required>
+          <legend class="q__label">14. We're running a two-week bin pilot in one building. Would you take part? <span class="q__req">required</span></legend>
+          <div class="opts">
+            <label class="opt"><input type="radio" name="q14_pilot" value="yes"><span class="opt__text">Yes — I'll leave my email<small>Two weeks, about one minute a day</small></span></label>
+            <label class="opt"><input type="radio" name="q14_pilot" value="maybe"><span class="opt__text">Maybe — tell me more first</span></label>
+            <label class="opt"><input type="radio" name="q14_pilot" value="no"><span class="opt__text">No</span></label>
+          </div>
+          <p class="q__error">Choose one.</p>
+        </fieldset>
+
+        <fieldset class="q" data-q>
+          <legend class="q__label">Email <span class="q__hint">optional — only if you're joining the pilot</span></legend>
+          <input class="text" type="email" name="email" autocomplete="email" placeholder="you@student.example.nl" data-input>
+        </fieldset>
+
+        <fieldset class="q" data-q>
+          <legend class="q__label">Anything else? <span class="q__hint">optional</span></legend>
+          <p class="q__hint" style="margin-bottom: var(--s-2)">What would actually change your behaviour — in your own words?</p>
+          <textarea class="text" name="open_text" rows="4" placeholder="One or two sentences is plenty." data-input></textarea>
+        </fieldset>
+
+        <details class="privacy">
+          <summary>What happens to your answers</summary>
+          <p>
+            Responses are collected for a student research project and reported only in aggregate —
+            no individual answer is published or shared. Nothing identifying is asked for: no name,
+            no student number, and no email unless you type one in yourself to join the pilot.
+            An email address given here is used only to contact you about the pilot and is deleted
+            when the project is graded. The site sets no tracking cookies and no analytics.
+            If you want your response removed afterwards, contact the researcher and it will be deleted.
+          </p>
+        </details>
+      </section>
+
+      <div class="navrow">
+        <button class="btn btn--ghost" type="button" data-nav="back" hidden>← Back</button>
+        <span class="navrow__spacer"></span>
+        <span class="q__hint" data-step-count hidden></span>
+        <button class="btn btn--signal" type="button" data-nav="next" hidden>Next →</button>
+        <button class="btn btn--signal" type="submit" data-nav="submit">Submit answers</button>
+      </div>
+    </form>
+
+    <!-- Completion state, revealed after submit -->
+    <section class="done" data-done hidden aria-live="polite">
+      <svg class="done__mark" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true">
+        <circle cx="12" cy="12" r="9.2"/><path d="m7.8 12.4 2.9 2.9 5.6-6.1"/>
+      </svg>
+      <h2>Recorded — thank you.</h2>
+      <p style="color: var(--ink-2); font-size: var(--t-md)">
+        That's genuinely useful, including the answers you thought were the wrong ones.
+      </p>
+
+      <div data-score></div>
+
+      <div class="stack-3">
+        <h3 style="font-size: var(--t-md)">The three answers</h3>
+        <dl class="deflist">
+          <div><dt>Greasy pizza box</dt><dd><strong>Residual.</strong> Grease and cheese contaminate the paper stream — a soaked box ruins the batch it's mixed into. Clean cardboard lid, dirty base: tear them apart.</dd></div>
+          <div><dt>Drink carton</dt><dd><strong>PMD.</strong> Cartons look like paper but are layered with plastic and aluminium, so they're collected with plastic and metal packaging.</dd></div>
+          <div><dt>Plastic fork</dt><dd><strong>Residual.</strong> PMD takes plastic <em>packaging</em> only. Cutlery, toys and other plastic objects aren't packaging, so they don't belong there.</dd></div>
+        </dl>
+      </div>
+
+      <div class="btnrow">
+        <a class="btn btn--signal" href="./share.html">Pass it on — get the QR code</a>
+        <a class="btn btn--ghost" href="./index.html#findings">See the study</a>
+      </div>
+    </section>
+
+  </div>
+</main>
+
+<footer class="foot">
+  <div class="wrap foot__in">
+    <p>Sorted — campus waste-sorting field study</p>
+    <div class="foot__right">
+      <a href="./index.html">Study</a>
+      <a href="./share.html">Share</a>
+    </div>
+  </div>
+</footer>
+
+<script src="./assets/js/site.js"></script>
+<script src="./assets/js/survey.js"></script>
+</body>
+</html>
