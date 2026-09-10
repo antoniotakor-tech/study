@@ -18,21 +18,40 @@ Live at `https://<user>.github.io/study/recycling/` once `main` has deployed.
 The survey cannot save answers until you give it somewhere to send them. Until then it
 tells visitors it isn't collecting yet, rather than silently dropping their responses.
 
-1. Create a free form at [formspree.io](https://formspree.io) (or any endpoint that
-   accepts a JSON `POST` — a Google Apps Script web app works too).
-2. Open `recycling/assets/js/survey.js` and set the first line:
+Set **one** of the two values at the top of `recycling/assets/js/survey.js`, then push.
+Nothing else needs changing — the page adapts its request format to whichever you pick.
 
-   ```js
-   var SURVEY_ENDPOINT = 'https://formspree.io/f/xxxxxxxx';
-   ```
+### Option A — no account at all (fastest)
 
-3. Commit and push. Submit one test response yourself and confirm it arrives.
+```js
+var SURVEY_INBOX = 'you@example.com';
+```
 
-Responses are posted as JSON, one object per respondent, including a computed
-`knowledge_score` (0–3) from the three sorting questions.
+Responses arrive as email via [formsubmit.co](https://formsubmit.co), which requires no
+signup. You click a confirmation link in the first email and it's live.
 
-If a submission fails at runtime the answers are kept in the respondent's browser
-instead of being lost. Opening `survey.html?export=1` on that device offers them as CSV.
+> **Trade-off:** the address sits in a public file, so bots will find it. Use a throwaway
+> or an alias, never your main personal address. And an inbox of individual emails is
+> tedious to analyse — if you expect more than about thirty responses, use Option B.
+
+### Option B — a dashboard you can export (~2 minutes)
+
+```js
+var SURVEY_ENDPOINT = 'https://formspree.io/f/xxxxxxxx';
+```
+
+Works with [Formspree](https://formspree.io), [Basin](https://usebasin.com), or a Google
+Apps Script web app (detected automatically and sent form-encoded, since Apps Script
+sends no CORS headers). Responses land in a dashboard with CSV export, which is what you
+want when it's time to fill in `data/results.json`.
+
+`SURVEY_ENDPOINT` wins if both are set.
+
+### Either way
+
+Submit one test response yourself and confirm it arrives before you print anything.
+If a submission fails at runtime the answers are kept in the respondent's browser rather
+than lost — opening `survey.html?export=1` on that device offers them as CSV.
 
 ## 2. What you need to fill in
 
