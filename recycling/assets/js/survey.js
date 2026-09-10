@@ -1,13 +1,29 @@
 /* Sorted — survey engine.
    Progressive enhancement: without this file the form is one long page that
    submits natively. With it, the form becomes six validated steps.
-   ------------------------------------------------------------------------
-   SETUP — one line to change before you share the QR code:
-   Create a free form at https://formspree.io (or any endpoint that accepts a
-   JSON POST) and paste its URL below. Leave it empty and the survey tells
-   visitors it is not collecting yet, rather than silently dropping answers.
-*/
+   ========================================================================
+   SETUP — set ONE of the two values below, then push. Nothing else to change.
+
+   OPTION A (fastest, no account at all)
+     Put an email address in SURVEY_INBOX. Responses arrive in that inbox via
+     formsubmit.co, which needs no signup — you click a confirmation link in the
+     first email and it is live.
+       var SURVEY_INBOX = 'you@example.com';
+     Trade-off: the address is visible in this file, which is public. Use a
+     throwaway or an alias, not your main personal address.
+
+   OPTION B (better for analysis, ~2 min signup)
+     Create a form at formspree.io / basin.com / a Google Apps Script web app
+     and paste the full URL into SURVEY_ENDPOINT. Responses land in a dashboard
+     you can export to CSV. This wins if you expect more than a handful of
+     responses — an inbox full of individual emails is painful to analyse.
+       var SURVEY_ENDPOINT = 'https://formspree.io/f/xxxxxxxx';
+
+   SURVEY_ENDPOINT takes precedence if both are set. With neither set, the
+   survey tells visitors it is not collecting rather than dropping answers.
+   ======================================================================== */
 var SURVEY_ENDPOINT = '';
+var SURVEY_INBOX    = '';
 
 (function () {
   'use strict';
@@ -33,8 +49,22 @@ var SURVEY_ENDPOINT = '';
   var at = 0;
   var firstPaint = true;
 
-  /* ---- Endpoint state ------------------------------------------------- */
-  var live = typeof SURVEY_ENDPOINT === 'string' && SURVEY_ENDPOINT.trim() !== '';
+  /* ---- Endpoint resolution -------------------------------------------
+     Whichever backend is configured, the page adapts its POST to suit it:
+       · Google Apps Script — form-encoded, no-cors (the response is opaque)
+       · everything else    — JSON, with the response status checked
+  */
+  function resolveTarget() {
+    var url = (typeof SURVEY_ENDPOINT === 'string' ? SURVEY_ENDPOINT : '').trim();
+    if (!url && typeof SURVEY_INBOX === 'string' && SURVEY_INBOX.trim()) {
+      url = 'https://formsubmit.co/ajax/' + encodeURIComponent(SURVEY_INBOX.trim());
+    }
+    if (!url) return null;
+    return { url: url, appsScript: /script\.google\.com/i.test(url) };
+  }
+
+  var target = resolveTarget();
+  var live = !!target;
   if (!live && notice) {
     notice.innerHTML =
       '<div class="notice"><svg class="notice__icon" width="18" height="18" viewBox="0 0 24 24" ' +
@@ -42,6 +72,9 @@ var SURVEY_ENDPOINT = '';
       '<path d="M12 8v5m0 3.2v.1"/></svg><p><strong>This survey is not collecting responses yet.</strong> ' +
       'The collection endpoint has not been set, so answers cannot be saved. ' +
       'Please come back once it is live.</p></div>';
+    // Owner-facing hint, only visible while the survey is unconfigured.
+    console.info('[Sorted] Set SURVEY_INBOX (an email, no signup) or SURVEY_ENDPOINT ' +
+                 '(a form URL) at the top of assets/js/survey.js, then push.');
     notice.hidden = false;
     submit.disabled = true;
   }
@@ -194,15 +227,28 @@ var SURVEY_ENDPOINT = '';
     submit.disabled = true;
     submit.textContent = 'Sending…';
 
-    fetch(SURVEY_ENDPOINT, {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
-      body: JSON.stringify(payload)
-    })
-      .then(function (res) {
+    var request;
+    if (target.appsScript) {
+      // Apps Script web apps don't send CORS headers; no-cors makes the response
+      // opaque, so a resolved promise is the only success signal available.
+      var body = new URLSearchParams();
+      Object.keys(payload).forEach(function (k) {
+        body.append(k, Array.isArray(payload[k]) ? payload[k].join('; ') : payload[k]);
+      });
+      request = fetch(target.url, { method: 'POST', mode: 'no-cors', body: body })
+        .then(function () { finish(payload); });
+    } else {
+      request = fetch(target.url, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+        body: JSON.stringify(payload)
+      }).then(function (res) {
         if (!res.ok) throw new Error('HTTP ' + res.status);
         finish(payload);
-      })
+      });
+    }
+
+    request
       .catch(function () {
         keepLocally(payload);
         finish(payload, 'Your answers could not reach the server, so they are saved on this device instead. Nothing is lost.');

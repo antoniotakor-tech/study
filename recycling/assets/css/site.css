@@ -216,7 +216,9 @@ img, svg, canvas { max-width: 100%; height: auto; display: block; }
 .section {
   border-top: var(--hair) solid var(--line);
   padding-block: var(--s-8);
+  scroll-margin-top: 4.5rem;   /* clear the sticky masthead on anchor jumps */
 }
+[id] { scroll-margin-top: 4.5rem; }
 .section:first-of-type { border-top: 0; }
 
 .section__grid {
@@ -665,6 +667,7 @@ legend.q__label {
 }
 .scale__item:hover { border-color: var(--ink-3); }
 .scale__item:has(input:checked) { border-color: var(--accent); background: var(--accent-wash); color: var(--accent-ink); }
+.scale__item:has(input:focus-visible) { outline: 2px solid var(--signal); outline-offset: 2px; }
 .scale__item input { position: absolute; opacity: 0; pointer-events: none; }
 .scale__ends {
   display: flex; justify-content: space-between;
